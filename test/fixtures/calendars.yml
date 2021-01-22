@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  calendar_name: MyString
+  start_date: 1
+  end_date: 1
+  display_week_term: 1
+  start_time: 1
+  end_time: 1
+  is_released: false
+  display_time: 1
+  address: MyString
+  phone: MyString
+  public_uid: MyString
+  display_interval_time: 1
+
+two:
+  calendar_name: MyString
+  start_date: 1
+  end_date: 1
+  display_week_term: 1
+  start_time: 1
+  end_time: 1
+  is_released: false
+  display_time: 1
+  address: MyString
+  phone: MyString
+  public_uid: MyString
+  display_interval_time: 1

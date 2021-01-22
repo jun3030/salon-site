@@ -5,5 +5,3 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-Calendar.create!(calendar_name: "Rose", address:"東京都渋谷区", phone:"09057975695")
