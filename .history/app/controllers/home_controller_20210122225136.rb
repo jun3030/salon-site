@@ -1,14 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @staff = Staff.all
-    # @staffs = if params[:staff_id]
-    #             Staff.where(id: params[:staff_id])
-    #           else
-    #             @calendar.staffs.order(:id)
-    #           end
-
-
-
+    @staff = Staff.first
     @calendar = Calendar.first
     @times = time_interval(@calendar)
     # 予約カレンダーの表示(一ヶ月データ取得後、1ページ７日分で表示)
