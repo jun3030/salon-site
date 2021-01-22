@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_22_042802) do
+ActiveRecord::Schema.define(version: 2021_01_22_063838) do
+
+  create_table "calendar_configs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "capacity", default: 1
+    t.integer "cancelable_time", default: 24
+    t.integer "interval_time", default: 0
+    t.text "booking_message"
+    t.string "booking_link"
+    t.text "update_message"
+    t.text "cancel_message"
+    t.boolean "special_modal_flag", default: false
+    t.bigint "calendar_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["calendar_id"], name: "index_calendar_configs_on_calendar_id"
+  end
 
   create_table "calendars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "calendar_name"
@@ -30,4 +45,5 @@ ActiveRecord::Schema.define(version: 2021_01_22_042802) do
     t.index ["public_uid"], name: "index_calendars_on_public_uid", unique: true
   end
 
+  add_foreign_key "calendar_configs", "calendars"
 end

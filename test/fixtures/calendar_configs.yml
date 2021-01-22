@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  capacity: 1
+  cancelable_time: 1
+  interval_time: 1
+  booking_message: MyText
+  booking_link: MyString
+  update_message: MyText
+  cancel_message: MyText
+  special_modal_flag: false
+  calendar: one
+
+two:
+  capacity: 1
+  cancelable_time: 1
+  interval_time: 1
+  booking_message: MyText
+  booking_link: MyString
+  update_message: MyText
+  cancel_message: MyText
+  special_modal_flag: false
+  calendar: two
