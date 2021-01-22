@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_22_063838) do
+ActiveRecord::Schema.define(version: 2021_01_22_131802) do
 
   create_table "calendar_configs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "capacity", default: 1
@@ -39,11 +39,24 @@ ActiveRecord::Schema.define(version: 2021_01_22_063838) do
     t.string "address", default: "東京都渋谷区"
     t.string "phone", default: "09012345678"
     t.string "public_uid"
-    t.integer "display_interval_time"
+    t.integer "display_interval_time", default: 10
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["public_uid"], name: "index_calendars_on_public_uid", unique: true
   end
 
+  create_table "staffs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "description"
+    t.string "staff_part"
+    t.string "staff_image"
+    t.bigint "calendar_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["calendar_id"], name: "index_staffs_on_calendar_id"
+  end
+
   add_foreign_key "calendar_configs", "calendars"
+  add_foreign_key "staffs", "calendars"
 end

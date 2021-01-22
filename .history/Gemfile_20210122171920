@@ -28,11 +28,7 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-gem 'browser'  # 端末やタブレットで見てるかを判定
-gem 'kaminari', '~> 0.17.0'  # paginate
-gem 'kaminari-bootstrap', '~> 3.0.1'
-gem 'rails-i18n' # 日本語化対応
-
+gem 'browser'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

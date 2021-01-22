@@ -9,7 +9,6 @@ class HomeController < ApplicationController
 
   private
 
-  # 予約カレンダーの表示間隔
   def time_interval(calendar)
     start_time = calendar.start_time
     end_time = calendar.end_time

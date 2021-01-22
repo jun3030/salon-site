@@ -40,7 +40,7 @@
 									</tbody>
 								</table>
 							</th>
-							<% @month.each do |day| %>
+							<!-- <% @month.each do |day| %> -->
 								<% ok_term = StaffsScheduleOutputer.valid_shifts(@staffs, day.all_day) %>
 								<% not_term = StaffsScheduleOutputer.invalid_schedules(@staffs, day.all_day, @interval_time) %>
 								<th class="closeCol w-10">
@@ -84,7 +84,7 @@
 										</tbody>
 									</table>
 								</th>
-							<% end %>
+							<!-- <% end %> -->
 						</tr>
 					</tbody>
 				</table>
