@@ -1,0 +1,56 @@
+<div class="component">
+	<div class="sticky-wrap">
+	  <table class="sticky-enabled" style="margin: 0px;">
+			<thead>
+					<tr>
+						<th rowspan="2" style="width: 71px;">日時</th>
+						<th colspan="7" style="width: 608px;">
+						  <div style="display: inline-table; text-align: center; <%= 'font-size: smaller;' if browser.device.mobile? %>">
+								<%= paginate @month, window: 0, outer_window: 0 %>
+							</div>
+						</th>
+					</tr>
+					<tr>
+					  <% @month.each do |day| %>
+							<th>
+								<%= l(day, format: :cell_date) %><br>
+								<%= l(day, format: :cell_day) %>
+							</th>
+						<% end %>
+					</tr>
+				</thead>
+			<tbody>
+				<tr>
+					<td class="time">
+						<table>
+							<tbody>
+								<% @times.each do |time| %>
+									<tr>
+										<td><%= l( time, format: :very_short) %></td>
+									</tr>
+								<% end %>
+							</tbody>
+						</table>
+					</td>
+					<% @month.each do |day| %>
+						<% ok_term = StaffsScheduleOutputer.valid_shifts(@staffs, day.all_day) %>
+						<!--  not_term = StaffsScheduleOutputer.invalid_schedules(@staffs, day.all_day, @interval_time)  -->
+
+
+
+
+									<% @times.each do |time| %>
+										<tr>
+											<td class="reserveDate maru">
+												◎
+											</td>
+										</tr>
+									<% end %>
+
+
+					<% end %>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

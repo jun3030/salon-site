@@ -1,0 +1,40 @@
+<div class="component">
+	<div class="sticky-wrap">
+	  <table class="sticky-enabled" style="margin: 0px;">
+			<thead>
+					<tr>
+						<th rowspan="2" style="width: 71px;">日時</th>
+						<th colspan="7" style="width: 608px;">
+						  <div style="display: inline-table; text-align: center; <%= 'font-size: smaller;' if browser.device.mobile? %>">
+								<%= paginate @month, window: 0, outer_window: 0 %>
+							</div>
+						</th>
+					</tr>
+					<tr>
+						<th style="width: 85px;" class="sat">23日<br>（土）</th>
+						<th style="width: 85px;" class="sun">24日<br>（日）</th>
+						<th style="width: 85px;">25日<br>（月）</th>
+						<th style="width: 85px;">26日<br>（火）</th>
+						<th style="width: 85px;">27日<br>（水）</th>
+						<th style="width: 85px;">28日<br>（木）</th>
+						<th style="width: 86px;">29日<br>（金）</th>
+					</tr>
+				</thead>
+			<tbody>
+				<tr>
+					<td>
+						<table>
+							<tbody>
+								<% @times.each do |time| %>
+									<tr>
+										<td><%= l( time, format: :very_short) %></td>
+									</tr>
+								<% end %>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

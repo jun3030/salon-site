@@ -1,0 +1,86 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.head-area {
+    background-color: #0c85cf;
+}
+
+.head-content {
+    padding:30px;
+    height: 160px;
+}
+
+.store-name {
+    color: #fff;
+}
+
+#step {
+
+    padding: 50px 0px 50px 0px;
+}
+
+.step-inner {
+    color: #0c85cf;
+}
+
+.component table {
+    border-collapse: collapse;
+    width: 100%;
+    background: #fff;
+    color: #343434;
+    font-size: 12px;
+}
+
+.component thead {
+    border-bottom: 2px solid #d9d9d9;
+}
+
+.component thead th {
+    border: 1px solid #d9d9d9;
+    text-align: center;
+    font-size: 12px;
+    white-space: nowrap;
+    background-color: #eeeeee;
+    padding: 8px 0px;
+}
+
+.sticky-wrap td, .sticky-wrap th {
+    box-sizing: border-box;
+}
+
+.component tbody {
+    border: 1px solid #d9d9d9;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.component tbody td.time {
+    background-color: #eee;
+    font-weight: bold;
+    line-height: 34px;
+}
+
+.component tbody td {
+    text-align: center;
+    border-let: 1px solid #d9d9d9;
+    border-right: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
+    font-size: 13px;
+}
+
+.component tbody td a.maru {
+    color: #d94535;
+    text-decoration: none;
+    display: block;
+    line-height: 34px;
+    font-size: 18px;
+}
+
+td {
+    vertical-align: middle;
+}

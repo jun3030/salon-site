@@ -1,0 +1,34 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.component {
+    line-height: 1.5em;
+    overflow: hidden;
+}
+
+.sticky-wrap {
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+}
+
+.component table {
+    border-collapse: collapse;
+    width: 100%;
+    background: #fff;
+    color: #343434;
+    font-size: 12px;
+}
+
+.component thead {
+    border-bottom: 2px solid #d9d9d9;
+}
+
+.component table {
+    border-collapse: collapse;
+    width: 100%;
+    background: #fff;
+    color: #343434;
+    font-size: 12px;
+}
