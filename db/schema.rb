@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_22_131802) do
+ActiveRecord::Schema.define(version: 2021_01_23_040335) do
 
   create_table "calendar_configs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "capacity", default: 1
@@ -45,6 +45,17 @@ ActiveRecord::Schema.define(version: 2021_01_22_131802) do
     t.index ["public_uid"], name: "index_calendars_on_public_uid", unique: true
   end
 
+  create_table "staff_shifts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.datetime "work_start_time"
+    t.datetime "work_end_time"
+    t.date "work_date"
+    t.boolean "is_holiday", default: false
+    t.bigint "staff_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["staff_id"], name: "index_staff_shifts_on_staff_id"
+  end
+
   create_table "staffs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -58,5 +69,6 @@ ActiveRecord::Schema.define(version: 2021_01_22_131802) do
   end
 
   add_foreign_key "calendar_configs", "calendars"
+  add_foreign_key "staff_shifts", "staffs"
   add_foreign_key "staffs", "calendars"
 end

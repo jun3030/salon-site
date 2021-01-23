@@ -34,7 +34,7 @@
 									<tbody>
 										<% @times.each do |time| %>
 											<tr>
-												<th class="timeCell timeSharpLine" style="background: white;"><%= l( time, format: :very_short) %></th>
+												<tbody class="timeCell timeSharpLine" style="background: white;"><%= l( time, format: :very_short) %></th>
 											</tr>
 										<% end %>
 									</tbody>
@@ -44,17 +44,10 @@
 						        <% ok_term = StaffsScheduleOutputer.valid_shifts(@staffs, day.all_day) %>
 								<!--  not_term = StaffsScheduleOutputer.invalid_schedules(@staffs, day.all_day, @interval_time)  -->
                                     <th class="closeCol w-10">
-									<table cellpadding="0" cellspacing="0" class="moreInnerTable">
-										<tbody>
+
 											<% @times.each do |time| %>
-											    <tr>
-													<th class="timeCell timeSharpLine text-center circle_style link_div">
-														<i class="fa fa-genderless "></i>
-													</th>
-												</tr>
 											<% end %>
-										<tbody>
-									</table>
+
 									</th>
 							<% end %>
                         <tr>
@@ -65,5 +58,3 @@
 		</div>
     </div>
 </div>
-
-<link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" />
