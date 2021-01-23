@@ -1,12 +1,13 @@
 class HomeController < ApplicationController
-
   def index
-    @staffs = Staff.all
+    @staff = Staff.all
     # @staffs = if params[:staff_id]
     #             Staff.where(id: params[:staff_id])
     #           else
     #             @calendar.staffs.order(:id)
     #           end
+
+
 
     @calendar = Calendar.first
     @times = time_interval(@calendar)

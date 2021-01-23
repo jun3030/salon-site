@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-
   def index
     @staffs = Staff.all
     # @staffs = if params[:staff_id]
@@ -7,6 +6,8 @@ class HomeController < ApplicationController
     #           else
     #             @calendar.staffs.order(:id)
     #           end
+    ok_term = StaffsScheduleOutputer.valid_shifts(@staffs, day.all_day)
+
 
     @calendar = Calendar.first
     @times = time_interval(@calendar)

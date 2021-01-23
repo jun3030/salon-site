@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-
+  include StaffsScheduleOutputer
   def index
     @staffs = Staff.all
     # @staffs = if params[:staff_id]

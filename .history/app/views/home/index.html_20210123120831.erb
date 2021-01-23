@@ -41,7 +41,7 @@
 								</table>
 							</th>
 							<% @month.each do |day| %>
-						        <% ok_term = StaffsScheduleOutputer.valid_shifts(@staffs, day.all_day) %>
+						        <% ok_term = @test(@staffs, day.all_day) %>
                                     <th>
                                         <%= day.all_day %>
 									</th>
