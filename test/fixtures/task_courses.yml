@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: 
+  course_time: 1
+  charge: 
+  is_tax_included: 
+  is_more_than: 
+  picture: MyString
+  calendar: one
+
+two:
+  title: MyString
+  description: 
+  course_time: 1
+  charge: 
+  is_tax_included: 
+  is_more_than: 
+  picture: MyString
+  calendar: two

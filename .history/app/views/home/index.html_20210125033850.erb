@@ -1,0 +1,74 @@
+<div id="container">
+  <div id="maincontent">
+		<div id="header">
+		  <div id="header-inner"></div>
+		</div>
+    <div class="head-area">
+		  <div class="head-content">
+				<h2 class="store-name">TABATA</h2>
+				<p class="store-data">
+					京都府南丹市<br>
+					xxx-xxxx-xxx
+				</p>
+			</div>
+		</div>
+
+		<div class="component">
+			<div class="sticky-wrap">
+				<table class="sticky-enabled" style="margin: 0px;">
+					<thead>
+							<tr>
+								<th rowspan="2" style="width: 71px;">日時</th>
+								<th colspan="7" style="width: 608px;">
+									<div style="display: inline-table; text-align: center; <%= 'font-size: smaller;' if browser.device.mobile? %>">
+										<%= paginate @month, window: 0, outer_window: 0 %>
+									</div>
+								</th>
+							</tr>
+							<tr>
+								<% @month.each do |day| %>
+									<th>
+										<%= l(day, format: :cell_date) %><br>
+										<%= l(day, format: :cell_day) %>
+									</th>
+								<% end %>
+							</tr>
+						</thead>
+					<tbody>
+						<tr>
+							<td class="time">
+								<table>
+									<tbody>
+										<% @times.each do |time| %>
+											<tr>
+												<td><%= l( time, format: :very_short) %></td>
+											</tr>
+										<% end %>
+									</tbody>
+								</table>
+							</td>
+							<% @month.each do |day| %>
+								<% ok_term = StaffsScheduleOutputer.valid_shifts(@staffs, day.all_day) %>
+								<% not_term = StaffsScheduleOutputer.invalid_schedules(@staffs, day.all_day, @interval_time) %>
+								<th>
+									<table>
+										<tbody>
+										  <% @times.each do |time| %>
+											  <% start_time = Time.parse(time.to_s) %>
+													<tr>
+														<td class="reserveDate maru">
+															<a href="javascript:void(0);" class="reserveDate maru">◎</a>
+														</td>
+													</tr>
+											<% end %>
+										<tbody>
+									</table>
+								</th>
+							<% end %>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

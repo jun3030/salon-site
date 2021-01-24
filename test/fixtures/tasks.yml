@@ -1,0 +1,35 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  request: 
+  due_at: 
+  start_time: 
+  end_time: 
+  google_event_id: 
+  deleted_at: 2021-01-24 14:44:21
+  memo: 
+  is_sub: 
+  is_appoint: 
+  is_from_public: 
+  state: 
+  is_valid_task: false
+  task_course: one
+  calendar: one
+  staff: one
+
+two:
+  request: 
+  due_at: 
+  start_time: 
+  end_time: 
+  google_event_id: 
+  deleted_at: 2021-01-24 14:44:21
+  memo: 
+  is_sub: 
+  is_appoint: 
+  is_from_public: 
+  state: 
+  is_valid_task: false
+  task_course: two
+  calendar: two
+  staff: two
