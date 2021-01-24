@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_23_155108) do
+ActiveRecord::Schema.define(version: 2021_01_23_040335) do
 
   create_table "calendar_configs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "capacity", default: 1
@@ -45,20 +45,6 @@ ActiveRecord::Schema.define(version: 2021_01_23_155108) do
     t.index ["public_uid"], name: "index_calendars_on_public_uid", unique: true
   end
 
-  create_table "regular_holidays", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "day"
-    t.boolean "holiday_flag", default: false
-    t.datetime "business_start_at"
-    t.datetime "business_end_at"
-    t.boolean "is_rest", default: false
-    t.datetime "rest_start_time"
-    t.datetime "rest_end_time"
-    t.bigint "calendar_config_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["calendar_config_id"], name: "index_regular_holidays_on_calendar_config_id"
-  end
-
   create_table "staff_shifts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.datetime "work_start_time"
     t.datetime "work_end_time"
@@ -83,7 +69,6 @@ ActiveRecord::Schema.define(version: 2021_01_23_155108) do
   end
 
   add_foreign_key "calendar_configs", "calendars"
-  add_foreign_key "regular_holidays", "calendar_configs"
   add_foreign_key "staff_shifts", "staffs"
   add_foreign_key "staffs", "calendars"
 end

@@ -14,8 +14,6 @@ class Calendar < ApplicationRecord
 
   validate :start_time_end_time_validate
 
-  after_create :create_calendar_config
-
   private
 
   def booking_message(calendar)
@@ -31,19 +29,6 @@ class Calendar < ApplicationRecord
     end
   end
 
-  def create_calendar_config
-    unless calendar_config
-      config = build_calendar_config(capacity: 1)
-      config.booking_message = booking_message(self)
-      array = %w[日 月 火 水 木 金 土]
-      start_time = Time.current.change(hour: self.start_time, min: 0)
-      end_time = Time.current.change(hour: self.end_time, min: 0)
-      array.each do |day|
-        config.regular_holidays.build(day: day, business_start_at: start_time, business_end_at: end_time, rest_start_time: start_time.change(hour: 12), rest_end_time: end_time.change(hour: 13))
-      end
-      config.save
-    end
-  end
 
   # t.string "calendar_name" # 店舗名
   # t.integer "start_date", default: 1 # お客様が予約できる開始日付の設定。0と設定すると本日の予約から受付可能になります。

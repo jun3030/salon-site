@@ -45,6 +45,7 @@ class Calendar < ApplicationRecord
     end
   end
 
+
   # t.string "calendar_name" # 店舗名
   # t.integer "start_date", default: 1 # お客様が予約できる開始日付の設定。0と設定すると本日の予約から受付可能になります。
   # t.integer "end_date", default: 7 # 何日後まで予約できるようにするかを設定

@@ -1,7 +1,5 @@
 class CalendarConfig < ApplicationRecord
   belongs_to :calendar
-  has_many :regular_holidays
-  accepts_nested_attributes_for :regular_holidays, allow_destroy: true
 
   # t.integer "capacity", default: 1 #
   # t.integer "cancelable_time", default: 24 # お客様が、web上で予約時間の何時間前までキャンセルを許容するかの設定。
