@@ -31,7 +31,6 @@ class Calendar < ApplicationRecord
     end
   end
 
-  # 店舗の営業時間、定休日等が店舗を作成された際に自動で設定される
   def create_calendar_config
     unless calendar_config
       config = build_calendar_config(capacity: 1)

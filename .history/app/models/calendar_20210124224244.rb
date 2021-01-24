@@ -31,10 +31,10 @@ class Calendar < ApplicationRecord
     end
   end
 
-  # 店舗の営業時間、定休日等が店舗を作成された際に自動で設定される
   def create_calendar_config
     unless calendar_config
       config = build_calendar_config(capacity: 1)
+      debugger
       config.booking_message = booking_message(self)
       array = %w[日 月 火 水 木 金 土]
       start_time = Time.current.change(hour: self.start_time, min: 0)

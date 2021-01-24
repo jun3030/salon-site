@@ -31,7 +31,6 @@ class Calendar < ApplicationRecord
     end
   end
 
-  # 店舗の営業時間、定休日等が店舗を作成された際に自動で設定される
   def create_calendar_config
     unless calendar_config
       config = build_calendar_config(capacity: 1)
@@ -39,6 +38,7 @@ class Calendar < ApplicationRecord
       array = %w[日 月 火 水 木 金 土]
       start_time = Time.current.change(hour: self.start_time, min: 0)
       end_time = Time.current.change(hour: self.end_time, min: 0)
+      debugger
       array.each do |day|
         config.regular_holidays.build(day: day, business_start_at: start_time, business_end_at: end_time, rest_start_time: start_time.change(hour: 12), rest_end_time: end_time.change(hour: 13))
       end
