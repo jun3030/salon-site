@@ -3,7 +3,6 @@ class Staff < ApplicationRecord
   has_many :staff_shifts, dependent: :destroy
   has_many :tasks
   has_many :staff_regular_holidays, dependent: :destroy
-  accepts_nested_attributes_for :staff_regular_holidays
 
   def time(date, time)
     puts time

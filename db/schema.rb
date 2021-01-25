@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_25_110403) do
+ActiveRecord::Schema.define(version: 2021_01_25_140907) do
 
   create_table "calendar_configs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "capacity", default: 1
@@ -66,6 +66,22 @@ ActiveRecord::Schema.define(version: 2021_01_25_110403) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["calendar_config_id"], name: "index_regular_holidays_on_calendar_config_id"
+  end
+
+  create_table "staff_regular_holidays", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "day"
+    t.boolean "is_holiday", default: false
+    t.time "work_start_at"
+    t.time "work_end_at"
+    t.boolean "is_rest", default: false
+    t.datetime "rest_start_time"
+    t.datetime "rest_end_time"
+    t.bigint "staff_id", null: false
+    t.bigint "regular_holiday_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["regular_holiday_id"], name: "index_staff_regular_holidays_on_regular_holiday_id"
+    t.index ["staff_id"], name: "index_staff_regular_holidays_on_staff_id"
   end
 
   create_table "staff_shifts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -132,6 +148,8 @@ ActiveRecord::Schema.define(version: 2021_01_25_110403) do
   add_foreign_key "calendar_configs", "calendars"
   add_foreign_key "iregular_holidays", "calendar_configs"
   add_foreign_key "regular_holidays", "calendar_configs"
+  add_foreign_key "staff_regular_holidays", "regular_holidays"
+  add_foreign_key "staff_regular_holidays", "staffs"
   add_foreign_key "staff_shifts", "staffs"
   add_foreign_key "staffs", "calendars"
   add_foreign_key "task_courses", "calendars"
