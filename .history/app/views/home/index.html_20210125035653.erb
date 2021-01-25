@@ -1,0 +1,135 @@
+<div class="top_page">
+  <div class="title">
+    <h2 class="title_style">予約フォーム</h2>
+  </div>
+
+
+
+	<div id="public_task_index" class="mb-5">
+    <div id="jsRsvCdTbl" class="reserveConditionTable  jscInnerTableWrap">
+				<table class="innerTable nowrap jscInnerTable" cellpadding="0" cellspacing="0">
+					<thead>
+						<tr>
+							<th rowspan="2" class="weekPaging">
+								<div class="">
+									<%#= button_tag type: "button", class:"datepicker" do %>
+										<%#<i class="far fa-calendar-alt fa-2x"></i>%>
+									<%# end %>
+								</div>
+							</th>
+							<th colspan="14" class="monthCell text-center">
+								<div style="display: inline-table; text-align: center; <%= 'font-size: smaller;' if browser.device.mobile? %>">
+									<%= paginate @month, window: 0, outer_window: 0 %>
+								</div>
+							</th>
+						</tr>
+						<tr class="dayCellContainer">
+							<% @month.each do |day| %>
+								<th class="dayCell">
+									<%= l(day, format: :cell_date) %><br>
+									<%= l(day, format: :cell_day) %>
+								</th>
+							<% end %>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th class="w-10">
+								<table cellpadding="0" cellspacing="0" class="moreInnerTable timeTableLeft">
+									<tbody>
+										<% @times.each do |time| %>
+											<tr>
+												<th class="timeCell timeSharpLine" style="background: white;"><%= l( time, format: :very_short) %></th>
+											</tr>
+										<% end %>
+									</tbody>
+								</table>
+							</th>
+							<% @month.each do |day| %>
+								<% ok_term = StaffsScheduleOutputer.valid_shifts(@staffs, day.all_day) %>
+								<% not_term = StaffsScheduleOutputer.invalid_schedules(@staffs, day.all_day, @interval_time) %>
+								<th class="closeCol w-10">
+									<table cellpadding="0" cellspacing="0" class="moreInnerTable">
+										<tbody>
+											<% @times.each do |time| %>
+												<% start_time = DateTime.parse(time(day, time)) %>
+												<% end_time = start_time.since((@task_course.course_time+@interval_time).minutes) %>
+												<% if @regular_holiday_days.include?(@dw[day.wday]) %>
+													<tr>
+														<th class="timeCell timeSharpLine text-center times_style">
+															<i class="fas fa-times"></i>
+														</th>
+													</tr>
+												<% elsif @iregular_holydays.include?(day) %>
+													<tr>
+														<th class="timeCell timeSharpLine text-center times_style">
+															<i class="fas fa-times"></i>
+														</th>
+													</tr>
+												<% elsif valid_time?(@display_time, start_time) == false %>
+													<tr>
+														<th class="timeCell timeSharpLine text-center times_style">
+															<i class="fas fa-times"></i>
+														</th>
+													</tr>
+												<% elsif valid_schedule?(ok_term, not_term, @staffs_google_tasks, start_time, end_time) == true %>
+													<tr>
+														<th class="timeCell timeSharpLine text-center circle_style link_div" data-href="<%= new_calendar_task_path(@calendar, start_time: time(Time.zone.parse("#{day}"), time), course_id: @task_course.id, staff_id: params[:staff_id]) %>">
+															<i class="far fa-circle"></i>
+														</th>
+													</tr>
+												<% else %>
+													<tr>
+														<th class="timeCell timeSharpLine text-center times_style">
+															<i class="fas fa-times"></i>
+														</th>
+													</tr>
+												<% end %>
+											<% end %>
+										</tbody>
+									</table>
+								</th>
+							<% end %>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+<script>
+  // Chrome76でも見分けられるmishraさんの方法
+  async function start() {
+      if ("storage" in navigator && "estimate" in navigator.storage) {
+          const { usage, quota } = await navigator.storage.estimate();
+          console.log(`Using ${usage} out of ${quota} bytes.`);
+
+          if (quota < 120000000) {
+              console.log("新調査方法の判定：シークレットモード");
+              alert("ブラウザのシークレットモードを解除してください。正常に予約ができない場合があります。");
+          } else {
+              console.log("新調査方法の判定：通常モード");
+          }
+      } else {
+          console.log("Can not detect");
+      }
+  }
+  start();
+
+  if (window.openDatabase) {
+    try {
+        localStorage.test = 'hoge';
+
+    } catch(e) {
+        alert("ブラウザのシークレットモードを解除してください。正常に予約ができない場合があります。");
+        window.location.href = "<%= calendar_tasks_url(@calendar) %>"
+    }
+    }
+
+  $(function(){
+  $('.link_div').on('click', function(){
+    location.href = $(this).data('href');
+  });
+});
+</script>
+

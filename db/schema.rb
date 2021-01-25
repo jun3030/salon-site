@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_24_144421) do
+ActiveRecord::Schema.define(version: 2021_01_25_110403) do
 
   create_table "calendar_configs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "capacity", default: 1
@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(version: 2021_01_24_144421) do
     t.index ["public_uid"], name: "index_calendars_on_public_uid", unique: true
   end
 
+  create_table "iregular_holidays", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.date "date"
+    t.text "description"
+    t.bigint "calendar_config_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["calendar_config_id"], name: "index_iregular_holidays_on_calendar_config_id"
+  end
+
   create_table "regular_holidays", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "day"
     t.boolean "holiday_flag", default: false
@@ -76,6 +85,7 @@ ActiveRecord::Schema.define(version: 2021_01_24_144421) do
     t.string "description"
     t.string "staff_part"
     t.string "staff_image"
+    t.text "google_api_token"
     t.bigint "calendar_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -97,18 +107,18 @@ ActiveRecord::Schema.define(version: 2021_01_24_144421) do
   end
 
   create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.text "request", comment: "要望"
-    t.datetime "due_at", comment: "期限"
+    t.text "request"
+    t.datetime "due_at"
     t.datetime "start_time"
     t.datetime "end_time"
     t.string "google_event_id"
     t.datetime "deleted_at"
     t.text "memo"
     t.boolean "is_sub"
-    t.boolean "is_appoint", default: true, comment: "指名予約かどうか"
-    t.boolean "is_from_public", default: true, comment: "お客からの予約かどうか"
+    t.boolean "is_appoint", default: true
+    t.boolean "is_from_public", default: true
     t.string "state"
-    t.boolean "is_valid_task", default: true, comment: "有効な予約かどうか"
+    t.boolean "is_valid_task", default: true
     t.bigint "task_course_id", null: false
     t.bigint "calendar_id", null: false
     t.bigint "staff_id", null: false
@@ -120,6 +130,7 @@ ActiveRecord::Schema.define(version: 2021_01_24_144421) do
   end
 
   add_foreign_key "calendar_configs", "calendars"
+  add_foreign_key "iregular_holidays", "calendar_configs"
   add_foreign_key "regular_holidays", "calendar_configs"
   add_foreign_key "staff_shifts", "staffs"
   add_foreign_key "staffs", "calendars"
