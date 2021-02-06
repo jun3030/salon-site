@@ -1,0 +1,45 @@
+<%= javascript_pack_tag 'hello_vue.js' %>
+
+<script>
+/*SPメニューボタン*/
+$(function () {
+    var $animation = $('.header1 nav .inner a,#sp-menu li a');
+
+    $animation.on('click',function(){
+        if ($(".menu-trigger").hasClass('active')){
+            $(".menu-trigger").removeClass('active');
+			closemenu();
+        } else {
+            $(".menu-trigger").addClass('active');
+			openmenu()
+        }
+    });
+});
+
+function openmenu() {
+	$("#sp-menu").fadeIn();
+	setTimeout(function () {
+		$('#sp-menu')
+		.css({"left":"0%","opacity":"0"})
+		.animate({"left":"0px", opacity:1, duration: 0,},500,'');
+	}, 0);
+	setTimeout(function () {
+		$('#sp-menu li')
+		.css({"opacity":"1"})
+		.animate({opacity:1, duration: 0,},500,'');
+	}, 100);
+}
+function closemenu() {
+	setTimeout(function () {
+		$('#sp-menu')
+		.css({"left":"0%","opacity":"1"})
+		.animate({"left":"0px", opacity:0, duration: 0,},500,'');
+	}, 0);
+	setTimeout(function () {
+		$('#sp-menu li')
+		.css({"opacity":"1"})
+		.animate({opacity:0, duration: 0,},500,'');
+	}, 100);
+	$("#sp-menu").fadeOut();
+}
+</script>
