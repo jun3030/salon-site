@@ -19,29 +19,27 @@
           </ul><!-- .nav -->
         </div>
 
-        <div class="nav-sp" v-on:click='show=!show'>
+        <div class="nav-sp">
           <div class="inner">
             <a class="btn-erea"></a>
-              <div class="menu-trigger" v-bind:class='{active:show}'>
+              <div class="menu-trigger">
                 <span></span>
                 <span></span>
                 <span></span>
               </div>
           </div><!-- / .inner -->
-          <transition-group name="fade">
-            <div id="sp-menu" v-if="show">
-              <ul class="nav">
-                <li><a class="nav-home"><span class="in"><span class="hr"></span><span>HOME</span></span></a></li>
-                <li><a class="nav-about"><span class="in"><span class="hr"></span><span>CONCEPT</span></span></a></li>
-                <li><a class="nav-style"><span class="in"><span class="hr"></span><span>GALLERY</span></span></a></li>
-                <li><a class="nav-item"><span class="in"><span class="hr"></span><span>MENU</span></span></a></li>
-                <li><a class="nav-catalog"><span class="in"><span class="hr"></span><span>STAFF</span></span></a></li>
-                <li><a class="nav-shop"><span class="in"><span class="hr"></span><span>ACCESS</span></span></a></li>
-                <li><a class="nav-shop"><span class="in"><span class="hr"></span><span>INFOMARION</span></span></a></li>
-                <li class="reserve"><a target="_blank" class="nav-shop"><span class="in"><span class="hr"></span><span>RESERVE</span></span></a></li>
-              </ul><!-- .nav -->
-            </div><!-- / #sp-menu -->
-          </transition-group>
+          <div id="sp-menu">
+            <ul class="nav">
+              <li><a class="nav-home"><span class="in"><span class="hr"></span><span>HOME</span></span></a></li>
+              <li><a class="nav-about"><span class="in"><span class="hr"></span><span>CONCEPT</span></span></a></li>
+              <li><a class="nav-style"><span class="in"><span class="hr"></span><span>GALLERY</span></span></a></li>
+              <li><a class="nav-item"><span class="in"><span class="hr"></span><span>MENU</span></span></a></li>
+              <li><a class="nav-catalog"><span class="in"><span class="hr"></span><span>STAFF</span></span></a></li>
+              <li><a class="nav-shop"><span class="in"><span class="hr"></span><span>ACCESS</span></span></a></li>
+              <li><a class="nav-shop"><span class="in"><span class="hr"></span><span>INFOMARION</span></span></a></li>
+              <li class="reserve"><a target="_blank" class="nav-shop"><span class="in"><span class="hr"></span><span>RESERVE</span></span></a></li>
+            </ul><!-- .nav -->
+          </div><!-- / #sp-menu -->
         </div><!-- / .nav-sp -->
 
       </nav>
@@ -52,132 +50,28 @@
 <script>
 export default {
   el: '.header1',
-  data() {
-    return {
-      show: false
+  methods: {
+    live: function() {
+      alert("おめでとうございます！時限爆弾が止まりました。");
+    },
+    die:function(){
+      alert("どっかーん！");
     }
   }
-  // methods: {
-  //   openMenu: function() {
-  //     if(this.show == true) {
-
-  //     }
-
-  //   }
-  // }
 }
 </script>
 
 <style scoped>
-.fade-enter {
-  transition: opacity 0;
-}
-.fade-enter-active {
-  transition: opacity 5s;
-}
-.fade-enter-to {
-  transition: opacity 1;
-}
-.fade-leave {
-  transition: opacity 1;
-}
-.fade-leave-active {
-  transition: opacity 5s;
-}
-.fade-leave-to {
-  transition: opacity 0;
-}
-
 body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , YuMincho, "游明朝", "Hiragino Mincho ProN", "ヒラギノ明朝 ProN W3", Honoka, Meiryo, "メイリオ", serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 14px; line-height: 1.8; box-sizing: border-box; }
 
 /* 900px以内で表示するもの */
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 900px), (max-device-width: 900px) {
   .header1 {
     position: fixed;
     background: #fff;
   }
   .header1 nav .nav-ol {
-    display:none;
-  }
-  .header1 nav .nav-sp{
-    /* メニューを右上に固定 */
-    position: fixed;
-    top: 30px;
-    right: 5px;
-    cursor: pointer;
-  }
-  /*--SP MENU OPEN--*/
-  #sp-menu{
-    position:fixed;
-    top:0;
-    left:-100%;
-    width:100%;
-    height:100%;
-    opacity:0;
-    z-index:1000;
-    background: #fff;
-    overflow:scroll;
-  }
-  #sp-menu .nav{
-    position:relative;
-    top:50%;
-    transform:translateY(-50%);
-  }
-  #sp-menu li{
-    font-family: 'Lustria', serif;
-    letter-spacing: 0.2em;
-    position:relative;
-    display:block;
-    opacity:0;
-    text-align:center;
-    height:40px;
-    margin:10px auto;
-  }
-  #sp-menu li.reserve{
-    padding: 20px 20px 5px;
-      border-bottom: 1px solid #bbb;
-      border-top: 1px solid #bbb;
-      display: table;
-  }
-  #sp-menu li a{
-    color:#878787;
-  }
-  #sp-menu li.reserve a{
-    color: #d28a94;
-  }
-  #sp-menu .menu-sns{
-    margin:0 auto;
-    width:64px;
-    padding:40px 100px;
-    text-indent:-100000px;
-    border-bottom:none;
-    display:none;
-  }
-  #sp-menu .menu-sns a{
-    float:left;
-    width:22px;
-    margin-left:0;
-    padding:0;
-    display:block;
-    -webkit-transition: all 0.2s ease-in-out;
-      -moz-transition: all 0.2s ease-in-out;
-      -o-transition: all 0.2s ease-in-out;
-      transition: all 0.2s ease-in-out;
-  }
-  #sp-menu .menu-sns a.fb{
-    background-size:22px;
-  }
-  #sp-menu .menu-sns a.ig{
-    margin-left:20px;
-    background-size:22px;
-  }
-  #sp-menu .menu-sns a:hover{
-    filter:alpha(opacity=70);
-    -moz-opacity:0.6;
-    opacity:0.6;
-  }
-  #header-sp a.active{
-    opacity:0.2;
+    visibility: hidden;
   }
 }
 /* 900px以上で表示するもの */
@@ -188,7 +82,7 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
 }
 
 /* 600px以内で表示するもの */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px), (max-device-width: 600px) {
   .header1 .rose-logo {
     margin: 20px;
   }
@@ -388,5 +282,80 @@ nav .nav-ol .nav li.reserve a:hover{
   -webkit-transform: translateY(-10px) rotate(45deg);
   transform: translateY(-10px) rotate(45deg);
 }
+/*--SP MENU OPEN--*/
+#sp-menu{
+	display:none;
+	position:fixed;
+	top:0;
+	left:-100%;
+	width:100%;
+	height:100%;
+	opacity:0;
+	z-index:1000;
+	background: #fff;
+	overflow:scroll;
+}
+#sp-menu .nav{
+	position:relative;
+	top:50%;
+	transform:translateY(-50%);
+}
+#sp-menu li{
+	font-family: 'Lustria', serif;
+	letter-spacing: 0.2em;
+	position:relative;
+	display:block;
+	opacity:0;
+	text-align:center;
+	height:40px;
+	margin:10px auto;
+}
+#sp-menu li.reserve{
+	padding: 20px 20px 5px;
+    border-bottom: 1px solid #bbb;
+    border-top: 1px solid #bbb;
+    display: table;
+}
+#sp-menu li a{
+	color:#878787;
+}
+#sp-menu li.reserve a{
+	color: #d28a94;
+}
+#sp-menu .menu-sns{
+	margin:0 auto;
+	width:64px;
+	padding:40px 100px;
+	text-indent:-100000px;
+	border-bottom:none;
+	display:none;
+}
+#sp-menu .menu-sns a{
+	float:left;
+	width:22px;
+	margin-left:0;
+	padding:0;
+	display:block;
+	-webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+#sp-menu .menu-sns a.fb{
+	background-size:22px;
+}
+#sp-menu .menu-sns a.ig{
+	margin-left:20px;
+	background-size:22px;
+}
+#sp-menu .menu-sns a:hover{
+	filter:alpha(opacity=70);
+	-moz-opacity:0.6;
+	opacity:0.6;
+}
+#header-sp a.active{
+	opacity:0.2;
+}
+
 
 </style>

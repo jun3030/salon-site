@@ -70,22 +70,17 @@ export default {
 
 <style scoped>
 .fade-enter {
-  transition: opacity 0;
 }
 .fade-enter-active {
   transition: opacity 5s;
 }
 .fade-enter-to {
-  transition: opacity 1;
 }
 .fade-leave {
-  transition: opacity 1;
 }
 .fade-leave-active {
-  transition: opacity 5s;
 }
 .fade-leave-to {
-  transition: opacity 0;
 }
 
 body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , YuMincho, "游明朝", "Hiragino Mincho ProN", "ヒラギノ明朝 ProN W3", Honoka, Meiryo, "メイリオ", serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 14px; line-height: 1.8; box-sizing: border-box; }
