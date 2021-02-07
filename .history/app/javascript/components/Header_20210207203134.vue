@@ -1,0 +1,27 @@
+<template>
+  <div class="hamburger">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<nav class="globalMenuSp">
+    <ul>
+        <li><a href="#">Menu1</a></li>
+        <li><a href="#">Menu2</a></li>
+        <li><a href="#">Menu3</a></li>
+        <li><a href="#">Menu4</a></li>
+        <li><a href="#">Menu5</a></li>
+    </ul>
+</nav>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style scoped>
+
+</style>

@@ -28,11 +28,11 @@
 
       <nav class="globalMenuSp" :class="{active: show}">
           <ul>
-            <li><a href="#">Menu1</a></li>
-            <li><a href="#">Menu2</a></li>
-            <li><a href="#">Menu3</a></li>
-            <li><a href="#">Menu4</a></li>
-            <li><a href="#">Menu5</a></li>
+              <li><a href="#">Menu1</a></li>
+              <li><a href="#">Menu2</a></li>
+              <li><a href="#">Menu3</a></li>
+              <li><a href="#">Menu4</a></li>
+              <li><a href="#">Menu5</a></li>
           </ul>
       </nav>
     </div>
@@ -163,7 +163,7 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
 
   nav.globalMenuSp ul li {
     list-style-type: none;
-    padding: 50px;
+    padding: 0;
     width: 100%;
     transition: .4s all;
   }
