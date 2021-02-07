@@ -191,7 +191,7 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
   }
 }
 /* 900px以上で表示するもの */
-@media screen and (min-width:950px){
+@media screen and (min-width:900px){
   .header1 nav .nav-sp{
     display:none;
   }

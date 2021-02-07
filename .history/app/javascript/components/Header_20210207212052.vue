@@ -28,16 +28,13 @@
 
       <nav class="globalMenuSp" :class="{active: show}">
         <ul>
-          <li><a href="#">CONCEPT</a></li>
-          <li><a href="#">GALLERY</a></li>
-          <li><a href="#">MENU</a></li>
-          <li><a href="#">STAFF</a></li>
-          <li><a href="#">ACCESS</a></li>
-          <li><a href="#">INFOMARION</a></li>
-          <li><a href="#">RESERVE</a></li>
+          <li><a href="#">Menu1</a></li>
+          <li><a href="#">Menu2</a></li>
+          <li><a href="#">Menu3</a></li>
+          <li><a href="#">Menu4</a></li>
+          <li><a href="#">Menu5</a></li>
         </ul>
       </nav>
-
     </div>
   </div>
 </template>
@@ -51,6 +48,7 @@ export default {
     }
   }
 }
+
 </script>
 
 <style scoped>
@@ -58,7 +56,7 @@ export default {
 body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , YuMincho, "游明朝", "Hiragino Mincho ProN", "ヒラギノ明朝 ProN W3", Honoka, Meiryo, "メイリオ", serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 14px; line-height: 1.8; box-sizing: border-box; }
 
 /* 900px以内で表示するもの */
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 900px) {
   .header1 {
     position: fixed;
     background: #fff;
@@ -150,7 +148,7 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
     top  : 0;
     left : 0;
     color: #fff;
-    background:white;
+    background: #ddd;
     text-align: center;
     width: 100%;
     opacity: 0;
@@ -159,14 +157,13 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
 
   nav.globalMenuSp ul {
     margin: 0 auto;
-    margin-top: 50px;
     padding: 0;
     width: 100%;
   }
 
   nav.globalMenuSp ul li {
     list-style-type: none;
-    padding: 7px;
+    padding: 50px;
     width: 100%;
     transition: .4s all;
   }
@@ -174,12 +171,12 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
     padding-bottom: 0;
   }
   nav.globalMenuSp ul li:hover{
-    /* background :#ddd; */
+    background :#ddd;
   }
 
   nav.globalMenuSp ul li a {
     display: block;
-    color: #878787;
+    color: #fff;
     padding: 1em 0;
     text-decoration :none;
   }
@@ -191,7 +188,7 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
   }
 }
 /* 900px以上で表示するもの */
-@media screen and (min-width:950px){
+@media screen and (min-width:900px){
   .header1 nav .nav-sp{
     display:none;
   }
