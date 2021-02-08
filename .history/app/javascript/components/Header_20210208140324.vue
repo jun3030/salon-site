@@ -111,7 +111,7 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
 
   /* ナビ開いてる時のボタン */
   .hamburger.active {
-    /* -webkit-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
     -o-transition     : all 0.3s ease-in-out;
     transition        : all 0.3s ease-in-out;
     -webkit-transition-delay: 0.6s;
@@ -120,7 +120,7 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
     -webkit-transform: rotate(45deg);
     -ms-transform    : rotate(45deg);
     -o-transform     : rotate(45deg);
-    transform        : rotate(45deg); */
+    transform        : rotate(45deg);
   }
   .hamburger.active span:nth-child(2){
     width: 0px;

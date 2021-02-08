@@ -26,21 +26,21 @@
         <span></span>
       </div>
 
-      <transition name="fade">
-        <nav class="globalMenuSp" :class="{active: show}" v-if="show">
-          <ul>
-            <li><a href="#">CONCEPT</a></li>
-            <li><a href="#">GALLERY</a></li>
-            <li><a href="#">MENU</a></li>
-            <li><a href="#">STAFF</a></li>
-            <li><a href="#">ACCESS</a></li>
-            <li><a href="#">INFOMARION</a></li>
-            <li><a href="#">RESERVE</a></li>
-          </ul>
-        </nav>
-      </transition>
-      <!-- <button @click="show = !show">切替</button> -->
-    </div>
+      <nav class="globalMenuSp" :class="{active: show}">
+        <ul>
+          <li><a href="#">CONCEPT</a></li>
+          <li><a href="#">GALLERY</a></li>
+          <li><a href="#">MENU</a></li>
+          <li><a href="#">STAFF</a></li>
+          <li><a href="#">ACCESS</a></li>
+          <li><a href="#">INFOMARION</a></li>
+          <li><a href="#">RESERVE</a></li>
+        </ul>
+      </nav>
+
+      <button @click="show = !show">切替</button>
+
+    </button>
   </div>
 </template>
 
@@ -56,7 +56,6 @@ export default {
 </script>
 
 <style scoped>
-
 
 body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , YuMincho, "游明朝", "Hiragino Mincho ProN", "ヒラギノ明朝 ProN W3", Honoka, Meiryo, "メイリオ", serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 14px; line-height: 1.8; box-sizing: border-box; }
 
@@ -95,9 +94,9 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
     height  : 2px ;
     left    : 6px;
     background : #555;
-    /* -webkit-transition: 0.3s ease-in-out;
+    -webkit-transition: 0.3s ease-in-out;
     -moz-transition   : 0.3s ease-in-out;
-    transition        : 0.3s ease-in-out; */
+    transition        : 0.3s ease-in-out;
   }
   .hamburger span:nth-child(1) {
     top: 10px;
@@ -111,7 +110,7 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
 
   /* ナビ開いてる時のボタン */
   .hamburger.active {
-    /* -webkit-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
     -o-transition     : all 0.3s ease-in-out;
     transition        : all 0.3s ease-in-out;
     -webkit-transition-delay: 0.6s;
@@ -120,7 +119,7 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
     -webkit-transform: rotate(45deg);
     -ms-transform    : rotate(45deg);
     -o-transform     : rotate(45deg);
-    transform        : rotate(45deg); */
+    transform        : rotate(45deg);
   }
   .hamburger.active span:nth-child(2){
     width: 0px;
@@ -404,25 +403,6 @@ nav .nav-ol .nav li.reserve a:hover{
 .menu-trigger.active span:nth-of-type(3) {
   -webkit-transform: translateY(-10px) rotate(45deg);
   transform: translateY(-10px) rotate(45deg);
-}
-
-.fade-enter {
-  opacity: 0;
-}
-.fade-enter-active {
-  transition: opacity 0.5s;
-}
-.fade-enter-to {
-  opacity: 1;
-}
-.fade-leave {
-  opacity: 1;
-}
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-enter-to {
-  opacity: 0;
 }
 
 </style>
