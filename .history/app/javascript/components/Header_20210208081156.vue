@@ -20,23 +20,23 @@
         </div>
       </nav>
 
-      <div class="hamburger" @click="show = !show">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
-      <nav class="globalMenuSp" :class="{active: show}">
-        <ul>
-          <li><a href="#">CONCEPT</a></li>
-          <li><a href="#">GALLERY</a></li>
-          <li><a href="#">MENU</a></li>
-          <li><a href="#">STAFF</a></li>
-          <li><a href="#">ACCESS</a></li>
-          <li><a href="#">INFOMARION</a></li>
-          <li><a href="#">RESERVE</a></li>
-        </ul>
-      </nav>
+      <header class="header">
+        <nav class="global-nav">
+          <ul class="global-nav__list">
+            <li class="global-nav__item"><a href="">メニュー1</a></li>
+            <li class="global-nav__item"><a href="">メニュー2</a></li>
+            <li class="global-nav__item"><a href="">メニュー3</a></li>
+            <li class="global-nav__item"><a href="">メニュー4</a></li>
+            <li class="global-nav__item"><a href="">メニュー5</a></li>
+          </ul>
+        </nav>
+        <div class="hamburger" id="js-hamburger" @click="show = !show" :class="{navOpen: show}">
+          <span class="hamburger__line hamburger__line--1"></span>
+          <span class="hamburger__line hamburger__line--2"></span>
+          <span class="hamburger__line hamburger__line--3"></span>
+        </div>
+        <div class="black-bg" id="js-black-bg"></div>
+      </header>
 
     </div>
   </div>
@@ -73,122 +73,104 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
     right: 5px;
     cursor: pointer;
   }
-  /*　ハンバーガーボタン　*/
-  .hamburger {
-    display : block;
+  .header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,.16);
+  }
+  .global-nav {
     position: fixed;
-    z-index : 3;
-    right : 30px;
-    top   : 60px;
-    width : 42px;
-    height: 42px;
-    cursor: pointer;
-    text-align: center;
+    right: -320px; /* これで隠れる */
+    top: 0;
+    width: 300px; /* スマホに収まるくらい */
+    height: 100vh;
+    padding-top: 40px;
+    background-color: #fff;
+    transition: all .6s;
+    z-index: 200;
+    overflow-y: auto; /* メニューが多くなったらスクロールできるように */
   }
-  .hamburger span {
-    display : block;
+  .hamburger {
     position: absolute;
-    width   : 30px;
-    height  : 2px ;
-    left    : 6px;
-    background : #555;
-    -webkit-transition: 0.3s ease-in-out;
-    -moz-transition   : 0.3s ease-in-out;
-    transition        : 0.3s ease-in-out;
+    right: 0;
+    top: 0;
+    width: 40px; /* クリックしやすいようにちゃんと幅を指定する */
+    height: 40px; /* クリックしやすいようにちゃんと高さを指定する */
+    cursor: pointer;
+    z-index: 300;
   }
-  .hamburger span:nth-child(1) {
-    top: 10px;
+  .global-nav__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
-  .hamburger span:nth-child(2) {
+  .global-nav__item {
+    text-align: center;
+    padding: 0 14px;
+  }
+  .global-nav__item a {
+    display: block;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    text-decoration: none;
+    color: #111;
+  }
+  .global-nav__item a:hover {
+    background-color: #eee;
+  }
+  .hamburger__line {
+    position: absolute;
+    left: 11px;
+    width: 18px;
+    height: 1px;
+    background-color: #111;
+    transition: all .6s;
+  }
+  .hamburger__line--1 {
+    top: 14px;
+  }
+  .hamburger__line--2 {
     top: 20px;
   }
-  .hamburger span:nth-child(3) {
-    top: 30px;
+  .hamburger__line--3 {
+    top: 26px;
   }
-
-  /* ナビ開いてる時のボタン */
-  .hamburger.active {
-    -webkit-transition: all 0.3s ease-in-out;
-    -o-transition     : all 0.3s ease-in-out;
-    transition        : all 0.3s ease-in-out;
-    -webkit-transition-delay: 0.6s;
-    -o-transition-delay     : 0.6s;
-    transition-delay        : 0.6s;
-    -webkit-transform: rotate(45deg);
-    -ms-transform    : rotate(45deg);
-    -o-transform     : rotate(45deg);
-    transform        : rotate(45deg);
-  }
-  .hamburger.active span:nth-child(2){
-    width: 0px;
-  }
-  .hamburger.active span:nth-child(1),
-  .hamburger.active span:nth-child(3){
-    background :#fff;
-    -webkit-transition-delay: 0.3s;
-    -o-transition-delay: 0.3s;
-    transition-delay: 0.3s;
-  }
-  .hamburger.active span:nth-child(1){
-    -webkit-transform: translateY(4px);
-    -ms-transform    : translateY(4px);
-    -o-transform     : translateY(4px);
-    transform        : translateY(4px);
-  }
-
-  .hamburger.active span:nth-child(3){
-    -webkit-transform: translateY(-16px) rotate(90deg);
-    -ms-transform: translateY(-16px) rotate(90deg);
-    -o-transform : translateY(-16px) rotate(90deg);
-    transform    : translateY(-16px) rotate(90deg);
-  }
-
-
-  nav.globalMenuSp {
+  .black-bg {
     position: fixed;
-    z-index : 2;
-    top  : 0;
-    left : 0;
-    color: #fff;
-    background:white;
-    text-align: center;
-    width: 100%;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background-color: #000;
     opacity: 0;
-    transition: opacity .6s ease, visibility .6s ease;
+    visibility: hidden;
+    transition: all .6s;
+    cursor: pointer;
   }
-
-  nav.globalMenuSp ul {
-    margin: 0 auto;
-    margin-top: 60px;
-    padding: 0;
-    width: 100%;
-    background: #BBBBBB;
+  /* 表示された時用のCSS */
+  .nav-open .global-nav {
+    right: 0;
   }
-
-  nav.globalMenuSp ul li {
-    list-style-type: none;
-    padding: 7px;
-    width: 100%;
-    transition: .4s all;
+  .nav-open .black-bg {
+    opacity: .8;
+    visibility: visible;
   }
-  nav.globalMenuSp ul li:last-child {
-    padding-bottom: 0;
+  .nav-open .hamburger__line--1 {
+    transform: rotate(45deg);
+    top: 20px;
   }
-  nav.globalMenuSp ul li:hover{
-    /* background :#ddd; */
+  .nav-open .hamburger__line--2 {
+    width: 0;
+    left: 50%;
   }
-
-  nav.globalMenuSp ul li a {
-    display: block;
-    color: white;
-    padding: 1em 0;
-    text-decoration :none;
-  }
-
-  /* このクラスを、jQueryで付与・削除する */
-  nav.globalMenuSp.active {
-    opacity: 100;
-
+  .nav-open .hamburger__line--3 {
+    transform: rotate(-45deg);
+    top: 20px;
   }
 }
 /* 900px以上で表示するもの */
@@ -220,21 +202,21 @@ a.link{
 	height:60px;
 	padding:0 60px;
 	display: block;
-  text-align: center;
+    text-align: center;
 	position:absolute;
 	overflow: hidden;
 }
 .link p{
 	color: #fff !important;
-  font-size: 0.9em;
-  vertical-align: middle;
-  letter-spacing: 0.2em;
-  font-family: 'Abel', sans-serif;
-  position: relative;
-  box-sizing: border-box;
-  top: 50%;
-  margin-top: -0.9em;
-  left: 0;
+    font-size: 0.9em;
+    vertical-align: middle;
+    letter-spacing: 0.2em;
+    font-family: 'Abel', sans-serif;
+    position: relative;
+    box-sizing: border-box;
+    top: 50%;
+    margin-top: -0.9em;
+    left: 0;
 	display:block;
 	z-index: 3;
 }
@@ -247,7 +229,7 @@ a.link:after {
 	height: 120%;
 	left: -10%;
 	-webkit-transform: skewX(15deg);
-	transform: skewX(15deg);
+		  transform: skewX(15deg);
 	z-index: 2;
 	top: 0;
 	background: #9c555f;
@@ -297,7 +279,7 @@ nav .nav-ol .nav li{
 nav .nav-ol .nav li.reserve{
 	margin-right:-20px;
 	-webkit-transform: skewX(-16deg);
-  transform: skewX(-16deg);
+		  transform: skewX(-16deg);
 }
 nav .nav-ol .nav a{
 	font-size:12px;
@@ -311,8 +293,8 @@ nav .nav-ol .nav a{
 nav .nav-ol .nav li.reserve a{
 	padding: 24px 80px 24px 28px;
 	width:100%;
-  color: #fff;
-  background: #d28a94;
+    color: #fff;
+    background: #d28a94;
 	-webkit-transition: all 0.4s;
 	-moz-transition: all 0.4s;
 	-ms-transition: all 0.4s;
@@ -338,18 +320,18 @@ nav .nav-ol .nav li.reserve a:hover{
 	width: 116px;
 	left:0;
 	top:0;
-  height: 92px;
-  display: block;
-  position: absolute;
+    height: 92px;
+    display: block;
+    position: absolute;
   box-sizing: border-box;
  }
 .menu-trigger,
 .menu-trigger span {
   display: inline-block;
   -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
   box-sizing: border-box;
 }
 .menu-trigger {

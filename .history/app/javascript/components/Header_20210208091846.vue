@@ -159,7 +159,7 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
 
   nav.globalMenuSp ul {
     margin: 0 auto;
-    margin-top: 60px;
+    margin-top: 50px;
     padding: 0;
     width: 100%;
     background: #BBBBBB;

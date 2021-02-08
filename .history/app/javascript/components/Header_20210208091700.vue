@@ -79,7 +79,7 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
     position: fixed;
     z-index : 3;
     right : 30px;
-    top   : 60px;
+    top   : 55px;
     width : 42px;
     height: 42px;
     cursor: pointer;
@@ -159,7 +159,7 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
 
   nav.globalMenuSp ul {
     margin: 0 auto;
-    margin-top: 60px;
+    margin-top: 50px;
     padding: 0;
     width: 100%;
     background: #BBBBBB;
@@ -220,7 +220,7 @@ a.link{
 	height:60px;
 	padding:0 60px;
 	display: block;
-  text-align: center;
+    text-align: center;
 	position:absolute;
 	overflow: hidden;
 }
@@ -247,7 +247,7 @@ a.link:after {
 	height: 120%;
 	left: -10%;
 	-webkit-transform: skewX(15deg);
-	transform: skewX(15deg);
+		  transform: skewX(15deg);
 	z-index: 2;
 	top: 0;
 	background: #9c555f;
@@ -347,9 +347,9 @@ nav .nav-ol .nav li.reserve a:hover{
 .menu-trigger span {
   display: inline-block;
   -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
   box-sizing: border-box;
 }
 .menu-trigger {

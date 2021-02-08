@@ -79,7 +79,7 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
     position: fixed;
     z-index : 3;
     right : 30px;
-    top   : 60px;
+    top   : 55px;
     width : 42px;
     height: 42px;
     cursor: pointer;
@@ -159,7 +159,7 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
 
   nav.globalMenuSp ul {
     margin: 0 auto;
-    margin-top: 60px;
+    margin-top: 50px;
     padding: 0;
     width: 100%;
     background: #BBBBBB;
