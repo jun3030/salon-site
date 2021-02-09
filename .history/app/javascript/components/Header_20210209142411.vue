@@ -59,12 +59,6 @@ export default {
 
 body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , YuMincho, "游明朝", "Hiragino Mincho ProN", "ヒラギノ明朝 ProN W3", Honoka, Meiryo, "メイリオ", serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 14px; line-height: 1.8; box-sizing: border-box; }
 
-@media screen and (min-width: 950px) {
-  nav.globalMenuSp ul {
-    display: none;
-  }
-}
-
 /* 900px以内で表示するもの */
 @media screen and (max-width: 950px) {
   .header1 {

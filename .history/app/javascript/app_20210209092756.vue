@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header></Header>
-    <p>スタッフはこちらから</p>
+    <h1>eeeeeeeee</h1>
   </div>
 </template>
 

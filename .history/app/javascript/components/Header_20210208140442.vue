@@ -20,14 +20,14 @@
         </div>
       </nav>
 
-      <div class="hamburger" @click="show = !show" :class="{active: show}">
+      <div class="hamburger" @click="show = !show">
         <span></span>
         <span></span>
         <span></span>
       </div>
 
       <transition name="fade">
-        <nav class="globalMenuSp" v-if="show">
+        <nav class="globalMenuSp" :class="{active: show}" v-if="show">
           <ul>
             <li><a href="#">CONCEPT</a></li>
             <li><a href="#">GALLERY</a></li>
@@ -57,13 +57,8 @@ export default {
 
 <style scoped>
 
-body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , YuMincho, "游明朝", "Hiragino Mincho ProN", "ヒラギノ明朝 ProN W3", Honoka, Meiryo, "メイリオ", serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 14px; line-height: 1.8; box-sizing: border-box; }
 
-@media screen and (min-width: 950px) {
-  nav.globalMenuSp ul {
-    display: none;
-  }
-}
+body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , YuMincho, "游明朝", "Hiragino Mincho ProN", "ヒラギノ明朝 ProN W3", Honoka, Meiryo, "メイリオ", serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 14px; line-height: 1.8; box-sizing: border-box; }
 
 /* 900px以内で表示するもの */
 @media screen and (max-width: 950px) {
@@ -115,81 +110,97 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
   }
 
   /* ナビ開いてる時のボタン */
-  .hamburger.active span:nth-child(1) {
-    top : 16px;
-    left: 6px;
-    background :#555;
-    -webkit-transform: rotate(-45deg);
-    -moz-transform   : rotate(-45deg);
-    transform        : rotate(-45deg);
-  }
-
-  .hamburger.active span:nth-child(2),
-  .hamburger.active span:nth-child(3) {
-    top: 16px;
-    background :#555;
+  .hamburger.active {
+    /* -webkit-transition: all 0.3s ease-in-out;
+    -o-transition     : all 0.3s ease-in-out;
+    transition        : all 0.3s ease-in-out;
+    -webkit-transition-delay: 0.6s;
+    -o-transition-delay     : 0.6s;
+    transition-delay        : 0.6s;
     -webkit-transform: rotate(45deg);
-    -moz-transform   : rotate(45deg);
-    transform        : rotate(45deg);
+    -ms-transform    : rotate(45deg);
+    -o-transform     : rotate(45deg);
+    transform        : rotate(45deg); */
+  }
+  .hamburger.active span:nth-child(2){
+    width: 0px;
+  }
+  .hamburger.active span:nth-child(1),
+  .hamburger.active span:nth-child(3){
+    background :#fff;
+    /* -webkit-transition-delay: 0.3s;
+    -o-transition-delay: 0.3s;
+    transition-delay: 0.3s; */
+  }
+  .hamburger.active span:nth-child(1){
+    /* -webkit-transform: translateY(4px);
+    -ms-transform    : translateY(4px);
+    -o-transform     : translateY(4px);
+    transform        : translateY(4px); */
   }
 
-  .globalMenuSp {
+  .hamburger.active span:nth-child(3){
+    /* -webkit-transform: translateY(-16px) rotate(90deg);
+    -ms-transform: translateY(-16px) rotate(90deg);
+    -o-transform : translateY(-16px) rotate(90deg);
+    transform    : translateY(-16px) rotate(90deg); */
+  }
+
+
+  nav.globalMenuSp {
     position: fixed;
     z-index : 2;
-    /* margin-top: 80px; */
     top  : 0;
     left : 0;
     color: #fff;
+    background:white;
     text-align: center;
     width: 100%;
-    position: relative;
+    opacity: 0;
+    /* transition: opacity .6s ease, visibility .6s ease; */
   }
 
   nav.globalMenuSp ul {
     margin: 0 auto;
+    margin-top: 60px;
     padding: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex; /* 要素をflexboxに対応させる */
-    align-items: center; /* 縦方向の中央揃え */
-    justify-content: center; /* 横方向の中央揃え */
-    flex-direction: column; /* 子要素の並びを上から下にする（要素の改行に対応） */
-    background: white;
+    width: 100%;
+    background: #BBBBBB;
   }
 
   nav.globalMenuSp ul li {
     list-style-type: none;
-    padding: 6px;
+    padding: 7px;
     width: 100%;
+    transition: .4s all;
   }
   nav.globalMenuSp ul li:last-child {
     padding-bottom: 0;
   }
+  nav.globalMenuSp ul li:hover{
+    /* background :#ddd; */
+  }
 
   nav.globalMenuSp ul li a {
     display: block;
+    color: white;
     padding: 1em 0;
-    /* text-decoration :none; */
+    text-decoration :none;
   }
 
+  /* このクラスを、jQueryで付与・削除する */
+  nav.globalMenuSp.active {
+    opacity: 100;
 
-  .fade-enter {
-    opacity: 0;
   }
-  .fade-enter-active {
-    transition: opacity 0.5s;
+}
+/* 900px以上で表示するもの */
+@media screen and (min-width:950px){
+  .header1 nav .nav-sp{
+    display:none;
   }
-  .fade-enter-to {
-    opacity: 1;
-  }
-  .fade-leave {
-    opacity: 1;
-  }
-  .fade-leave-active {
-    transition: opacity 0.5s;
-  }
-  .fade-leave-to {
-    opacity: 0;
+  .globalMenuSp {
+    display:none;
   }
 }
 
@@ -316,6 +327,102 @@ nav .nav-ol .nav a:hover{
 }
 nav .nav-ol .nav li.reserve a:hover{
 	background: #9c555f;
+}
+
+/*HEADER-NAVI SP*/
+.header1 nav .inner {
+	padding:40px 50px 30px 40px;
+	width: 26px;
+	height: 22px;
+	position:relative;
+	z-index:1001;
+ }
+ .header1 nav .inner a{
+	width: 116px;
+	left:0;
+	top:0;
+  height: 92px;
+  display: block;
+  position: absolute;
+  box-sizing: border-box;
+ }
+.menu-trigger,
+.menu-trigger span {
+  display: inline-block;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+.menu-trigger {
+  position: absolute;
+  width: 26px;
+  height: 22px;
+  z-index: -1;
+}
+.menu-trigger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #222;
+  border-radius: 4px;
+}
+.menu-trigger span:nth-of-type(1) {
+  top: 0;
+}
+.menu-trigger span:nth-of-type(2) {
+	top: 10px;
+	right: 0;
+	left: initial;
+	width: 80%;
+}
+.menu-trigger span:nth-of-type(3) {
+  bottom: 0;
+}
+.menu-trigger.active span:nth-of-type(1) {
+  -webkit-transform: translateY(10px) rotate(-45deg);
+  transform: translateY(10px) rotate(-45deg);
+}
+.menu-trigger.active span:nth-of-type(2) {
+  right: -50%;
+  opacity: 0;
+  -webkit-animation: active-menu-bar02 .8s forwards;
+  animation: active-menu-bar02 .8s forwards;
+}
+@-webkit-keyframes active-menu-bar02 {
+  100% {
+    height: 0;
+  }
+}
+@keyframes active-menu-bar02 {
+  100% {
+    height: 0;
+  }
+}
+.menu-trigger.active span:nth-of-type(3) {
+  -webkit-transform: translateY(-10px) rotate(45deg);
+  transform: translateY(-10px) rotate(45deg);
+}
+
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  transition: opacity 0.5s;
+}
+.fade-enter-to {
+  opacity: 1;
+}
+.fade-leave {
+  opacity: 1;
+}
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter-to {
+  opacity: 0;
 }
 
 </style>

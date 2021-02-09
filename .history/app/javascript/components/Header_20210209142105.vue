@@ -59,12 +59,6 @@ export default {
 
 body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , YuMincho, "游明朝", "Hiragino Mincho ProN", "ヒラギノ明朝 ProN W3", Honoka, Meiryo, "メイリオ", serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 14px; line-height: 1.8; box-sizing: border-box; }
 
-@media screen and (min-width: 950px) {
-  nav.globalMenuSp ul {
-    display: none;
-  }
-}
-
 /* 900px以内で表示するもの */
 @media screen and (max-width: 950px) {
   .header1 {
@@ -136,7 +130,7 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
   .globalMenuSp {
     position: fixed;
     z-index : 2;
-    /* margin-top: 80px; */
+    margin-top: 80px;
     top  : 0;
     left : 0;
     color: #fff;
@@ -154,12 +148,12 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
     align-items: center; /* 縦方向の中央揃え */
     justify-content: center; /* 横方向の中央揃え */
     flex-direction: column; /* 子要素の並びを上から下にする（要素の改行に対応） */
-    background: white;
+    background: #EEEEEE;
   }
 
   nav.globalMenuSp ul li {
     list-style-type: none;
-    padding: 6px;
+    padding: 0;
     width: 100%;
   }
   nav.globalMenuSp ul li:last-child {
