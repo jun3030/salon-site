@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header></Header>
-    <a :href="loginAdmin">スタッフはこちらから!</a>
+    <a v-bind:href="url">スタッフはこちらから!</a>
   </div>
 </template>
 

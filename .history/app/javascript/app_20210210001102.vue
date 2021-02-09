@@ -1,24 +1,22 @@
 <template>
   <div id="app">
     <Header></Header>
-    <a :href="loginAdmin">スタッフはこちらから!</a>
+    <p :href="url">スタッフはこちらから!</p>
   </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue"; //追記
 
-export default {
-  el: '#app',
-  data: function () {
-    return {
-      loginAdmin: "http://localhost:3000/sign_in"
-    }
+new Vue({
+  el: "#app",
+  data: {
+    url: "https://google.com"
   },
   components: {
     Header //追記
   }
-}
+})
 
 </script>
 

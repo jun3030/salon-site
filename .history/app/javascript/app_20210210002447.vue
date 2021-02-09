@@ -1,7 +1,8 @@
 <template>
   <div id="app">
+    <a v-bind:href="url">スタッフはこちらから!</a>
+    <a>{{url}}</a>
     <Header></Header>
-    <a :href="loginAdmin">スタッフはこちらから!</a>
   </div>
 </template>
 
@@ -12,7 +13,7 @@ export default {
   el: '#app',
   data: function () {
     return {
-      loginAdmin: "http://localhost:3000/sign_in"
+      url: "aaa"
     }
   },
   components: {

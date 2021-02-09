@@ -1,7 +1,8 @@
 <template>
-  <div id="app">
+  <div id="appa">
+    <a v-bind:href="url">スタッフはこちらから!</a>
+    <a>{{url}}</a>
     <Header></Header>
-    <a :href="loginAdmin">スタッフはこちらから!</a>
   </div>
 </template>
 
@@ -9,14 +10,14 @@
 import Header from "./components/Header.vue"; //追記
 
 export default {
-  el: '#app',
+  el: '#appa',
   data: function () {
     return {
-      loginAdmin: "http://localhost:3000/sign_in"
-    }
-  },
-  components: {
+      url: "aaa"
+    },
+    components: {
     Header //追記
+    }
   }
 }
 
