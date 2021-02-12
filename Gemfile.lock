@@ -82,6 +82,9 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.9.2)
+      devise (>= 4.7.1)
+    devise-i18n-views (0.3.7)
     erubi (1.10.0)
     ffi (1.14.2)
     font-awesome-rails (4.7.0.6)
@@ -225,7 +228,7 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
-  x86_64-linux
+  ruby
 
 DEPENDENCIES
   bootsnap (>= 1.4.2)
@@ -233,6 +236,8 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
+  devise-i18n
+  devise-i18n-views
   font-awesome-rails
   jbuilder (~> 2.7)
   kaminari (~> 0.17.0)
@@ -259,4 +264,4 @@ RUBY VERSION
    ruby 2.6.5p114
 
 BUNDLED WITH
-   2.2.6
+   1.17.2
