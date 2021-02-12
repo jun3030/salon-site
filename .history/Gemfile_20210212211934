@@ -39,8 +39,7 @@ gem 'rb-readline' # consoleで日本語入力できなかったので導入
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
-gem 'jquery-rails'
-gem 'jquery-turbolinks'
+gem 'bootstrap-sass'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

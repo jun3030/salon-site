@@ -7,18 +7,21 @@
 
     <div class="collapse navbar-collapse" id="Navber">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">ホーム</a>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ログアウト", sign_out_path %>
+        </li>
         <li class="nav-item dropdown">
           <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            設定
+            ドロップダウン
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">ユーザー設定</a></li>
-            <li><a class="dropdown-item" href="#">カレンダー設定</a></li>
-            <li><a class="dropdown-item" href="#">休日設定</a></li>
-            <li><a class="dropdown-item" href="#">スタッフ設定</a></li>
-            <li><a class="dropdown-item" href="#">コース設定</a></li>
+            <li><a class="dropdown-item" href="#">メニュー1</a></li>
+            <li><a class="dropdown-item" href="#">メニュー2</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item"><%= link_to "ログアウト", sign_out_path, class: "logout-button" %></a></li>
+            <li><a class="dropdown-item" href="#">その他</a></li>
           </ul>
         </li>
       </ul>
