@@ -1,0 +1,17 @@
+<%= render 'header' %>
+
+<!-- カレンダーのコンテナ -->
+<div id="calendar"></div>
+
+<script>
+$('#calendar').fullCalendar({
+header: {
+    left: 'month, agendaWeek, agendaDay',
+    center: 'title',
+    right: 'today prev,next'
+},
+
+# デフォルトで表示させたいテーブル（この場合は、週のカレンダーを表示させる）
+defaultView: 'agendaWeek'
+</script>
+
