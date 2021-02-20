@@ -22,6 +22,14 @@ Rails.application.routes.draw do
       end
     end
     resources :calendars, only: [] do
+      resources :store_members do
+        resources :member_logs do
+          collection {post :create_picture}
+        end
+        resources :member_pictures, only: [:create, :destroy]
+      end
+      get "store_member_task_show/:id", to:"store_members#store_member_task_show", as: "store_member_task_show"
+      patch "store_member_task_update/:id", to: "store_members#update_task", as: "member_update_task"
       resources :iregular_holidays
       resources :staffs, only: [] do
         resources :staff_shifts
