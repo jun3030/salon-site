@@ -88,7 +88,6 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
     position: absolute;
     top: 13px;
     right: 70px;
-    cursor: pointer;
   }
   .hamburger span {
     display : block;

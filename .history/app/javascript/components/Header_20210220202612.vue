@@ -79,7 +79,11 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
   .header1 nav .nav-ol {
     display:none;
   }
-
+  .test {
+    cursor: pointer;
+    position: relative;
+    background: #d28a94;
+  }
   /*　ハンバーガーボタン　*/
   .hamburger {
     display : block;
@@ -88,7 +92,6 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
     position: absolute;
     top: 13px;
     right: 70px;
-    cursor: pointer;
   }
   .hamburger span {
     display : block;

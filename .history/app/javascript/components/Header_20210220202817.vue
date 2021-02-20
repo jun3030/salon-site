@@ -85,7 +85,7 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
     display : block;
     z-index : 3;
     text-align: center;
-    position: absolute;
+    position: relative;
     top: 13px;
     right: 70px;
     cursor: pointer;

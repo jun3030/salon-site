@@ -79,16 +79,16 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
   .header1 nav .nav-ol {
     display:none;
   }
-
+  .test {
+    cursor: pointer;
+  }
   /*　ハンバーガーボタン　*/
   .hamburger {
     display : block;
     z-index : 3;
     text-align: center;
-    position: absolute;
-    top: 13px;
-    right: 70px;
-    cursor: pointer;
+
+
   }
   .hamburger span {
     display : block;

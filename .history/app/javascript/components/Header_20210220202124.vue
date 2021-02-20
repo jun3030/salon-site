@@ -20,12 +20,10 @@
         </div>
       </nav>
 
-      <div class="test">
       <div class="hamburger" @click="show = !show" :class="{active: show}">
         <span></span>
         <span></span>
         <span></span>
-      </div>
       </div>
 
       <transition name="fade">
@@ -79,7 +77,6 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
   .header1 nav .nav-ol {
     display:none;
   }
-
   /*　ハンバーガーボタン　*/
   .hamburger {
     display : block;
@@ -89,6 +86,7 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
     top: 13px;
     right: 70px;
     cursor: pointer;
+
   }
   .hamburger span {
     display : block;
