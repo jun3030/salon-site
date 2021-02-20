@@ -30,8 +30,8 @@ export default {
 <style scoped>
 .container {
   width: 100%;
-  padding-right: 25px;
-  padding-left: 25px;
+  padding-right: 23px;
+  padding-left: 23px;
   margin-right: auto;
   margin-left: auto;
 }

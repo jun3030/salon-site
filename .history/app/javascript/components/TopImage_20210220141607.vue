@@ -32,19 +32,19 @@ html,body{
 }
 .slider-outer{
   position: relative;
-  width: 100%;
+  width: 700px;
   height: 500px;
   overflow: hidden;
   margin: 0 auto 20px;
 }
 .slider-inner{
   position: absolute;
-  width: 100%;
-  height: 500px;
+  width: 450px;
+  height: 300px;
 }
 .slide-img {
-  width: 100%;
-  height: 500px;
+  width: 450px;
+  height: 300px;
   object-fit: cover;
 }
 </style>

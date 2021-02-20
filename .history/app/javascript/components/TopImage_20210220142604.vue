@@ -2,7 +2,7 @@
   <div class="topImage">
     <div class="slider-outer">
       <div class="slider-inner" v-for="slide in slides">
-        <img class="slide-img" v-bind:src="slide.img" width="450" height="300">
+        <img class="slide-img" v-bind:src="slide.img" width="1000" height="1000">
       </div>
     </div>
   </div>
@@ -32,18 +32,18 @@ html,body{
 }
 .slider-outer{
   position: relative;
-  width: 100%;
+  width: 700px;
   height: 500px;
   overflow: hidden;
   margin: 0 auto 20px;
 }
 .slider-inner{
   position: absolute;
-  width: 100%;
+  width: 700px;
   height: 500px;
 }
 .slide-img {
-  width: 100%;
+  width: 700px;
   height: 500px;
   object-fit: cover;
 }

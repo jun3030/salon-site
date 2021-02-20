@@ -15,8 +15,8 @@ export default {
     return {
       slides: [
         {img: require('../../assets/images/image_gallery1.jpg')},
-        {img: require('../../assets/images/image_gallery4.jpg')},
-        {img: require('../../assets/images/top_main4.jpg')}
+        {img: require('../../assets/images/image_gallery1.jpg')},
+        {img: require('../../assets/images/image_gallery1.jpg')}
       ],
     }
   }
@@ -24,27 +24,5 @@ export default {
 </script>
 
 <style scoped>
-html,body{
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-.slider-outer{
-  position: relative;
-  width: 100%;
-  height: 500px;
-  overflow: hidden;
-  margin: 0 auto 20px;
-}
-.slider-inner{
-  position: absolute;
-  width: 100%;
-  height: 500px;
-}
-.slide-img {
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-}
+
 </style>
