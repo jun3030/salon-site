@@ -60,14 +60,14 @@ export default {
 
 body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , YuMincho, "游明朝", "Hiragino Mincho ProN", "ヒラギノ明朝 ProN W3", Honoka, Meiryo, "メイリオ", serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 14px; line-height: 1.8; box-sizing: border-box; }
 
-@media screen and (min-width: 950px) {
+
   nav.globalMenuSp ul {
     display: none;
   }
-}
 
-/* 900px以内で適用するもの */
-@media screen and (max-width: 950px) {
+
+/* 900px以内で表示するもの */
+
   .header1 {
     position: fixed;
     background: #fff;
@@ -172,7 +172,8 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
     padding: 1em 0;
     /* text-decoration :none; */
   }
-  /* メニューバーのtransition */
+
+
   .fade-enter {
     opacity: 0;
   }
@@ -191,10 +192,10 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
   .fade-leave-to {
     opacity: 0;
   }
-}
 
-/* 600px以内で適用するもの */
-@media screen and (max-width: 600px) {
+
+/* 600px以内で表示するもの */
+
   .header1 .rose-logo {
     margin: 20px;
   }
@@ -202,7 +203,7 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
     bottom: initial;
     top: 0;
   }
-}
+
 
 .clear{
 	clear:both;

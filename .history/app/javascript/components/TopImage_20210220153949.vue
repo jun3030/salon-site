@@ -2,11 +2,9 @@
   <div class="topImage">
     <div class="imageContainer">
       <div class="slider-outer">
-      <transition name="fade">
         <div class="slider-inner" :key="idx" v-for="(slide, idx) in slides" v-if="current_slide == idx">
           <img class="slide-img" v-bind:src="slide.img">
         </div>
-      </transition>
       </div>
     </div>
   </div>
@@ -28,7 +26,7 @@ export default {
   mounted() {
 　　setInterval(() => {
       this.current_slide = this.current_slide < this.slides.length -1 ? this.current_slide +1 : 0
-    }, 6000)
+    }, 3000)
   }
 }
 </script>
@@ -58,14 +56,6 @@ html,body{
   overflow: hidden;
   margin: 0 auto 20px;
 }
-
-.fade-enter-active, .fade-leave-active {
-  transition: 7s;
-}
-.fade-enter, .fade-leave-to {
-  opacity: 0;
-}
-
 .slider-inner{
   position: absolute;
   width: 100%;

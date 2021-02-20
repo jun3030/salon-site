@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-      <Header></Header>
+    <Header></Header>
+    <div class="container">
       <TopImage></TopImage>
       <a :href="loginAdmin">スタッフはこちらから!</a><br>
+    </div>
   </div>
 </template>
 
@@ -26,13 +28,13 @@ export default {
 </script>
 
 <style scoped>
-.container {
+/* .container {
   width: 100%;
-  padding-right: 10px;
-  padding-left: 10px;
+  padding-right: 25px;
+  padding-left: 25px;
   margin-right: auto;
   margin-left: auto;
-}
+} */
 
 p {
   font-size: 2em;

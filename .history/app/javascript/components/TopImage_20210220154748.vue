@@ -28,7 +28,7 @@ export default {
   mounted() {
 　　setInterval(() => {
       this.current_slide = this.current_slide < this.slides.length -1 ? this.current_slide +1 : 0
-    }, 6000)
+    }, 3000)
   }
 }
 </script>
@@ -64,6 +64,7 @@ html,body{
 }
 .fade-enter, .fade-leave-to {
   opacity: 0;
+  transition: 2s;
 }
 
 .slider-inner{

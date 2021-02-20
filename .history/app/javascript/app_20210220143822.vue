@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-      <Header></Header>
+    <Header></Header>
+
       <TopImage></TopImage>
       <a :href="loginAdmin">スタッフはこちらから!</a><br>
+
   </div>
 </template>
 

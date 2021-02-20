@@ -172,25 +172,6 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
     padding: 1em 0;
     /* text-decoration :none; */
   }
-  /* メニューバーのtransition */
-  .fade-enter {
-    opacity: 0;
-  }
-  .fade-enter-active {
-    transition: opacity 0.5s;
-  }
-  .fade-enter-to {
-    opacity: 1;
-  }
-  .fade-leave {
-    opacity: 1;
-  }
-  .fade-leave-active {
-    transition: opacity 0.5s;
-  }
-  .fade-leave-to {
-    opacity: 0;
-  }
 }
 
 /* 600px以内で適用するもの */

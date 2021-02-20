@@ -66,7 +66,7 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
   }
 }
 
-/* 900px以内で適用するもの */
+/* 900px以内で表示するもの */
 @media screen and (max-width: 950px) {
   .header1 {
     position: fixed;
@@ -172,7 +172,8 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
     padding: 1em 0;
     /* text-decoration :none; */
   }
-  /* メニューバーのtransition */
+
+
   .fade-enter {
     opacity: 0;
   }
@@ -193,7 +194,7 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
   }
 }
 
-/* 600px以内で適用するもの */
+/* 600px以内で表示するもの */
 @media screen and (max-width: 600px) {
   .header1 .rose-logo {
     margin: 20px;
