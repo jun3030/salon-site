@@ -1,3 +1,5 @@
+<%= content_for?(:content) ? yield(:content) : yield %>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,6 +13,11 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-</html>
 
-<%= content_for?(:header) ? yield(:header) : yield %>
+  <body>
+    <%= render 'layouts/notifications' %>
+    <%= render 'layouts/header' %>
+    <%= yield %>
+    <%= debug(params) if Rails.env.development? %>
+  </body>
+</html>

@@ -1,10 +1,12 @@
-<%= render 'layouts/header' %>
+<%= render '../../top/header' %>
 
 <div class="container">
   <br>
   <!-- カレンダーのコンテナ -->
   <div id="calendar"></div>
 </div>
+
+<%= debug(params) if Rails.env.development? %>
 
 <style>
 .container{
