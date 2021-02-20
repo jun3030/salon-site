@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'tasks/index'
+  get 'reserves/new'
   root to: 'home#index'
 
   devise_for :users, :controllers => {
@@ -22,12 +22,6 @@ Rails.application.routes.draw do
     end
   end
 
-  # public権限
-  scope module: :public do
-    get "task_create", to: "tasks#task_create", as: :task_create
-    resources :calendars, only: [] do
-      resources :tasks, except: [:show]
-    end
-  end
+  resources :reserves
 
 end

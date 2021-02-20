@@ -77,18 +77,23 @@ td {
 }
 
 #content-footer {
+    text-align: center;
+    text-decoration: none;
+    font: bold 12px Helvetica, Arial, sans-serif;
+    line-height: 34px;
+    height: 36px;
+    display: block;
     border: 1px solid;
-    border-color: #0c85cf;
-    padding:10px;
-    margin:15px;
-    text-decoration: none;
-    font: bold 12px Helvetica, Arial, sans-serif;
-    text-align:center;
-}
-
-.f-btn1 {
-
-    color: #0c85cf;
-    text-decoration: none;
-    font: bold 12px Helvetica, Arial, sans-serif;
+    background-color: #fff;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-transition: border-color .20s;
+    -moz-transition: border-color .20s;
+    -o-transition: border-color .20s;
+    transition: border-color .20s;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 80px;
 }

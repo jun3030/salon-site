@@ -15,7 +15,7 @@
             <li><a class="nav-catalog"><span class="in"><span class="hr"></span><span>STAFF</span></span></a></li>
             <li><a class="nav-shop"><span class="in"><span class="hr"></span><span>ACCESS</span></span></a></li>
             <li><a class="nav-shop"><span class="in"><span class="hr"></span><span>INFOMARION</span></span></a></li>
-            <li class="reserve"><a :href="reserveLink" class="nav-shop"><span class="in"><span class="hr"></span><span>RESERVE</span></span></a></li>
+            <li class="reserve"><a href="http://localhost:3000/calendars/:calendar_id/tasks" target="_blank" class="nav-shop"><span class="in"><span class="hr"></span><span>RESERVE</span></span></a></li>
           </ul><!-- .nav -->
         </div>
       </nav>
@@ -49,8 +49,7 @@ export default {
   el: '.header1',
   data: function () {
     return {
-      show: true,
-      reserveLink: "http://localhost:3000/calendars/1/tasks"
+      show: true
     }
   }
 }

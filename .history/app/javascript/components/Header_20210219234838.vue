@@ -15,7 +15,7 @@
             <li><a class="nav-catalog"><span class="in"><span class="hr"></span><span>STAFF</span></span></a></li>
             <li><a class="nav-shop"><span class="in"><span class="hr"></span><span>ACCESS</span></span></a></li>
             <li><a class="nav-shop"><span class="in"><span class="hr"></span><span>INFOMARION</span></span></a></li>
-            <li class="reserve"><a :href="reserveLink" class="nav-shop"><span class="in"><span class="hr"></span><span>RESERVE</span></span></a></li>
+            <li class="reserve"><a :href="reserveLink" target="_blank" class="nav-shop"><span class="in"><span class="hr"></span><span>RESERVE</span></span></a></li>
           </ul><!-- .nav -->
         </div>
       </nav>
