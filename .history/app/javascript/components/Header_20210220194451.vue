@@ -76,6 +76,7 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
   .header1 nav .nav-ol {
     display:none;
   }
+
   /*　ハンバーガーボタン　*/
   .hamburger {
     display : block;

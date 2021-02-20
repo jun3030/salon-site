@@ -76,6 +76,13 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
   .header1 nav .nav-ol {
     display:none;
   }
+  .header1 nav .nav-sp{
+    /* メニューを右上に固定 */
+    position: fixed;
+    top: 30px;
+    right: 5px;
+    cursor: pointer;
+  }
   /*　ハンバーガーボタン　*/
   .hamburger {
     display : block;

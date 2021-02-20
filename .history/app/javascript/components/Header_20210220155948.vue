@@ -60,14 +60,22 @@ export default {
 
 body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , YuMincho, "游明朝", "Hiragino Mincho ProN", "ヒラギノ明朝 ProN W3", Honoka, Meiryo, "メイリオ", serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 14px; line-height: 1.8; box-sizing: border-box; }
 
-/* 950px以上で適用するもの */
+.header1 {
+    position: fixed;
+    background: #fff;
+    right : 30px;
+    top   : 60px;
+    width : 42px;
+    height: 42px;
+  }
+
 @media screen and (min-width: 950px) {
   nav.globalMenuSp ul {
     display: none;
   }
 }
 
-/* 950px以内で適用するもの */
+/* 900px以内で適用するもの */
 @media screen and (max-width: 950px) {
   .header1 {
     position: fixed;
@@ -75,6 +83,13 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
   }
   .header1 nav .nav-ol {
     display:none;
+  }
+  .header1 nav .nav-sp{
+    /* メニューを右上に固定 */
+    position: fixed;
+    top: 30px;
+    right: 5px;
+    cursor: pointer;
   }
   /*　ハンバーガーボタン　*/
   .hamburger {

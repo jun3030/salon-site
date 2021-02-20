@@ -18,9 +18,8 @@
             <li class="reserve"><a :href="reserveLink" class="nav-shop"><span class="in"><span class="hr"></span><span>RESERVE</span></span></a></li>
           </ul><!-- .nav -->
         </div>
-      </nav>
 
-      <div class="hamburger" @click="show = !show" :class="{active: show}">
+        <div class="hamburger" @click="show = !show" :class="{active: show}">
         <span></span>
         <span></span>
         <span></span>
@@ -39,6 +38,9 @@
           </ul>
         </nav>
       </transition>
+      </nav>
+
+
       <!-- <button @click="show = !show">切替</button> -->
     </div>
   </div>
@@ -60,14 +62,23 @@ export default {
 
 body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , YuMincho, "游明朝", "Hiragino Mincho ProN", "ヒラギノ明朝 ProN W3", Honoka, Meiryo, "メイリオ", serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 14px; line-height: 1.8; box-sizing: border-box; }
 
-/* 950px以上で適用するもの */
+.header1 {
+  position: fixed;
+  /*基準を画面の左上に*/
+  top: 0;
+  left: 0;
+  /*余白が入らないように*/
+  margin: 0;
+  background: red;
+}
+
 @media screen and (min-width: 950px) {
   nav.globalMenuSp ul {
     display: none;
   }
 }
 
-/* 950px以内で適用するもの */
+/* 900px以内で適用するもの */
 @media screen and (max-width: 950px) {
   .header1 {
     position: fixed;
@@ -76,15 +87,19 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
   .header1 nav .nav-ol {
     display:none;
   }
+  .header1 nav .nav-sp{
+    /* メニューを右上に固定 */
+    position: fixed;
+    top: 30px;
+    right: 5px;
+    cursor: pointer;
+  }
   /*　ハンバーガーボタン　*/
   .hamburger {
     display : block;
     position: fixed;
     z-index : 3;
-    right : 30px;
-    top   : 60px;
-    width : 42px;
-    height: 42px;
+
     cursor: pointer;
     text-align: center;
   }
