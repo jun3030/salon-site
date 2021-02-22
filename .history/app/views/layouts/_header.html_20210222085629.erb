@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/users/1/calendars/1/dashboard"><%= Calendar.find(1).calendar_name %></a>
+    <a class="navbar-brand" href="#">aa</a>
+    <%= link_to Calendar.find(1).calendar_name, user_calendar_dashboard_path(current_user, @calendar) %>
+
     <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
       <span class="navbar-toggler-icon"></span>
     </button>
