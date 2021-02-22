@@ -26,12 +26,22 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootsnap', '>= 1.4.2'
 
 gem 'browser'  # 端末やタブレットで見てるかを判定
 gem 'kaminari', '~> 0.17.0'  # paginate
 gem 'kaminari-bootstrap', '~> 3.0.1'
-
+gem 'rails-i18n' # 日本語化対応
+gem 'font-awesome-rails'
+gem 'public_uid' # ランダムな文字列を生成して、URLにする
+gem 'paranoia', '~> 2.3', '>= 2.3.1' # 論理削除
+gem 'rb-readline' # consoleで日本語入力できなかったので導入
+gem 'devise'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+gem 'dotenv-rails' # 環境変数設定用
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

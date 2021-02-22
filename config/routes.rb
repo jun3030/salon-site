@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :user do
+    get 'staff_shifts/index'
+    get 'staff_shifts/edit'
+  end
   get 'tasks/index'
   root to: 'home#index'
 

@@ -8,10 +8,6 @@ class Staff < ApplicationRecord
   after_create :create_staff_regular_holiday
   after_create :create_staff_shifts
 
-  def get_regular_holidays
-    regular_holidays = calendar.calendar_config.regular_holidays
-  end
-
   def create_staff_regular_holiday
     regular_holidays = get_regular_holidays
     get_regular_holidays.each do |holiday|
