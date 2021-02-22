@@ -61,7 +61,7 @@ class User::StaffsController < User::Base
   end
 
   def staff_params
-    params.require(:staff).permit(:name, :description, :email, :staff_part)
+    params.require(:staff).permit(:name, :description, :email, :staff_part, :staff_image)
   end
 
   def staff

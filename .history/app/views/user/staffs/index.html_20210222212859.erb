@@ -1,7 +1,5 @@
 <%= render 'layouts/header' %>
 
-<h1>test</h1>
-
 <div class="containar">
   <%= link_to "スタッフ新規登録", new_user_calendar_staff_path(current_user, @calendar), class:"btn btn-primary", remote: true %>
   <div id="staff_new_modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
@@ -31,6 +29,16 @@
       </table>
   </div>
 </div>
+
+<script>
+$(function(){
+  $(".btn1").on("click", function(){
+    //listBの高さを取得
+    alert("アラートを表示します。")
+  });
+});
+</script>
+
 
 <style>
 .containar {
