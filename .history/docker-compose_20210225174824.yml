@@ -22,7 +22,6 @@ services:
     environment:
       WEBPACKER_DEV_SERVER_HOST: webpacker
       WEBPACKER_DEV_SERVER_PUBLIC: 0.0.0.0:3035
-      TZ: Asia/Tokyo
     depends_on:
       - db
     tty: true

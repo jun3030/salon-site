@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_09_153919) do
+ActiveRecord::Schema.define(version: 2021_02_24_134156) do
 
   create_table "calendar_configs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "capacity", default: 1
@@ -82,6 +82,16 @@ ActiveRecord::Schema.define(version: 2021_02_09_153919) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["regular_holiday_id"], name: "index_staff_regular_holidays_on_regular_holiday_id"
     t.index ["staff_id"], name: "index_staff_regular_holidays_on_staff_id"
+  end
+
+  create_table "staff_rest_times", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.datetime "rest_start_time"
+    t.datetime "rest_end_time"
+    t.boolean "is_default", default: false
+    t.bigint "staff_shift_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["staff_shift_id"], name: "index_staff_rest_times_on_staff_shift_id"
   end
 
   create_table "staff_shifts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -168,6 +178,7 @@ ActiveRecord::Schema.define(version: 2021_02_09_153919) do
   add_foreign_key "regular_holidays", "calendar_configs"
   add_foreign_key "staff_regular_holidays", "regular_holidays"
   add_foreign_key "staff_regular_holidays", "staffs"
+  add_foreign_key "staff_rest_times", "staff_shifts"
   add_foreign_key "staff_shifts", "staffs"
   add_foreign_key "staffs", "calendars"
   add_foreign_key "task_courses", "calendars"

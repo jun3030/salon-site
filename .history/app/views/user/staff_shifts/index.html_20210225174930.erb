@@ -25,13 +25,15 @@
       <tr>
         <td><%= l shift.work_date, format: :long %></td>
         <td><%= l(shift.work_start_time, format: :very_short)%></td>
-        <td><%= l(shift.work_end_time, format: :very_short) %></td>
+        <td><%= l(shift.work_end_time) %></td>
         <td>
           <%#= link_to 'Show', user_staff_shift %>
           <%= link_to 'Edit', edit_calendar_staff_staff_shift_path(@calendar, @staff, shift), remote: true %>
         </td>
         <div id="staff_shift_modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
       </tr>
+
+      <%= shift.work_end_time %>
     <% end %>
   </tbody>
 </table>
