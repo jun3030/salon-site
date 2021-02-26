@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 2021_02_24_134156) do
     t.string "phone", default: "09012345678"
     t.string "public_uid"
     t.integer "display_interval_time", default: 10
+    t.string "picture", comment: "予約完了画面に表示する任意の画像"
+    t.text "message", comment: "予約完了画面に表示する任意のメッセージ"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["public_uid"], name: "index_calendars_on_public_uid", unique: true
@@ -110,7 +112,7 @@ ActiveRecord::Schema.define(version: 2021_02_24_134156) do
     t.string "email"
     t.string "description"
     t.string "staff_part"
-    t.string "staff_image"
+    t.string "picture"
     t.text "google_api_token"
     t.bigint "calendar_id", null: false
     t.datetime "created_at", precision: 6, null: false
