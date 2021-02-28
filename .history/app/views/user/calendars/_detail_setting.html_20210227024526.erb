@@ -11,7 +11,7 @@
 <div class="form-group">
   <label for="inputEmail" class="col-sm-4 col-form-label">
     キャンセル可能時間設定
-    <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="お客様が、web上で予約時間の何時間前までキャンセルを許容するかの設定。"></i>
+    <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="お客様が、web上で予約時間の何時間前までキャンセルを許容するかの設定。"></i>
   </label>
   <div class="col-sm-8">
     <%# <input type="email" class="form-control" id="inputEmail" placeholder="Eメール"> %>
@@ -21,7 +21,7 @@
 <div class="form-group">
   <label for="inputEmail" class="col-sm-4 col-form-label">
     予約時、お客様へのメッセージ
-    <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="お客様への予約通知に任意のメッセージを入れることができます。（URLを挿入することができますが、LINE通知ではリンクとして機能しません。）"></i>
+    <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="お客様への予約通知に任意のメッセージを入れることができます。（URLを挿入することができますが、LINE通知ではリンクとして機能しません。）"></i>
   </label>
   <div class="col-sm-8">
     <%= f.text_area :booking_message, class:"form-control" %>
@@ -31,7 +31,7 @@
 <hr>
   <label for="inputEmail" class="col-sm-4 col-form-label">
     <h4 class="inline-block">店舗のカレンダー設定</h4>
-    <h5 data-placement="top" title="店舗全体の設定です。"  data-toggle="tooltip"><span class="badge badge-secondary">これは何の設定？<i class="fa fa-question-circle"></i></span></h5>
+    <h5 data-placement="top" title="店舗全体の設定です。"  data-toggle="tooltip"><span class="badge badge-secondary">これは何の設定？<i class="fas fa-info-circle"></i></span></h5>
     <p>
       <%= check_box_tag :all_staff_update, true, false %>全てのスタッフに反映させるにはチェックを入れてください。
     </p>
