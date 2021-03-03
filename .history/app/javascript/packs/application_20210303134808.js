@@ -4,13 +4,13 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-// require("turbolinks").start()
+require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require('jquery')
 // require("sample.js")  // 個別に読み込みたいjsファイルを追加していく
 
-window.onload = function() {
+function calendar() {
   var calendarEl = document.getElementById('calendar');
 
   var calendar = new Calendar(calendarEl, {
@@ -42,7 +42,7 @@ window.onload = function() {
     }
   });
   calendar.render();
-};
+}
 
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
