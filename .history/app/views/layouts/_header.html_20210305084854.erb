@@ -17,6 +17,7 @@
             <li><a class="dropdown-item"><%= link_to "休日設定", calendar_iregular_holidays_path(1), class:"dropdown-item load_btn" %></a></li>
             <li><a class="dropdown-item"><%= link_to "スタッフ設定", user_calendar_staffs_path(current_user, 1), class: "dropdown-item" %></a></li>
             <li><a class="dropdown-item"><%= link_to "コース設定", user_calendar_task_courses_path(current_user, @calendar), class: "dropdown-item" %></a></li>
+            <li><a class="dropdown-item" href="#">コース設定</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item"><%= link_to "ログアウト", sign_out_path, class: "dropdown-item" %></a></li>
           </ul>

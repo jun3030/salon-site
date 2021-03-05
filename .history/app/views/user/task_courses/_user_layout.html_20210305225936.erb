@@ -1,0 +1,16 @@
+<div class="container">
+  <%= render 'layouts/flash_messages' %>
+  <%= yield %>
+  <%= debug(params) if Rails.env.development? %>
+</div>
+
+<style>
+.containar {
+  width: 100%;
+  padding-right: 60px;
+  padding-left: 60px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top:30px;
+}
+</style>
