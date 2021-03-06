@@ -66,27 +66,27 @@ if (document.getElementById("calendar") != null) {
     events: [
       { // this object will be "parsed" into an Event Object
         title: 'The Title', // a property!
-        start: '2021-03-01', // a property!
-        end: '2021-03-02' // a property! ** see important note below about 'end' **
+        start: '2018-09-01', // a property!
+        end: '2018-09-02' // a property! ** see important note below about 'end' **
       }
     ],
     eventClick: function(info) {
       alert('Event: ' + info.event.title);
     },
     selectable: true,
-    // dayClick: function(date) {
-    //   alert('clicked ' + date.format());
-    //   get("iregular_holidays/new/?date=#{date.format()}");
-    // },
-    // eventClick: function(eventObj) {
-    //   get("iregular_holidays/#{eventObj.id}/edit");
-    // },
-    // defaultView: 'month',
-    // validRange: {
-    //   start: json_data["start_date"],
-    //   end: json_data["end_date"]
-    // },
-    // events: json_data["holidays"]
+    dayClick: function(date) {
+      alert('clicked ' + date.format());
+      get("iregular_holidays/new/?date=#{date.format()}");
+    },
+    eventClick: function(eventObj) {
+      get("iregular_holidays/#{eventObj.id}/edit");
+    },
+    defaultView: 'month',
+    validRange: {
+      start: json_data["start_date"],
+      end: json_data["end_date"]
+    },
+
 
   });
   calendar.render();

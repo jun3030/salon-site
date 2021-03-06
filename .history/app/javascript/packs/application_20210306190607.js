@@ -71,7 +71,8 @@ if (document.getElementById("calendar") != null) {
       }
     ],
     eventClick: function(info) {
-      alert('Event: ' + info.event.title);
+
+      alert('clicked ' + date.format());
     },
     selectable: true,
     // dayClick: function(date) {
