@@ -42,7 +42,14 @@ window.onload = function() {
     }
   });
   calendar.render();
-}
+};
+
+window.onload = function() {
+  var calendarEl = document.getElementById('#holiday_calendar');
+
+
+};
+
 
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';

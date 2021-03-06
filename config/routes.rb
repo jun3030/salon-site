@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   namespace :user do
+    get 'iregular_holidays/index'
+  end
+  namespace :user do
     get 'task_courses/index'
   end
   namespace :user do

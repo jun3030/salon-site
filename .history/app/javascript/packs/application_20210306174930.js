@@ -12,6 +12,7 @@ require("sample.js")  // 個別に読み込みたいjsファイルを追加し�
 
 window.onload = function() {
   var calendarEl = document.getElementById('calendar');
+  var holidayCalendarEl = document.getElementById('holiday_calendar');
 
   var calendar = new Calendar(calendarEl, {
     plugins: [ dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin ],
@@ -42,7 +43,7 @@ window.onload = function() {
     }
   });
   calendar.render();
-}
+};
 
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';

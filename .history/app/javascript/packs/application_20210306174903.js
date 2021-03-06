@@ -42,7 +42,7 @@ window.onload = function() {
     }
   });
   calendar.render();
-}
+};
 
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
