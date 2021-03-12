@@ -5,16 +5,17 @@
 		</div>
     <div class="head-area">
 		  <div class="head-content">
-				<h2 class="store-name"><%= Calendar.first.calendar_name %></h2>
+				<h2 class="store-name">TABATA</h2>
 				<p class="store-data">
-					<%= Calendar.first.address %><br>
-					<%= Calendar.first.phone %>
+					京都府南丹市<br>
+					090-xxxx-xxxx
 				</p>
 			</div>
 		</div>
 
 		<div class="component">
-    <%= render "select_area_sp" %>
+<%= render "select_area_sp" %>
+
 			<div class="sticky-wrap">
 				<table class="sticky-enabled" style="margin: 0px;">
 					<thead>
@@ -85,7 +86,7 @@
 													<!--  勤務時間内かどうか -->
 													<% elsif valid_schedule?(ok_term, not_term, @staffs_google_tasks, start_time, end_time) == true %>
 														<tr>
-															<td class="reserveDate maru link_div" data-href="<%= new_calendar_task_path(@calendar, start_time: time(Time.zone.parse("#{day}"), time), course_id: @task_course.id, staff_id: params[:staff_id]) %>">
+															<td class="reserveDate maru">
 																<a href="javascript:void(0);" class="reserveDate maru">◎</a>
 															</td>
 														</tr>
@@ -113,10 +114,6 @@
 	</div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
 <style>
 .component {
   width: 100%;
@@ -127,39 +124,3 @@
   margin-left: auto;
 }
 </style>
-
-<script>
-  // Chrome76でも見分けられるmishraさんの方法
-  async function start() {
-      if ("storage" in navigator && "estimate" in navigator.storage) {
-          const { usage, quota } = await navigator.storage.estimate();
-          console.log(`Using ${usage} out of ${quota} bytes.`);
-
-          if (quota < 120000000) {
-              console.log("新調査方法の判定：シークレットモード");
-              alert("ブラウザのシークレットモードを解除してください。正常に予約ができない場合があります。");
-          } else {
-              console.log("新調査方法の判定：通常モード");
-          }
-      } else {
-          console.log("Can not detect");
-      }
-  }
-  start();
-
-  if (window.openDatabase) {
-    try {
-        localStorage.test = 'hoge';
-
-    } catch(e) {
-        alert("ブラウザのシークレットモードを解除してください。正常に予約ができない場合があります。");
-        window.location.href = "<%= calendar_tasks_url(@calendar) %>"
-    }
-    }
-
-  $(function(){
-  $('.link_div').on('click', function(){
-    location.href = $(this).data('href');
-  });
-});
-</script>

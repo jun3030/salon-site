@@ -5,10 +5,10 @@
 		</div>
     <div class="head-area">
 		  <div class="head-content">
-				<h2 class="store-name"><%= Calendar.first.calendar_name %></h2>
+				<h2 class="store-name"><%= Calendar.store_name %></h2>
 				<p class="store-data">
-					<%= Calendar.first.address %><br>
-					<%= Calendar.first.phone %>
+					京都府南丹市<br>
+					090-xxxx-xxxx
 				</p>
 			</div>
 		</div>
@@ -85,7 +85,7 @@
 													<!--  勤務時間内かどうか -->
 													<% elsif valid_schedule?(ok_term, not_term, @staffs_google_tasks, start_time, end_time) == true %>
 														<tr>
-															<td class="reserveDate maru link_div" data-href="<%= new_calendar_task_path(@calendar, start_time: time(Time.zone.parse("#{day}"), time), course_id: @task_course.id, staff_id: params[:staff_id]) %>">
+															<td class="reserveDate maru">
 																<a href="javascript:void(0);" class="reserveDate maru">◎</a>
 															</td>
 														</tr>

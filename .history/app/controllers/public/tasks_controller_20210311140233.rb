@@ -41,7 +41,7 @@ class Public::TasksController < Public::Base
   end
 
   def new
-    @calendar = Calendar.find_by(id: params[:calendar_id])
+    @calendar = Calendar.find_by(public_uid: params[:calendar_id])
     @user = @calendar.user
     @staff = Staff.find_by(id: params[:staff_id])
     @task_course = TaskCourse.find(params[:course_id])

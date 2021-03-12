@@ -45,7 +45,7 @@ class Public::TasksController < Public::Base
     @user = @calendar.user
     @staff = Staff.find_by(id: params[:staff_id])
     @task_course = TaskCourse.find(params[:course_id])
-    @store_member = StoreMember.new
+    # @store_member = StoreMember.new
     @task = @store_member.tasks.build(start_time: params[:start_time],
                                       end_time: end_time(params[:start_time], @task_course),
                                       staff_id: @staff&.id,

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_24_134156) do
+ActiveRecord::Schema.define(version: 2021_03_12_005925) do
 
   create_table "calendar_configs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "capacity", default: 1
@@ -42,9 +42,11 @@ ActiveRecord::Schema.define(version: 2021_02_24_134156) do
     t.integer "display_interval_time", default: 10
     t.string "picture", comment: "予約完了画面に表示する任意の画像"
     t.text "message", comment: "予約完了画面に表示する任意のメッセージ"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["public_uid"], name: "index_calendars_on_public_uid", unique: true
+    t.index ["user_id"], name: "index_calendars_on_user_id"
   end
 
   create_table "iregular_holidays", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -120,6 +122,22 @@ ActiveRecord::Schema.define(version: 2021_02_24_134156) do
     t.index ["calendar_id"], name: "index_staffs_on_calendar_id"
   end
 
+  create_table "store_members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.string "gender"
+    t.integer "age"
+    t.string "email"
+    t.string "phone"
+    t.text "memo"
+    t.boolean "is_allow_notice"
+    t.string "line_user_id"
+    t.string "address"
+    t.bigint "calendar_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["calendar_id"], name: "index_store_members_on_calendar_id"
+  end
+
   create_table "task_courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -183,6 +201,7 @@ ActiveRecord::Schema.define(version: 2021_02_24_134156) do
   add_foreign_key "staff_rest_times", "staff_shifts"
   add_foreign_key "staff_shifts", "staffs"
   add_foreign_key "staffs", "calendars"
+  add_foreign_key "store_members", "calendars"
   add_foreign_key "task_courses", "calendars"
   add_foreign_key "tasks", "calendars"
   add_foreign_key "tasks", "staffs"
