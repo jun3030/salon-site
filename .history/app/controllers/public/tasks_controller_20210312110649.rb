@@ -1,0 +1,125 @@
+class Public::TasksController < Public::Base
+
+  def index
+    @staffs = Staff.all
+    # @staffs = if params[:staff_id]
+    #             Staff.where(id: params[:staff_id])
+    #           else
+    #             @calendar.staffs.order(:id)
+    #           end
+    # @task_course = if params[:course_id]
+    #                  TaskCourse.find(params[:course_id])
+    #                else
+    #                  @calendar.task_courses.first
+    #                end
+
+    @calendar = Calendar.first
+    @calendar_config = @calendar.calendar_config
+
+    @task_course = @calendar.task_courses.first
+    # @task_course = if params[:course_id]
+    #                  TaskCourse.find(params[:course_id])
+    #                else
+    #                  @calendar.task_courses.first
+    #                end
+
+    # お客様の予約カレンダーで現時刻から、何時間後の予約から許容するかの設定
+    @display_time = @calendar.display_time
+    # 一つ一つの予約の間の準備時間
+    @interval_time = @calendar_config.interval_time
+    # 予約カレンダーの表示間隔
+    @times = time_interval(@calendar)
+    # 予約カレンダーの表示(start_date(何日後から表示するか)〜display_week_term(何週間後)取得後、1ページ７日分で表示)
+    one_month = [*Date.current.days_since(@calendar.start_date)..Date.current.weeks_since(@calendar.display_week_term)]
+    @month = Kaminari.paginate_array(one_month).page(params[:page]).per(@calendar.end_date)
+    # 店舗の臨時休業日を取得
+    @iregular_holydays = @calendar.iregular_holidays(@month)
+    # 店舗の定休日を取得
+    @regular_holiday_days = @calendar.regular_holiday_days
+    @dw = %w[日 月 火 水 木 金 土]
+    @staffs_google_tasks = StaffsScheduleOutputer.public_staff_private(@staffs, @month)
+  end
+
+  def new
+    @calendar = Calendar.find_by(id: params[:calendar_id])
+    @user = @calendar.user
+    @staff = Staff.find_by(id: params[:staff_id])
+    @task_course = TaskCourse.find(params[:course_id])
+    @store_member = StoreMember.new
+    @task = @store_member.tasks.build(start_time: params[:start_time],
+                                      end_time: end_time(params[:start_time], @task_course),
+                                      staff_id: @staff&.id,
+                                      task_course_id: @task_course.id,
+                                      calendar_id: @calendar.id)
+    any_staff?(@task)
+    rescue RuntimeError => e
+      if e.message == "shiftが存在しません。"
+        flash[:danger] = "指定された日付の予約はできません。"
+        redirect_to calendar_tasks_url(@calendar)
+      end
+  end
+
+  def task_create
+    if @task = Task.only_invalid.find_by!(state: params[:state])
+      begin
+        @task.update(is_valid_task: true)
+        # アクセストークンを取得
+        redirect_uri = URI.escape(processing_url)
+        @calendar = @task.calendar
+        @task_course = @task.task_course
+        if params[:code]
+          get_access_token = LineAccess.get_access_token(CHANNEL_ID, CHANNEL_SECRET, params[:code], redirect_uri)
+          # アクセストークンを使用して、BOTとお客との友達関係を取得
+          friend_response = LineAccess.get_friend_relation(get_access_token['access_token'])
+          # アクセストークンのIDトークンを"gem jwt"を利用してデコード
+          line_user_id = LineAccess.decode_response(get_access_token)
+          if friend_response['friendFlag'] == true
+            @task.store_member.update(line_user_id: line_user_id)
+            flash[:success] = '予約が完了しました。'
+          else # ラインログインでボットと友達にならなかった時の処理
+            flash[:success] = '予約が完了しました。'
+            flash[:danger] = 'LINE連携はできませんでした。メールで通知をしました。'
+          end
+          task_notification(@task)
+          redirect_to calendar_task_complete_url(@calendar, @task)
+          return
+        else # LINE連携がうまくいかなかった時（キャンセルした時）
+          flash[:success] = '予約が完了しました。'
+          flash[:danger] = 'LINE連携はできませんでした。メールで通知をしました。'
+          redirect_to calendar_task_complete_url(@calendar, @task)
+          return
+        end
+      rescue JWT::DecodeError
+        puts 'JWT::DecodeError'
+        flash[:success] = '予約が完了しました。'
+        redirect_to calendar_task_complete_url(@calendar, @task)
+      end
+    else
+      flash.now[:danger] = 'LINE連携が正常に完了しませんでした。予約を最初からやり直してください。'
+      render :error_line, layout: 'plane'
+      nil
+    end
+  end
+
+  private
+
+  # 予約カレンダーの表示間隔
+  def time_interval(calendar)
+    start_time = calendar.start_time
+    end_time = calendar.end_time
+    interval_time = calendar.display_interval_time
+    array = []
+    1.step do |i|
+      array.push(Time.parse("#{start_time}:00") + interval_time.minutes * (i - 1))
+      break if Time.parse("#{start_time}:00") + interval_time.minutes * (i - 1) == Time.parse("#{end_time}:00")
+    end
+    array
+  end
+
+  def any_staff?(task)
+    unless task.any_staff_available?
+      flash[:danger] = 'この時間はすでに予約が入っております。'
+      redirect_to calendar_tasks_url(task.calendar, staff_id: task.staff&.id, course_id: task.task_course&.id)
+    end
+  end
+end

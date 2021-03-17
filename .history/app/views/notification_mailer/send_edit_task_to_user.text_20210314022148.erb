@@ -1,0 +1,27 @@
+<%= @task.store_member.name %>様
+ご予約内容を変更しました。
+ご確認ください。
+
+お名前：<%= @task.store_member.name %>
+
+予約日時　：<%= @task.start_time.strftime("%Y年%-m月%-d日 %H:%M") %>~<%= @task.end_time.strftime("%H:%M") %>
+
+コース名：<%= @task.task_course.title %>
+
+コース料金：<%= @task.task_course.display_charge %>
+
+担当者：<%= @task.staff_name %>
+
+ご要望：<%= @task.request %>
+
+※キャンセルをご希望のお方は以下のURLよりキャンセルしてください。
+<%= calendar_task_cancel_url(@calendar, @task) %>
+
+==========================================================
+<%= @calendar.calendar_name %>
+<% if @calendar.phone %>
+電話番号：<%= @calendar.phone %>
+<% end %>
+<% if @calendar.address %>
+住所: <%= @calendar.address %>
+<% end %>

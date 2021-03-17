@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/users/1/calendars/1/dashboard"><%= Calendar.find(1).calendar_name %></a>
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="Navber">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            設定
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item"><%= link_to "ユーザー設定", edit_user_registration_path, class: "dropdown-item" %></a></li>
+            <li><a class="dropdown-item"><%= link_to "カレンダー設定", user_calendar_path(current_user, 1), class:"dropdown-item" %></a></li>
+            <li><a class="dropdown-item"><%= link_to "休日設定", calendar_iregular_holidays_path(1), class:"dropdown-item load_btn" %></a></li>
+            <li><a class="dropdown-item"><%= link_to "スタッフ設定", user_calendar_staffs_path(current_user, 1), class: "dropdown-item" %></a></li>
+            <li><a class="dropdown-item"><%= link_to "コース設定", user_calendar_task_courses_path(current_user, @calendar), class: "dropdown-item" %></a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item"><%= link_to "ログアウト", sign_out_path, class: "dropdown-item" %></a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown show">
+          <a class="nav-link dropdown-toggle" href="#" id="shiftDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-intro="オーバーレイで表示するテキスト" data-position="right">
+            <i class="fas fa-globe"></i>非公開中
+          </a>
+          <div class="dropdown-menu show" aria-labelledby="shiftDropdown">
+              <a class="dropdown-item load_btn" rel="nofollow" data-method="patch" href="/users/2/calendar/fe525971/update_is_released?commit=%E5%85%AC%E9%96%8B%E3%81%AB%E3%81%99%E3%82%8B">カレンダーを公開する</a>
+          </div>
+        </li>
+
+
+
+
+
+
+        <%# カレンダーリリース状況 %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="shiftDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-intro="オーバーレイで表示するテキスト" data-position="right">
+            <%= @calendar.display_release %>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="shiftDropdown">
+            <% if @calendar.is_released %>
+              <%= link_to "非公開にする", user_calendar_update_is_released_path(current_user, @calendar, commit:"非公開にする"), class:"dropdown-item load_btn", method: :patch %>
+            <% else %>
+              <%= link_to "カレンダーを公開する", user_calendar_update_is_released_path(current_user, @calendar, commit:"公開にする"), class:"dropdown-item load_btn", method: :patch %>
+            <% end %>
+          </div>
+        </li>
+
+
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+

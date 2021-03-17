@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_12_005925) do
+ActiveRecord::Schema.define(version: 2021_03_12_124331) do
 
   create_table "calendar_configs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "capacity", default: 1
@@ -116,9 +116,13 @@ ActiveRecord::Schema.define(version: 2021_03_12_005925) do
     t.string "staff_part"
     t.string "picture"
     t.text "google_api_token"
+    t.string "line_user_id"
     t.bigint "calendar_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "client_secret"
+    t.text "client_id"
+    t.string "google_calendar_id"
     t.index ["calendar_id"], name: "index_staffs_on_calendar_id"
   end
 
@@ -170,8 +174,10 @@ ActiveRecord::Schema.define(version: 2021_03_12_005925) do
     t.bigint "staff_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "store_member_id"
     t.index ["calendar_id"], name: "index_tasks_on_calendar_id"
     t.index ["staff_id"], name: "index_tasks_on_staff_id"
+    t.index ["store_member_id"], name: "index_tasks_on_store_member_id"
     t.index ["task_course_id"], name: "index_tasks_on_task_course_id"
   end
 
@@ -205,5 +211,6 @@ ActiveRecord::Schema.define(version: 2021_03_12_005925) do
   add_foreign_key "task_courses", "calendars"
   add_foreign_key "tasks", "calendars"
   add_foreign_key "tasks", "staffs"
+  add_foreign_key "tasks", "store_members"
   add_foreign_key "tasks", "task_courses"
 end
