@@ -28,18 +28,17 @@ if (document.getElementById("calendar") != null) {
         day: '日',
         today: '今日',
         prev: '前',
-        next: '次'
+        next: /events.json
     },
     allDaySlot: false,
-    // events: [
-    //   { // this object will be "parsed" into an Event Object
-    //     title: 'The Title', // a property!
-    //     start: '2021-03-01', // a property!
-    //     end: '2021-03-02' // a property! ** see important note below about 'end' **
-    //   },
-    //   {title:"山田",start:"2021-03-24 09:20:00",end:"2021-03-24 10:20:00"}
-    // ],
-    events: '/users/1/calendars/1/dashboard.json',
+    events: [
+      { // this object will be "parsed" into an Event Object
+        title: 'The Title', // a property!
+        start: '2018-09-01', // a property!
+        end: '2018-09-02' // a property! ** see important note below about 'end' **
+      },
+      {title:"山田",start:"2021-03-24 09:20:00",end:"2021-03-24 10:20:00"}
+    ],
     eventClick: function(info) {
       alert('Event: ' + info.event.title);
     }

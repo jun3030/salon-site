@@ -39,7 +39,7 @@ if (document.getElementById("calendar") != null) {
     //   },
     //   {title:"山田",start:"2021-03-24 09:20:00",end:"2021-03-24 10:20:00"}
     // ],
-    events: '/users/1/calendars/1/dashboard.json',
+    events: '/dashboard.json',
     eventClick: function(info) {
       alert('Event: ' + info.event.title);
     }

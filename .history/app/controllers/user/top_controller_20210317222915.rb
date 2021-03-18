@@ -3,6 +3,6 @@ class User::TopController < User::Base
   before_action :calendar
 
   def dashboard
-    @tasks = Task.all
+    @store_members = StoreMember.all
   end
 end

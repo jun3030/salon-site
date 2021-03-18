@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   end
   get 'tasks/index'
   root to: 'home#index'
+  get "builder", to: "top#builder"
 
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get "builder", to: "top#builder"
+
   namespace :user do
     get 'store_members/index'
     get 'store_members/show'
