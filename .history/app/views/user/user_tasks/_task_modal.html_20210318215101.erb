@@ -1,0 +1,120 @@
+
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= task.store_member.name %>様:<%= l task.start_time, format: :middle %>~</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div><!-- /.modal-header -->
+      <%= form_for task, url: user_calendar_user_task_path(current_user, task.calendar, task) do |f| %>
+      <div class="modal-body">
+        <% member = task.store_member %>
+          <table class="table table-sm">
+            <tbody>
+              <%= fields_for member do |f| %>
+                <tr>
+                  <th scope="row">名前</th>
+                  <td><%= link_to member.name, calendar_store_member_path(member.calendar, member), class:"btn btn-info btn-sm" %>  <%= link_to "次回予約をする", user_calendar_dashboard_path(current_user, task.calendar, staff_id: task.staff_id, store_member_id: task.store_member.id)%></td>
+                </tr>
+                <tr>
+                  <th scope="row">メールアドレス</th>
+                  <td><%= member.email %></td>
+                </tr>
+                <tr>
+                  <th scope="row">電話番号</th>
+                  <td><%= member.phone %></td>
+                </tr>
+              <% end %>
+
+                <tr>
+                  <th scope="row">予約開始時間</th>
+                  <td>
+                    <p class="disabled_form"><%= l(task.start_time, format: :very_short) %></p>
+                    <P class="display_none">
+                      <%= f.datetime_select(
+                          :start_time,
+                          # discard_day: true,
+                          # discard_month: true,
+                          # discard_year: true,
+                          ) %>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">予約終了時間</th>
+                  <td>
+                    <p class="disabled_form"><%= l(task.end_time, format: :very_short) %></p>
+                    <P class="display_none">
+                      <%= f.datetime_select(
+                          :end_time,
+                          # discard_day: true,
+                          # discard_month: true,
+                          # discard_year: true,
+                          ) %>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">予約コース</th>
+                  <td>
+                    <p class="disabled_form"><%= task.task_course.title %></p>
+                    <P class="display_none">
+                      <%= f.collection_select :task_course_id, task.calendar.task_courses, :id, :title, {prompt: ""},  class: "form-control form_style display_none", required: "required" %>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">担当者名</th>
+                  <td>
+                    <p class="disabled_form"><%= @task.staff_name %></p>
+                    <P class="display_none">
+                      <%= f.collection_select :staff_id, task.calendar.staffs, :id, :name, {prompt: ""},  class: "form-control form_style display_none", required: "required" %>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">ご要望</th>
+                  <td>
+                    <%= simple_format(task.request, class: 'disabled_form') %>
+                    <P class="display_none">
+                      <%= f.text_area :request, class: "form-control form_style display_none" %>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">メモ</th>
+                  <td>
+                    <%= simple_format(task.memo, class: 'disabled_form') %>
+                    <P class="display_none">
+                      <%= f.text_area :memo, class: "form-control form_style display_none" %>
+                    </p>
+                  </td>
+                </tr>
+                <tr class="display_none">
+                  <th scope="row">お客様に通知する場合はチェックを入れてください</th>
+                  <td>
+                      <%= check_box_tag :is_send_notice_to_member %>
+                  </td>
+                </tr>
+            </tbody>
+          </table>
+      </div><!-- /.modal-body -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" id="start_edit_btn">編集する</button>
+        <%= link_to "キャンセル", user_calendar_user_task_path(current_user, task.calendar, task), method: :delete, class:"btn btn-outline-danger btn-sm display_none", data: {confirm: "キャンセルを行うとお客様に通知が行きます。"} %>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" >閉じる</button>
+        <%= f.submit "更新", class:"btn btn-primary display_none", data: {confirm: "内容を更新しますか？"} %>
+      </div><!-- /.modal-footer -->
+      <% end %>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+
+<script>
+  // ボタンを押して、編集が可能になる
+  $('#start_edit_btn').on('click', function() {
+    $(".disabled_form").css("display","none")
+    $(".display_none").removeClass("display_none");
+    $(this).remove();
+  });
+</script>

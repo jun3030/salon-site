@@ -31,17 +31,21 @@ if (document.getElementById("calendar") != null) {
         next: '次'
     },
     allDaySlot: false,
+    // events: [
+    //   { // this object will be "parsed" into an Event Object
+    //     title: 'The Title', // a property!
+    //     start: '2021-03-01', // a property!
+    //     end: '2021-03-02' // a property! ** see important note below about 'end' **
+    //   },
+    //   {title:"山田",start:"2021-03-24 09:20:00",end:"2021-03-24 10:20:00"}
+    // ],
     events: '/users/1/calendars/1/dashboard.json',
-    // eventClick: function(calEvent, jsEvent, view) {
-    //   // ***** 今回はここにクリックイベントを追加 *****
-    //   $('#modalTitle').html(calEvent.title); // モーダルのタイトルをセット
-    //   $('#modalBody').html(calEvent.description); // モーダルの本文をセット
-    //   $('#calendarModal').modal(); // モーダル着火
-    // },
-    selectable: true,
-    dateClick: function(info) {
-      $('#calendarModal').modal("show"); // モーダル着火
+    eventClick: function(info) {
+      alert('Event: ' + info.event.title);
     },
+    dateClick: function(info) {
+      $('#calendarModal').modal(); // モーダル着火
+    }
   });
   calendar.render();
 } else {

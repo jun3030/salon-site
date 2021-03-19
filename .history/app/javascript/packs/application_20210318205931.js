@@ -40,8 +40,8 @@ if (document.getElementById("calendar") != null) {
     // },
     selectable: true,
     dateClick: function(info) {
-      $('#calendarModal').modal("show"); // モーダル着火
-    },
+      $('#calendarModal').modal(); // モーダル着火
+    }
   });
   calendar.render();
 } else {

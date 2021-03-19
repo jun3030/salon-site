@@ -42,6 +42,11 @@ if (document.getElementById("calendar") != null) {
     dateClick: function(info) {
       $('#calendarModal').modal("show"); // モーダル着火
     },
+    // select: function(start, end) {
+    //   // Display the modal.
+    //   // You could fill in the start and end fields based on the parameters
+    //   $(".modal").modal("show");
+    // },
   });
   calendar.render();
 } else {

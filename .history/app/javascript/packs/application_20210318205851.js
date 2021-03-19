@@ -38,10 +38,9 @@ if (document.getElementById("calendar") != null) {
     //   $('#modalBody').html(calEvent.description); // モーダルの本文をセット
     //   $('#calendarModal').modal(); // モーダル着火
     // },
-    selectable: true,
     dateClick: function(info) {
-      $('#calendarModal').modal("show"); // モーダル着火
-    },
+      $('#calendarModal').modal(); // モーダル着火
+    }
   });
   calendar.render();
 } else {
