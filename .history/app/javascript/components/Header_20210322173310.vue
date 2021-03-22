@@ -57,7 +57,7 @@ export default {
   },
   methods: {
     increment(){
-      this.$emit("my", this.show);
+      this.$emit();
     }
   }
 }

@@ -79,10 +79,7 @@ export default {
 }
 
 .ac-t3 {
-  font-weight: 200;
-  font-size: 1.45em;
-  line-height: 1.5;
-  margin-bottom: 20px;
+
 }
 }
 

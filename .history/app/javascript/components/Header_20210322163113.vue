@@ -21,7 +21,7 @@
       </nav>
 
       <div class="test">
-      <div class="hamburger" @click="show = !show" :class="{active: show}" @click="increment">
+      <div class="hamburger" @click="show = !show" :class="{active: show}">
         <span></span>
         <span></span>
         <span></span>
@@ -56,8 +56,8 @@ export default {
     }
   },
   methods: {
-    increment(){
-      this.$emit("my", this.show);
+    show() {
+      this.$emit("my-click", this.show);
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
       <Header></Header>
-      <div v-if="show" @my="show = $event">
+      <div v-if="show" v-on:my-click="$envent">
         <TopImage></TopImage>
         <Concept></Concept>
         <a :href="loginAdmin">スタッフはこちらから!</a><br>
@@ -19,7 +19,6 @@ export default {
   data: function () {
     return {
       loginAdmin: "http://localhost:3000/sign_in",
-      show: true
     }
   },
   components: {

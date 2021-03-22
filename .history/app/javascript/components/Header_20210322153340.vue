@@ -21,7 +21,7 @@
       </nav>
 
       <div class="test">
-      <div class="hamburger" @click="show = !show" :class="{active: show}" @click="increment">
+      <div class="hamburger" @click="show = !show" :class="{active: show}">
         <span></span>
         <span></span>
         <span></span>
@@ -53,11 +53,6 @@ export default {
     return {
       show: false,
       reserveLink: "http://localhost:3000/calendars/1/tasks"
-    }
-  },
-  methods: {
-    increment(){
-      this.$emit("my", this.show);
     }
   }
 }

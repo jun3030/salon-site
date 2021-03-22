@@ -1,4 +1,5 @@
 <template>
+<div class="conCeptGroup">
 <article id="concept">
     <section class="cnt1 effect" style="height: 400.95px;">
           <div class="l-box" style="height: 400.95px;">
@@ -17,8 +18,8 @@
       <section class="cnt2 effect" style="height: 400.95px;">
         <div class="r-box" style="height: 400.95px;">
               <div class="text-box">
-                  <h3 style="opacity: 1;" class="ac-t3">人の数だけ、個性の数だけ、<br>“髪質”がある。</h3>
-                  <p style="opacity: 1;" class="ac-t4">人それぞれの個性があるように、その人特有の髪質もあります。ROSEでは、すべてのお客様の個性を生かすべく、オージュアソムリエの資格を持ったスペシャリストが、お客様一人一人の髪質に合わせたヘアケアを親身になってご対応させていただきます。カットやカラー、パーマだけでなく、髪そのものに対し妥協することなく向き合います。</p>
+                  <h3 style="opacity: 1;" class="ac-t1">人の数だけ、個性の数だけ、<br>“髪質”がある。</h3>
+                  <p style="opacity: 1;" class="ac-t2">人それぞれの個性があるように、その人特有の髪質もあります。ROSEでは、すべてのお客様の個性を生かすべく、オージュアソムリエの資格を持ったスペシャリストが、お客様一人一人の髪質に合わせたヘアケアを親身になってご対応させていただきます。カットやカラー、パーマだけでなく、髪そのものに対し妥協することなく向き合います。</p>
               </div>
           </div><!-- / .r-box -->
           <div class="image-box">
@@ -27,6 +28,7 @@
           </div>
       </section><!-- / .cnt2 -->
   </article>
+</div>
 </template>
 
 <script>
@@ -41,49 +43,92 @@ export default {
 </script>>
 
 <style scoped>
-#concept {
+.conCeptGroup {
   width: 100%;
   overflow-x: hidden;
   font-family: "Sawarabi Mincho" , YuMincho, "游明朝", "Hiragino Mincho ProN", "ヒラギノ明朝 ProN W3", Honoka, Meiryo, "メイリオ", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 14px;
+  line-height: 1.8;
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 930px), (max-device-width: 930px) {
+@media screen and (max-width: 600px), (max-device-width: 600px) {
 #concept .cnt1 {
-  min-height: 450px;
+  margin: 100px auto;
+}
 }
 
-.line {
-  border: 1px solid #4f7594;
-  width: 30px;
-  margin: 22px 22px 22px 0;
-  display: table;
-}
-
+@media screen and (max-width: 930px), (max-device-width: 930px) {
 #concept .cnt1, #concept .cnt2 {
-  /* width: 80%; */
-  padding: 0 100px;
-  /* margin: 180px auto; */
-  /* max-width: 1600px; */
-  display: flex;
+  width: 96%;
+  display: block;
+  height: auto !important;
+  padding: 0;
+}
+
+#concept .cnt1 .l-box {
+  width: 100%;
+  min-width: 100%;
+  height: auto !important;
+  min-height: auto;
+}
+
+#concept .cnt1 .l-box .text-box {
+  width: 86%;
+  margin: 0 auto;
+  padding-right: 0;
+  top: 0;
+  transform: translateY(0);
+  padding-bottom: 100px;
+}
+
+.cap {
+  margin-left: 0;
+  display: block;
+}
+}
+
+@media screen and (max-height: 950px), (max-device-height: 950px) {
+#concept .cnt1 .l-box .text-box h3 {
+    margin: 30px 0 20px;
 }
 
 #concept .cnt1 .l-box .text-box h3 {
-  font-weight: 200;
-  font-size: 1.45em;
-  line-height: 1.5;
-  margin: 50px 0 20px;
+    font-weight: 200;
+    font-size: 1.45em;
+    line-height: 1.5;
+    margin: 50px 0 20px;
 }
 
-.ac-t3 {
-  font-weight: 200;
-  font-size: 1.45em;
-  line-height: 1.5;
-  margin-bottom: 20px;
+
 }
+
+#concept .cnt1 {
+    min-height: 450px;
+}
+
+.cap .line {
+    border: 1px solid #4f7594;
+    width: 30px;
+    margin: 22px 22px 22px 0;
+    display: table;
+}
+
+.cap h2 {
+    font-weight: 100;
+    font-family: 'Abel', sans-serif;
+    letter-spacing: 0.2em;
+    font-size: 2rem;
+}
+
+#concept .cnt1, #concept .cnt2 {
+    width: 80%;
+    padding: 0 100px;
+    margin: 180px auto;
+    max-width: 1600px;
+    display: flex;
 }
 
 </style>

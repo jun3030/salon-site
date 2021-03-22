@@ -17,8 +17,8 @@
       <section class="cnt2 effect" style="height: 400.95px;">
         <div class="r-box" style="height: 400.95px;">
               <div class="text-box">
-                  <h3 style="opacity: 1;" class="ac-t3">人の数だけ、個性の数だけ、<br>“髪質”がある。</h3>
-                  <p style="opacity: 1;" class="ac-t4">人それぞれの個性があるように、その人特有の髪質もあります。ROSEでは、すべてのお客様の個性を生かすべく、オージュアソムリエの資格を持ったスペシャリストが、お客様一人一人の髪質に合わせたヘアケアを親身になってご対応させていただきます。カットやカラー、パーマだけでなく、髪そのものに対し妥協することなく向き合います。</p>
+                  <h3 style="opacity: 1;" class="ac-t1">人の数だけ、個性の数だけ、<br>“髪質”がある。</h3>
+                  <p style="opacity: 1;" class="ac-t2">人それぞれの個性があるように、その人特有の髪質もあります。ROSEでは、すべてのお客様の個性を生かすべく、オージュアソムリエの資格を持ったスペシャリストが、お客様一人一人の髪質に合わせたヘアケアを親身になってご対応させていただきます。カットやカラー、パーマだけでなく、髪そのものに対し妥協することなく向き合います。</p>
               </div>
           </div><!-- / .r-box -->
           <div class="image-box">
@@ -78,11 +78,8 @@ export default {
   margin: 50px 0 20px;
 }
 
-.ac-t3 {
-  font-weight: 200;
-  font-size: 1.45em;
-  line-height: 1.5;
-  margin-bottom: 20px;
+.ac-t1 {
+  background: red;
 }
 }
 

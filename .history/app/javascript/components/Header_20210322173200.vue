@@ -55,11 +55,6 @@ export default {
       reserveLink: "http://localhost:3000/calendars/1/tasks"
     }
   },
-  methods: {
-    increment(){
-      this.$emit("my", this.show);
-    }
-  }
 }
 </script>
 
