@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-      <Header @offComponent = "show = $event"></Header>
-      <div v-if="!show">
+      <Header></Header>
+      <div v-if="show" @offComponent = "show = $event">
         <TopImage></TopImage>
         <Concept></Concept>
         <a :href="loginAdmin">スタッフはこちらから!</a><br>
@@ -19,7 +19,7 @@ export default {
   data: function () {
     return {
       loginAdmin: "http://localhost:3000/sign_in",
-      show: false
+      show: true
     }
   },
   components: {

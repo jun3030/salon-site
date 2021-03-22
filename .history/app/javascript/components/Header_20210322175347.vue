@@ -56,7 +56,7 @@ export default {
     }
   },
   methods: {
-    menuSwitching () {
+    increment(){
       this.show = !this.show
       this.$emit("offComponent", this.show);
     }

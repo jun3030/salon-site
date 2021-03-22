@@ -21,7 +21,7 @@
       </nav>
 
       <div class="test">
-      <div class="hamburger" @click="menuSwitching" :class="{active: show}">
+      <div class="hamburger" @click="increment" :class="{active: show}">
         <span></span>
         <span></span>
         <span></span>
@@ -56,7 +56,7 @@ export default {
     }
   },
   methods: {
-    menuSwitching () {
+    increment(){
       this.show = !this.show
       this.$emit("offComponent", this.show);
     }

@@ -19,7 +19,7 @@ export default {
   data: function () {
     return {
       loginAdmin: "http://localhost:3000/sign_in",
-      show: false
+      show: true
     }
   },
   components: {

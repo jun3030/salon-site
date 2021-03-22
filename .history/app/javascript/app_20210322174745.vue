@@ -1,7 +1,7 @@
 <template>
   <div id="app">
       <Header @offComponent = "show = $event"></Header>
-      <div v-if="!show">
+      <div v-if="show">
         <TopImage></TopImage>
         <Concept></Concept>
         <a :href="loginAdmin">スタッフはこちらから!</a><br>

@@ -21,7 +21,7 @@
       </nav>
 
       <div class="test">
-      <div class="hamburger" @click="menuSwitching" :class="{active: show}">
+      <div class="hamburger" @click="increment" :class="{active: show}">
         <span></span>
         <span></span>
         <span></span>
@@ -56,7 +56,7 @@ export default {
     }
   },
   methods: {
-    menuSwitching () {
+    increment(){
       this.show = !this.show
       this.$emit("offComponent", this.show);
     }
@@ -157,7 +157,7 @@ body, html { width: 100%; overflow-x: hidden; font-family: "Sawarabi Mincho" , Y
     align-items: center; /* 縦方向の中央揃え */
     justify-content: center; /* 横方向の中央揃え */
     flex-direction: column; /* 子要素の並びを上から下にする（要素の改行に対応） */
-    background: white;
+    background: black;
   }
 
   nav.globalMenuSp ul li {
