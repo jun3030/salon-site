@@ -1,5 +1,5 @@
 <template>
-<article id="concept">
+<div id="concept">
   <div class="cnt1 effect" style="height: 400.95px">
     <div class="l-box" style="height: 400.95px;">
       <div class="text-box">
@@ -25,7 +25,7 @@
       <!--<a href="" class="link"><p>CONCEPT</p></a>-->
     </div><!-- / .l-box -->
   </div><!-- / .cnt1 -->
-</article>
+</div>
 </template>
 
 <script>
@@ -41,10 +41,6 @@ export default {
 </script>>
 
 <style scoped>
-article {
-
-}
-
 #concept {
   width: 100%;
   overflow-x: hidden;
@@ -77,7 +73,8 @@ article {
 
 .cnt2 {
   /* width: 80%; */
-  margin-top: 180px;
+  padding: 0 100px;
+  margin: 180px auto;
   max-width: 1600px;
   display: flex;
 }

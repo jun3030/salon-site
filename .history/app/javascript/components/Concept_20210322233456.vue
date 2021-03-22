@@ -21,7 +21,7 @@
         <h3 class="ac-t3">人の数だけ、個性の数だけ、<br>“髪質”がある。</h3>
         <p class="ac-t4">人それぞれの個性があるように、その人特有の髪質もあります。ROSEでは、すべてのお客様の個性を生かすべく、オージュアソムリエの資格を持ったスペシャリストが、お客様一人一人の髪質に合わせたヘアケアを親身になってご対応させていただきます。カットやカラー、パーマだけでなく、髪そのものに対し妥協することなく向き合います。</p>
       </div>
-      <br><img class="concept-image" v-bind:src="conceptImage2">
+      <!-- <br><img class="concept-image" v-bind:src="conceptImage2"> -->
       <!--<a href="" class="link"><p>CONCEPT</p></a>-->
     </div><!-- / .l-box -->
   </div><!-- / .cnt1 -->
@@ -42,7 +42,7 @@ export default {
 
 <style scoped>
 article {
-
+  background: red;
 }
 
 #concept {
@@ -77,7 +77,8 @@ article {
 
 .cnt2 {
   /* width: 80%; */
-  margin-top: 180px;
+  padding: 0 100px;
+  margin: 180px auto;
   max-width: 1600px;
   display: flex;
 }

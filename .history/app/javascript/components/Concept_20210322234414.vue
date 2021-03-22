@@ -42,7 +42,7 @@ export default {
 
 <style scoped>
 article {
-
+  background: red;
 }
 
 #concept {
@@ -77,9 +77,10 @@ article {
 
 .cnt2 {
   /* width: 80%; */
-  margin-top: 180px;
+  /* margin: 180px auto; */
   max-width: 1600px;
   display: flex;
+  background: blue;
 }
 
 #concept .cnt1 .l-box .text-box h3 {
