@@ -33,8 +33,10 @@ if (document.getElementById("calendar") != null) {
     allDaySlot: false,
     events: '/users/1/calendars/1/dashboard.json',
     selectable: true,
-    dateClick : function ( date , jsEvent , view ) {
-      $('#inputScheduleForm').modal('show');
+    dateClick: function(info) {
+      $(document).on('click', info, function(){
+        $('#calendarModal').modal(); // モーダル着火
+      });
     },
   });
   calendar.render();

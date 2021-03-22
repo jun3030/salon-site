@@ -32,9 +32,22 @@ if (document.getElementById("calendar") != null) {
     },
     allDaySlot: false,
     events: '/users/1/calendars/1/dashboard.json',
+    // eventClick: function(calEvent, jsEvent, view) {
+    //   // ***** 今回はここにクリックイベントを追加 *****
+    //   $('#modalTitle').html(calEvent.title); // モーダルのタイトルをセット
+    //   $('#modalBody').html(calEvent.description); // モーダルの本文をセット
+    //   $('#calendarModal').modal(); // モーダル着火
+    // },
     selectable: true,
-    dateClick : function ( date , jsEvent , view ) {
-      $('#inputScheduleForm').modal('show');
+    eventClick: function(calEvent, jsEvent, view) {
+      // ***** 今回はここにクリックイベントを追加 *****
+      $('#modalTitle').html(calEvent.title); // モーダルのタイトルをセット
+      $('#modalBody').html(calEvent.description); // モーダルの本文をセット
+      $('#calendarModal').modal(); // モーダル着火
+    },
+    dateClick: function(info) {
+      $('#calendarModal').modal("show"); // モーダル着火
+      console.log(info)
     },
   });
   calendar.render();

@@ -34,7 +34,7 @@ if (document.getElementById("calendar") != null) {
     events: '/users/1/calendars/1/dashboard.json',
     selectable: true,
     dateClick : function ( date , jsEvent , view ) {
-      $('#inputScheduleForm').modal('show');
+      $('#inputScheduleForm').modal();
     },
   });
   calendar.render();

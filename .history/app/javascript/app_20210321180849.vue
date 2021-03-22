@@ -2,7 +2,6 @@
   <div id="app">
       <Header></Header>
       <TopImage></TopImage>
-      <Concept></Concept>
       <a :href="loginAdmin">スタッフはこちらから!</a><br>
   </div>
 </template>
@@ -21,8 +20,7 @@ export default {
   },
   components: {
     Header, //追記
-    TopImage,
-    Concept,
+    TopImage
   }
 }
 
