@@ -132,7 +132,6 @@ export default {
   height: 440px;
   /* margin: 180px auto; */
   display: flex;
-  margin-top:-100px;
 }
 
 #gallery .r-box {

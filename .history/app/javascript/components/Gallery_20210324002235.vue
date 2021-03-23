@@ -132,7 +132,6 @@ export default {
   height: 440px;
   /* margin: 180px auto; */
   display: flex;
-  margin-top:-100px;
 }
 
 #gallery .r-box {
@@ -162,7 +161,7 @@ export default {
 .ac-t1 {
   margin-top:50px;
   margin-bottom:50px;
-  font-size: 20px;
+  font-size: 25px;
 }
 }
 

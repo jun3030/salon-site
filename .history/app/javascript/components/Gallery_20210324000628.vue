@@ -4,7 +4,7 @@
       <div class="text-box-gallery">
         <div class="cap ac-t0" style="opacity: 1;">
             <div class="line"></div>
-            <h2 class="title">GALLERY</h2>
+            <h2>GALLERY</h2>
         </div>
         <h3 style="opacity: 1;" class="ac-t1">365日、ステキな自分と、素敵な私。</h3>
         <p style="opacity: 1;" class="ac-t2">いつもの自分を、いつも以上に華やかに、愛らしく。自分をもっと好きになる、気づかなかった新しい“私”の発見をお手伝い。</p>
@@ -20,7 +20,7 @@
         :index="index"
         :visibleSlide = "visibleSlide"
         >
-        <img :src="slide.img" style="width:100%; height: 500px;">
+        <img :src="slide.img" style="width:100%; height:700px;">
       </CarouselSlide>
     </Carousel>
   </article>
@@ -129,10 +129,9 @@ export default {
 #gallery {
   font-family: "Sawarabi Mincho" , YuMincho, "游明朝", "Hiragino Mincho ProN", "ヒラギノ明朝 ProN W3", Honoka, Meiryo, "メイリオ", serif;
   width: 100%;
-  height: 440px;
+  height: 700px;
   /* margin: 180px auto; */
   display: flex;
-  margin-top:-100px;
 }
 
 #gallery .r-box {
@@ -145,7 +144,7 @@ export default {
   box-sizing: border-box;
   height: 100%;
   position: relative;
-  padding:50px;
+  padding:70px;
 }
 
 .cap .line {
@@ -155,14 +154,9 @@ export default {
   display: table;
 }
 
-.title {
-  font-size: 25px;
-}
-
 .ac-t1 {
   margin-top:50px;
   margin-bottom:50px;
-  font-size: 20px;
 }
 }
 
