@@ -17,6 +17,7 @@ import Concept from "./components/Concept.vue";
 import Gallery from "./components/Gallery.vue"
 
 export default {
+  el: '#app',
   data: function () {
     return {
       loginAdmin: "http://localhost:3000/sign_in",
@@ -47,3 +48,9 @@ p {
   text-align: center;
 }
 </style>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>

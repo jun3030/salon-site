@@ -25,10 +25,17 @@
 
 <script>
 export default {
+  el: "#gallery",
   data: function () {
     return {
+
     }
   },
+  mounted: function() {
+     $('#btn').click(function() {
+         $("#hogehoge").text("テキスト挿入");
+     });
+  }
 }
 </script>
 

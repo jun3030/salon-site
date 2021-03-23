@@ -29,6 +29,11 @@ export default {
     return {
     }
   },
+  mounted() {
+　　$('.line').on('click', function() {
+      alert("クリックされました");
+    });
+  }
 }
 </script>
 

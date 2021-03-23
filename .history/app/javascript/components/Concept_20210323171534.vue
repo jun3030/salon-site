@@ -30,6 +30,7 @@
 
 <script>
 export default {
+  el: "#concept",
   data: function () {
     return {
       conceptImage: require('../../assets/images/image_concept1.jpg'),
@@ -40,6 +41,9 @@ export default {
 </script>>
 
 <style scoped>
+article {
+
+}
 
 #concept {
   width: 100%;

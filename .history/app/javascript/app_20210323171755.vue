@@ -17,6 +17,7 @@ import Concept from "./components/Concept.vue";
 import Gallery from "./components/Gallery.vue"
 
 export default {
+  el: '#app',
   data: function () {
     return {
       loginAdmin: "http://localhost:3000/sign_in",

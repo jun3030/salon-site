@@ -25,10 +25,12 @@
 
 <script>
 export default {
+  el: "gallery",
   data: function () {
     return {
+
     }
-  },
+  }
 }
 </script>
 

@@ -24,11 +24,11 @@ export default {
       ],
     }
   },
-  mounted() {
-　　setInterval(() => {
-      this.current_slide = this.current_slide < this.slides.length -1 ? this.current_slide +1 : 0
-    }, 6000)
-  }
+//   mounted() {
+// 　　setInterval(() => {
+//       this.current_slide = this.current_slide < this.slides.length -1 ? this.current_slide +1 : 0
+//     }, 6000)
+//   }
 }
 </script>
 

@@ -25,10 +25,15 @@
 
 <script>
 export default {
+  el: "#gallery",
   data: function () {
     return {
+
     }
   },
+  mounted: function() {
+
+  }
 }
 </script>
 

@@ -25,10 +25,17 @@
 
 <script>
 export default {
+  el: "#gallery",
   data: function () {
     return {
+
     }
   },
+  methods: function() {
+     $('.h2').click(function() {
+         alert('JavaScriptのアラート');
+     });
+  }
 }
 </script>
 

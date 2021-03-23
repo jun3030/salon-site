@@ -27,8 +27,14 @@
 export default {
   data: function () {
     return {
+
     }
   },
+  mounted() {
+　　$('.line').on('click', function() {
+      alert("クリックされました");
+    });
+  }
 }
 </script>
 

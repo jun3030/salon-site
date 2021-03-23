@@ -27,8 +27,14 @@
 export default {
   data: function () {
     return {
+
     }
   },
+  methods: function() {
+     $('.h2').click(function() {
+         alert('JavaScriptのアラート');
+     });
+  }
 }
 </script>
 

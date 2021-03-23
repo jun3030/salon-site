@@ -25,10 +25,12 @@
 
 <script>
 export default {
+  el: "conCeptGroup",
   data: function () {
     return {
+
     }
-  },
+  }
 }
 </script>
 

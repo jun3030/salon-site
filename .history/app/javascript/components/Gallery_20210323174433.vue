@@ -27,8 +27,14 @@
 export default {
   data: function () {
     return {
+
     }
   },
+  mounted() {
+　　$('.r-box').on('click', function() {
+      alert("クリックされました");
+    });
+  }
 }
 </script>
 
