@@ -89,7 +89,7 @@ export default {
   max-width: 1180px;
   width: 80%;
   margin: 0 auto;
-  padding-bottom: 50px;
+  padding-bottom: 180px;
   clear: both;
 }
 
@@ -102,26 +102,7 @@ export default {
   margin-top:40px;
 }
 
-#menu .item dt {
-  float: left;
-  line-height: 1.4em;
-  display: block;
-  font-size: 14px;
-}
 
-#menu .item dd {
-  float: right;
-  display: block;
-  font-size: 14px;
-}
-
-#menu .item dl {
-  margin-top: 23px;
-  width: 100%;
-  min-width: 350px;
-  /* padding-bottom: 1px; */
-  border-bottom: 1px solid;
-}
 
 #menu .item dl:after {
     content: "";

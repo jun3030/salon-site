@@ -6,7 +6,6 @@
         <Concept></Concept>
         <Gallery></Gallery>
         <Menu></Menu>
-        <staff></staff>
         <a :href="loginAdmin">スタッフはこちらから!</a><br>
       </div>
   </div>

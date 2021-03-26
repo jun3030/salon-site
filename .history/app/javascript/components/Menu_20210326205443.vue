@@ -82,14 +82,14 @@ export default {
 }
 
 #menu .text-box p {
-  margin: 30px 0 0 0;
+  /* margin: 30px 0 0 0; */
 }
 
 #menu .in2 {
   max-width: 1180px;
   width: 80%;
   margin: 0 auto;
-  padding-bottom: 50px;
+  padding-bottom: 180px;
   clear: both;
 }
 

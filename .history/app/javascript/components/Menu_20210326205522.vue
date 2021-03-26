@@ -89,7 +89,7 @@ export default {
   max-width: 1180px;
   width: 80%;
   margin: 0 auto;
-  padding-bottom: 50px;
+  padding-bottom: 180px;
   clear: both;
 }
 
@@ -123,10 +123,6 @@ export default {
   border-bottom: 1px solid;
 }
 
-#menu .item dl:after {
-    content: "";
-    clear: both;
-    display: block;
-}
+
 /* } */
 </style>

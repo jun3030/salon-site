@@ -89,7 +89,7 @@ export default {
   max-width: 1180px;
   width: 80%;
   margin: 0 auto;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
   clear: both;
 }
 

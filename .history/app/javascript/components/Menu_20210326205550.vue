@@ -89,18 +89,11 @@ export default {
   max-width: 1180px;
   width: 80%;
   margin: 0 auto;
-  padding-bottom: 50px;
+  padding-bottom: 180px;
   clear: both;
 }
 
-#menu h3 {
-  font-weight: 700;
-  font-family: 'Abel', sans-serif;
-  letter-spacing: 0.2em;
-  font-size: 1.2rem;
-  margin-bottom: 35px;
-  margin-top:40px;
-}
+
 
 #menu .item dt {
   float: left;

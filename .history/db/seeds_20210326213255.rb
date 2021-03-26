@@ -9,12 +9,12 @@
 User.create!(user_id:"matumoto3030", password:"password", password_confirmation:"password")
 Calendar.create!(user_id: 1, calendar_name: "Rose", address:"東京都渋谷区", phone:"09057975695")
 
-Staff.create!(calendar_id: 1, name:"高木 達也", email:"staff1@email.com", description: "ROSEのDNA。「カット1万円」から繰り広げられる「タカギマジック」は、多くのファッショニスタからも支持される。
+Staff.create!(calendar_id: 1, name:"高木 達也", email:"staff@email.com", description: "ROSEのDNA。「カット1万円」から繰り広げられる「タカギマジック」は、多くのファッショニスタからも支持される。
 ※高木の予約は混雑しますので、1～2週間前の予約をお勧めします。", staff_part: "店長")
-Staff.create!(calendar_id: 1, name:"稲森 春香", email:"staff2@email.com", description: "お客様の悩みとしっかり向き合い、あなたに似合う最高の美を提案します！安心して、お任せください。素敵なデザインを一緒につくりましょう。", staff_part: "DIRECTOR")
-Staff.create!(calendar_id: 1, name:"中森 大貴", email:"staff3@email.com", description: "ナチュラルなスタイルからエッジの効いたスタイルまで、どんなテイストでもお任せください‼お客様に似合うお洒落で素敵なスタイルを一緒に創りましょう★", staff_part: "SUB DIRECTOR")
-Staff.create!(calendar_id: 1, name:"大野 仁美", email:"staff4@email.com", description: "女性としてママとして主婦として。いろんな目線からお客様だけの素敵をデザインさせて頂きます♪", staff_part: "STYLIST")
-Staff.create!(calendar_id: 1, name:"鈴木 ケイ", email:"staff5@email.com", description: "年齢・性別にとらわれず自分らしい選択ができる自由を、美容を通して提案します！あなただけの素敵を一緒につくりましょう☆", staff_part: "TOP STYLIST")
+Staff.create!(calendar_id: 1, name:"スタッフA", email:"staff@email.com", description: "元気いっぱいです！", staff_part: "店長")
+Staff.create!(calendar_id: 1, name:"スタッフA", email:"staff@email.com", description: "元気いっぱいです！", staff_part: "店長")
+Staff.create!(calendar_id: 1, name:"スタッフA", email:"staff@email.com", description: "元気いっぱいです！", staff_part: "店長")
+Staff.create!(calendar_id: 1, name:"スタッフA", email:"staff@email.com", description: "元気いっぱいです！", staff_part: "店長")
 
 TaskCourse.create!(calendar_id: 1, title:"カット(Stylist / Top Stylist)", description:"", course_time: 60, charge: "4400")
 TaskCourse.create!(calendar_id: 1, title:"カット(Director)", description:"", course_time: 60, charge: "5000")
