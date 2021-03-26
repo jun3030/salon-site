@@ -38,21 +38,7 @@
 
 <script>
 export default {
-  data: function () {
-    return {
-      Staffs: [],
-      body: "",
-    }
-  },
-  //一覧読み込み
-  mounted () {
-    axios.get('/api/v1/staffs').then((response) => {
-      this.Staffs = response.data
-      }).catch(() => {
-        alert("エラー");
-      });
-    }
-  }
+
 }
 </script>
 
@@ -137,40 +123,6 @@ li {
   width: 100%;
   height: 100%;
   display: block;
-}
-
-.staff-item li .profile .p-text {
-  opacity: 0;
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-  position: absolute;
-  color: #fff !important;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  padding: 30px;
-  display: block;
-  background: rgba(33, 39, 54, 0.5);
-  /* transition: all 0.7s ease; */
-  -webkit-transition: all 0.7s ease;
-  /* -moz-transition: all 0.7s ease; */
-}
-
-.staff-item li .profile h3 {
-  text-align: center;
-  letter-spacing: 0.1em;
-  font-size: 15px;
-  line-height: 1.4em;
-}
-
-.staff-item li .profile h3 span {
-  color: #eee;
-  font-size: 0.6em;
-}
-
-.staff-item li .profile p {
-  margin-top: 20px;
-  color: #eee !important;
 }
 }
 

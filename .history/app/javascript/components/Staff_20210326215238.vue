@@ -46,8 +46,8 @@ export default {
   },
   //一覧読み込み
   mounted () {
-    axios.get('/api/v1/staffs').then((response) => {
-      this.Staffs = response.data
+    axios.get('api/v1/task_courses').then((response) => {
+      this.taskCourses = response.data
       }).catch(() => {
         alert("エラー");
       });

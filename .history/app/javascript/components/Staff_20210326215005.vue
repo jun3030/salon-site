@@ -38,21 +38,7 @@
 
 <script>
 export default {
-  data: function () {
-    return {
-      Staffs: [],
-      body: "",
-    }
-  },
-  //一覧読み込み
-  mounted () {
-    axios.get('/api/v1/staffs').then((response) => {
-      this.Staffs = response.data
-      }).catch(() => {
-        alert("エラー");
-      });
-    }
-  }
+
 }
 </script>
 
@@ -161,16 +147,6 @@ li {
   letter-spacing: 0.1em;
   font-size: 15px;
   line-height: 1.4em;
-}
-
-.staff-item li .profile h3 span {
-  color: #eee;
-  font-size: 0.6em;
-}
-
-.staff-item li .profile p {
-  margin-top: 20px;
-  color: #eee !important;
 }
 }
 

@@ -38,21 +38,7 @@
 
 <script>
 export default {
-  data: function () {
-    return {
-      Staffs: [],
-      body: "",
-    }
-  },
-  //一覧読み込み
-  mounted () {
-    axios.get('/api/v1/staffs').then((response) => {
-      this.Staffs = response.data
-      }).catch(() => {
-        alert("エラー");
-      });
-    }
-  }
+
 }
 </script>
 
