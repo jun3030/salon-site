@@ -5,7 +5,6 @@
         <TopImage></TopImage>
         <Concept></Concept>
         <Gallery></Gallery>
-        <Menu></Menu>
         <a :href="loginAdmin">スタッフはこちらから!</a><br>
       </div>
   </div>

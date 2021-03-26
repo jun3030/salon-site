@@ -5,7 +5,6 @@
         <TopImage></TopImage>
         <Concept></Concept>
         <Gallery></Gallery>
-        <Menu></Menu>
         <a :href="loginAdmin">スタッフはこちらから!</a><br>
       </div>
   </div>
@@ -29,8 +28,7 @@ export default {
     Header, //追記
     TopImage,
     Concept,
-    Gallery,
-    Menu
+    Gallery
   }
 }
 

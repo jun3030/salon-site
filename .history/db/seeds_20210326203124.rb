@@ -10,9 +10,9 @@ User.create!(user_id:"matumoto3030", password:"password", password_confirmation:
 Calendar.create!(user_id: 1, calendar_name: "Rose", address:"東京都渋谷区", phone:"09057975695")
 Staff.create!(calendar_id: 1, name:"スタッフA", email:"staff@email.com", description: "元気いっぱいです！", staff_part: "店長")
 
-TaskCourse.create!(calendar_id: 1, title:"カット(Stylist / Top Stylist)", description:"", course_time: 60, charge: "4400")
-TaskCourse.create!(calendar_id: 1, title:"カット(Director)", description:"", course_time: 60, charge: "5000")
-TaskCourse.create!(calendar_id: 1, title:"カット(TAKAGI（新規指名のお客様）)", description:"", course_time: 60, charge: "10000")
+TaskCourse.create!(calendar_id: 1, title:"カット(Stylist / Top Stylist)", description:"髪の毛を切る", course_time: 60, charge: "4400")
+TaskCourse.create!(calendar_id: 1, title:"カット(Director)", description:"髪の毛を切る", course_time: 60, charge: "5000")
+TaskCourse.create!(calendar_id: 1, title:"カット(TAKAGI（新規指名のお客様）)", description:"髪の毛を切る", course_time: 60, charge: "10000")
 TaskCourse.create!(calendar_id: 1, title:"リタッチ", description:"カラー", course_time: 60, charge: "4500")
 TaskCourse.create!(calendar_id: 1, title:"ワンタッチ", description:"カラー", course_time: 60, charge: "5000")
 TaskCourse.create!(calendar_id: 1, title:"ツータッチ", description:"カラー", course_time: 60, charge: "7000")
