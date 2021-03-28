@@ -5,36 +5,16 @@
       <div class="cap ac-t0" style="opacity: 1;">
         <div class="line"></div>
         <h2>STAFF</h2>
+        <div class="staff-item">
+    <div v-for="staff in Staffs" :key="staff.id">
+    {{ staff.name }}
+
+    </div>
+  </div>
       </div>
       <p style="opacity: 1;" class="ac-t2">一級の技術を持ったROSEのスタッフです。<br>カットの技術はもちろん、髪質や頭皮のこと、お客様の健康面も考慮したスペシャリストです。<br>どんなカットでもケアでも、ご相談に乗りますのでお気軽にどうぞ。</p>
     </div>
   </div>
-
-  <ul class="staff-item">
-    <div v-for="(staff) in Staffs" :key="staff.id">
-    <li class="item fst image ac-end" style="opacity: 1; height: 291px;">
-      <div class="bg-w" style="height: 0px;"><img class="bg" :src=staff.picture :alt=staff.name></div>
-        <div class="profile">
-          <div class="p-text">
-            <h3><span>{{ staff.part }}</span><br></h3>
-            <p>{{ staff.description }}<br><span>【資生堂SABFA卒業】</span></p>
-          </div>
-        </div>
-        <input id="modal-trigger-takagi" type="checkbox">
-        <label for="modal-trigger-takagi" class="label-tr"></label>
-        <div class="modal-overlay">
-          <div class="modal-wrap" style="height: initial;">
-            <label for="modal-trigger-takagi" class="label-close">CLOSE</label>
-            <div class="image-label"><img src="img/index/image_staff_takagi.jpg" alt="高木 達也"></div>
-            <div class="p-text">
-              <h3><span>{{ staff.part }}</span><br>{{ staff.name }}</h3>
-              <p>{{ staff.description }}<br><span>【資生堂SABFA卒業】</span></p>
-            </div>
-          </div>
-        </div><!-- / .modal-overlay -->
-    </li>
-    </div>
-  </ul>
 </article>
 </template>
 
@@ -44,20 +24,19 @@ import axios from "axios"
 export default {
   data: function () {
     return {
-      Staffs: [],
+      taskCourses: [],
       body: "",
     }
   },
   //一覧読み込み
   mounted () {
-    axios.get('/api/v1/staffs').then((response) => {
-      this.Staffs = response.data
+    axios.get('api/v1/task_courses').then((response) => {
+      this.taskCourses = response.data
       }).catch(() => {
         alert("エラー");
       });
     }
   }
-
 </script>
 
 <style scoped>

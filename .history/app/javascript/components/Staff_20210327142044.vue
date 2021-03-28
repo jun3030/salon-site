@@ -13,7 +13,7 @@
   <ul class="staff-item">
     <div v-for="(staff) in Staffs" :key="staff.id">
     <li class="item fst image ac-end" style="opacity: 1; height: 291px;">
-      <div class="bg-w" style="height: 0px;"><img class="bg" :src=staff.picture :alt=staff.name></div>
+      <div class="bg-w" style="height: 0px;"><img class="bg" src="img/index/image_staff_takagi.jpg" alt="高木 達也"></div>
         <div class="profile">
           <div class="p-text">
             <h3><span>{{ staff.part }}</span><br></h3>
@@ -28,7 +28,7 @@
             <div class="image-label"><img src="img/index/image_staff_takagi.jpg" alt="高木 達也"></div>
             <div class="p-text">
               <h3><span>{{ staff.part }}</span><br>{{ staff.name }}</h3>
-              <p>{{ staff.description }}<br><span>【資生堂SABFA卒業】</span></p>
+              <p>ROSEのDNA。「カット1万円」から繰り広げられる「タカギマジック」は、多くのファッショニスタからも支持される。<br>※高木の予約は混雑しますので、1～2週間前の予約をお勧めします。<br><span>【資生堂SABFA卒業】</span></p>
             </div>
           </div>
         </div><!-- / .modal-overlay -->

@@ -13,7 +13,7 @@
   <ul class="staff-item">
     <div v-for="(staff) in Staffs" :key="staff.id">
     <li class="item fst image ac-end" style="opacity: 1; height: 291px;">
-      <div class="bg-w" style="height: 0px;"><img class="bg" :src=staff.picture :alt=staff.name></div>
+      <div class="bg-w" style="height: 0px;"><img class="bg" src="img/index/image_staff_takagi.jpg" alt="{{ staff.name }}"></div>
         <div class="profile">
           <div class="p-text">
             <h3><span>{{ staff.part }}</span><br></h3>
