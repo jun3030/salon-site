@@ -21,6 +21,7 @@
     "vue-eslint-parser": "^7.4.1",
     "vue-loader": "^15.9.6",
     "vue-router": "^3.5.1",
+    "vue-scrollto": "^2.20.0",
     "vue-template-compiler": "^2.6.12",
     "vuetify": "^2.4.3",
     "vuex": "^3.6.2"
