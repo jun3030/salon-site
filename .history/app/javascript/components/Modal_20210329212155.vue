@@ -2,7 +2,7 @@
   <div id="overlay">
     <div id="content">
       <img :src="val.picture.url">
-      <p>{{ val.staff_part }}</p>
+      <p>{{ val.part }}</p>
       <p>{{ val.name }}</p>
       <p>{{ val.description }}</p>
       <button @click="$emit('close')">閉じる</button>
