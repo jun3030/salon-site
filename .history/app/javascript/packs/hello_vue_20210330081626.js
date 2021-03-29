@@ -6,20 +6,13 @@
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
 import Vue from 'vue'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
-import BootstrapVue from 'bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.css' //Add
+import 'bootstrap-vue/dist/bootstrap-vue.css' //Add
+import BootstrapVue from 'bootstrap-vue'  // Add
 import App from '../app.vue'
-import VueScrollTo from 'vue-scrollto' //アンカーリンク
 
-Vue.use(VueScrollTo, {
-  /* オプションは公式サイトから確認できます。 */
-  duration: 1000,
-  easing: "ease"
-})
 
 Vue.use(BootstrapVue)  // Add
-
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({

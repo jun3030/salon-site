@@ -12,7 +12,7 @@
             <li><a class="nav-about"><span class="in"><span class="hr"></span><span v-scroll-to="'#concept'">CONCEPT</span></span></a></li>
             <li><a class="nav-style"><span class="in"><span class="hr"></span><span v-scroll-to="'#gallery'">GALLERY</span></span></a></li>
             <li><a class="nav-item"><span class="in"><span class="hr"></span><span v-scroll-to="'#menu'">MENU</span></span></a></li>
-            <li><a class="nav-catalog"><span class="in"><span class="hr"></span><span  v-scroll-to="'#staff'">STAFF</span></span></a></li>
+            <li><a class="nav-catalog"><span class="in"><span class="hr"></span><span>STAFF</span></span></a></li>
             <li><a class="nav-shop"><span class="in"><span class="hr"></span><span>ACCESS</span></span></a></li>
             <li><a class="nav-shop"><span class="in"><span class="hr"></span><span>INFOMARION</span></span></a></li>
             <li class="reserve"><a :href="reserveLink" class="nav-shop"><span class="in"><span class="hr"></span><span>RESERVE</span></span></a></li>
@@ -51,8 +51,7 @@ export default {
   data: function () {
     return {
       show: false,
-      // reserveLink: "http://localhost:3000/calendars/1/tasks",
-      reserveLink: "/calendars/1/tasks"
+      reserveLink: "http://localhost:3000/calendars/1/tasks"
     }
   },
   methods: {

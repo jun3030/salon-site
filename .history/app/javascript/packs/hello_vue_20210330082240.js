@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import BootstrapVue from 'bootstrap-vue'
 import App from '../app.vue'
-import VueScrollTo from 'vue-scrollto' //アンカーリンク
+import VueScrollTo from 'vue-scrollto' //
 
 Vue.use(VueScrollTo, {
   /* オプションは公式サイトから確認できます。 */

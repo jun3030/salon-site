@@ -51,8 +51,7 @@ export default {
   data: function () {
     return {
       show: false,
-      // reserveLink: "http://localhost:3000/calendars/1/tasks",
-      reserveLink: "/calendars/1/tasks"
+      reserveLink: "http://localhost:3000/calendars/1/tasks"
     }
   },
   methods: {

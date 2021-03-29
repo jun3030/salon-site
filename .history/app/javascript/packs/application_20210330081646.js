@@ -93,6 +93,10 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
 import interactionPlugin from '@fullcalendar/interaction';
+import VueScrollTo from 'vue-scrollto'
+
+
+
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

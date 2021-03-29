@@ -9,10 +9,10 @@
       <nav>
         <div class="nav-ol">
           <ul class="nav">
-            <li><a class="nav-about"><span class="in"><span class="hr"></span><span v-scroll-to="'#concept'">CONCEPT</span></span></a></li>
-            <li><a class="nav-style"><span class="in"><span class="hr"></span><span v-scroll-to="'#gallery'">GALLERY</span></span></a></li>
-            <li><a class="nav-item"><span class="in"><span class="hr"></span><span v-scroll-to="'#menu'">MENU</span></span></a></li>
-            <li><a class="nav-catalog"><span class="in"><span class="hr"></span><span  v-scroll-to="'#staff'">STAFF</span></span></a></li>
+            <li><a class="nav-about"><span class="in"><span class="hr"></span><span>CONCEPT</span></span></a></li>
+            <li><a class="nav-style"><span class="in"><span class="hr"></span><span>GALLERY</span></span></a></li>
+            <li><a class="nav-item"><span class="in"><span class="hr"></span><span>MENU</span></span></a></li>
+            <li><a class="nav-catalog"><span class="in"><span class="hr"></span><span>STAFF</span></span></a></li>
             <li><a class="nav-shop"><span class="in"><span class="hr"></span><span>ACCESS</span></span></a></li>
             <li><a class="nav-shop"><span class="in"><span class="hr"></span><span>INFOMARION</span></span></a></li>
             <li class="reserve"><a :href="reserveLink" class="nav-shop"><span class="in"><span class="hr"></span><span>RESERVE</span></span></a></li>
@@ -43,6 +43,11 @@
       </transition>
       <!-- <button @click="show = !show">切替</button> -->
     </div>
+    <button v-scroll-to="'#element'">
+      Scroll to #element
+    </button>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <h1 id="element">Hi. I'm element</h1>
   </div>
 </template>
 
@@ -51,8 +56,7 @@ export default {
   data: function () {
     return {
       show: false,
-      // reserveLink: "http://localhost:3000/calendars/1/tasks",
-      reserveLink: "/calendars/1/tasks"
+      reserveLink: "http://localhost:3000/calendars/1/tasks"
     }
   },
   methods: {
@@ -60,7 +64,7 @@ export default {
       this.show = !this.show
       this.$emit("offComponent", this.show);
     }
-  },
+  }
 }
 </script>
 
@@ -318,10 +322,6 @@ nav .nav-ol .nav a:hover{
 }
 nav .nav-ol .nav li.reserve a:hover{
 	background: #9c555f;
-}
-
-h1, button {
-  margin-bottom: 1000px;
 }
 
 </style>
