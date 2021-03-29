@@ -18,7 +18,6 @@
       </li>
     </div>
   </ul>
-  <Modal></Modal>
 </article>
 </template>
 

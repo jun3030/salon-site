@@ -18,7 +18,6 @@
       </li>
     </div>
   </ul>
-  <Modal></Modal>
 </article>
 </template>
 
@@ -31,15 +30,13 @@ export default {
     return {
       Staffs: [],
       body: "",
-      showContent: false,
-      postItem: "",
     }
   },
   components: {
     Modal
   },
   methods: {
-    openModal(staff) {
+      openModal(staff) {
       this.showContent = true
       this.postItem = staff
     },

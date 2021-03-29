@@ -13,38 +13,22 @@
   <ul class="staff-item">
     <div v-for="(staff) in Staffs" :key="staff.id">
       <li class="item fst image ac-end" style="opacity: 1; height: 291px;">
-        <img class="bg" @click="openModal(staff)" :src=staff.picture.url style="width:260px; height:260px;" :alt=staff.name>
+        <img class="bg" @click="openModal(item)" :src=staff.picture.url style="width:260px; height:260px;" :alt=staff.name>
         <modal :val="postItem" v-show="showContent" @close="closeModal" />
       </li>
     </div>
   </ul>
-  <Modal></Modal>
 </article>
 </template>
 
 <script>
 import axios from "axios"
-import Modal from './Modal.vue'
 
 export default {
   data: function () {
     return {
       Staffs: [],
       body: "",
-      showContent: false,
-      postItem: "",
-    }
-  },
-  components: {
-    Modal
-  },
-  methods: {
-    openModal(staff) {
-      this.showContent = true
-      this.postItem = staff
-    },
-    closeModal () {
-      this.showContent = false
     }
   },
   //一覧読み込み
