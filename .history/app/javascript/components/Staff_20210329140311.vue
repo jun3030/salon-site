@@ -108,10 +108,49 @@ export default {
 }
 
 .staff-item {
-
+    width: 96%;
+    margin: 0 auto;
+    float: none;
+    display: flex;
+    position: relative;
 }
 
+ul {
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
 
+.staff-item .bk_pink-l {
+    width: 178px;
+    height: 60px;
+    position: absolute;
+    z-index: 0;
+    left: -3px;
+    top: -3px;
+    background: #d28a94;
+}
+
+.staff-item li {
+    overflow: hidden;
+    box-sizing: border-box;
+    margin: 3px;
+    display: block;
+    list-style: none;
+}
+
+.staff-item .bk_pink-r {
+    width: 178px;
+    height: 60px;
+    position: absolute;
+    z-index: 0;
+    right: -3px;
+    bottom: -3px;
+    background: #d28a94;
+}
 }
 
 </style>

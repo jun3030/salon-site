@@ -107,10 +107,6 @@ export default {
   color: #666;
 }
 
-.staff-item {
-
-}
-
 
 }
 

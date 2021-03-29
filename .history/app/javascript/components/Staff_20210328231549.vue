@@ -13,7 +13,8 @@
   <ul class="staff-item">
     <div v-for="(staff) in Staffs" :key="staff.id">
     <li class="item fst image ac-end" style="opacity: 1; height: 291px;">
-      <div class="bg-w" style="height: 0px;"><img class="bg" :src=staff.picture.url :alt=staff.name></div>
+      <!-- <div class="bg-w" style="height: 0px;"><img class="bg" :src=staff.picture :alt=staff.name></div> -->
+      <img :src="staff.picture" style="width:100%; height: 500px;">
         <div class="profile">
           <div class="p-text">
             <h3><span>{{ staff.part }}</span><br></h3>
@@ -108,10 +109,74 @@ export default {
 }
 
 .staff-item {
-
+  width: 96%;
+  margin: 0 auto;
+  float: none;
 }
 
+.staff-item li {
+  overflow: hidden;
+  width: 33.333333333%;
+  box-sizing: border-box;
+  margin: 3px;
+  position: relative;
+  display: block;
+}
 
+li {
+  list-style: none;
+}
+
+.staff-item li img.bg {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.staff-item li .profile {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.staff-item li .profile .p-text {
+  opacity: 0;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  position: absolute;
+  color: #fff !important;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 30px;
+  display: block;
+  background: rgba(33, 39, 54, 0.5);
+  /* transition: all 0.7s ease; */
+  -webkit-transition: all 0.7s ease;
+  /* -moz-transition: all 0.7s ease; */
+}
+
+.staff-item li .profile h3 {
+  text-align: center;
+  letter-spacing: 0.1em;
+  font-size: 15px;
+  line-height: 1.4em;
+}
+
+.staff-item li .profile h3 span {
+  color: #eee;
+  font-size: 0.6em;
+}
+
+.staff-item li .profile p {
+  margin-top: 20px;
+  color: #eee !important;
+}
 }
 
 </style>

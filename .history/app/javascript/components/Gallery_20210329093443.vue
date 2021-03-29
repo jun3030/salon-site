@@ -20,7 +20,6 @@
         :index="index"
         :visibleSlide = "visibleSlide"
         >
-        {{ slide.img }}
         <img :src="slide.img" style="width:100%; height: 500px;">
       </CarouselSlide>
     </Carousel>

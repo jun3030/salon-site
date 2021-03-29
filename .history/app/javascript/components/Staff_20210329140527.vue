@@ -108,10 +108,84 @@ export default {
 }
 
 .staff-item {
-
+    width: 96%;
+    margin: 0 auto;
+    float: none;
+    display: flex;
+    position: relative;
 }
 
+ul {
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
 
+.staff-item .bk_pink-l {
+    width: 178px;
+    height: 60px;
+    position: absolute;
+    z-index: 0;
+    left: -3px;
+    top: -3px;
+    background: #d28a94;
+}
+
+.staff-item li {
+    overflow: hidden;
+    box-sizing: border-box;
+    margin: 3px;
+    display: block;
+    list-style: none;
+}
+
+.staff-item .bk_pink-r {
+    width: 178px;
+    height: 60px;
+    position: absolute;
+    z-index: 0;
+    right: -3px;
+    bottom: -3px;
+    background: #d28a94;
+}
+
+.staff-item .bg-w {
+    width: 100%;
+    background: #fff;
+}
+
+.staff-item li img.bg {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.staff-item li .profile {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.staff-item li .profile .p-text {
+    opacity: 0;
+    transform: scale(1.1);
+    position: absolute;
+    color: #fff !important;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 30px;
+    display: block;
+    background: rgba(33, 39, 54, 0.5);
+}
 }
 
 </style>

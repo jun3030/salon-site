@@ -108,10 +108,23 @@ export default {
 }
 
 .staff-item {
-
+  width: 96%;
+  margin: 0 auto;
+  float: none;
+  display: flex;
+  position: relative;
 }
 
-
+.staff-item .bk_pink-l {
+  width: 178px;
+  height: 60px;
+  position: absolute;
+  z-index: 0;
+  left: -3px;
+  top: -3px;
+  bottom: none;
+  background: #d28a94;
+}
 }
 
 </style>

@@ -108,7 +108,11 @@ export default {
 }
 
 .staff-item {
-
+  width: 96%;
+  margin: 0 auto;
+  float: none;
+  display: flex;
+  position: relative;
 }
 
 
