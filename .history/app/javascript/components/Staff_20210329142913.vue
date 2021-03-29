@@ -96,8 +96,10 @@ export default {
 }
 
 .bg {
-  padding:8px;
+  padding:10px;
   flex: auto;
+  /* min-width:110px;
+  height: 50px; */
   background:#999;
   border-radius: 2px;
   margin:3px;

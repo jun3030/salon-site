@@ -12,9 +12,27 @@
 
   <ul class="staff-item">
     <div v-for="(staff) in Staffs" :key="staff.id">
-      <li class="item fst image ac-end" style="opacity: 1; height: 291px;">
-        <img class="bg" :src=staff.picture.url style="width:260px; height:260px;" :alt=staff.name>
-      </li>
+    <li class="item fst image ac-end" style="opacity: 1; height: 291px;">
+      <div class="bg-w" style="height: 0px;"><img class="bg" :src=staff.picture.url :alt=staff.name></div>
+        <div class="profile">
+          <div class="p-text">
+            <h3><span>{{ staff.part }}</span><br></h3>
+            <p>{{ staff.description }}<br><span>【資生堂SABFA卒業】</span></p>
+          </div>
+        </div>
+        <input id="modal-trigger-takagi" type="checkbox">
+        <label for="modal-trigger-takagi" class="label-tr"></label>
+        <div class="modal-overlay">
+          <div class="modal-wrap" style="height: initial;">
+            <label for="modal-trigger-takagi" class="label-close">CLOSE</label>
+            <div class="image-label"><img src="img/index/image_staff_takagi.jpg" alt="高木 達也"></div>
+            <div class="p-text">
+              <h3><span>{{ staff.part }}</span><br>{{ staff.name }}</h3>
+              <p>{{ staff.description }}<br><span>【資生堂SABFA卒業】</span></p>
+            </div>
+          </div>
+        </div><!-- / .modal-overlay -->
+    </li>
     </div>
   </ul>
 </article>
@@ -90,18 +108,10 @@ export default {
 }
 
 .staff-item {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
+
 }
 
-.bg {
-  padding:8px;
-  flex: auto;
-  background:#999;
-  border-radius: 2px;
-  margin:3px;
-}
+
 }
 
 </style>

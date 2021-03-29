@@ -96,12 +96,10 @@ export default {
 }
 
 .bg {
-  padding:8px;
-  flex: auto;
-  background:#999;
-  border-radius: 2px;
-  margin:3px;
+  padding:10px;
 }
+
+
 }
 
 </style>

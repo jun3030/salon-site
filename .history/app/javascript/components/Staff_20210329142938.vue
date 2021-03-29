@@ -96,9 +96,9 @@ export default {
 }
 
 .bg {
-  padding:8px;
+  padding:10px;
   flex: auto;
-  background:#999;
+  /* background:#999; */
   border-radius: 2px;
   margin:3px;
 }

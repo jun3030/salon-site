@@ -13,7 +13,7 @@
   <ul class="staff-item">
     <div v-for="(staff) in Staffs" :key="staff.id">
       <li class="item fst image ac-end" style="opacity: 1; height: 291px;">
-        <img class="bg" :src=staff.picture.url style="width:260px; height:260px;" :alt=staff.name>
+        <img class="bg" :src=staff.picture.url style="width:300px; height:300px;" :alt=staff.name>
       </li>
     </div>
   </ul>
@@ -90,18 +90,10 @@ export default {
 }
 
 .staff-item {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
+
 }
 
-.bg {
-  padding:8px;
-  flex: auto;
-  background:#999;
-  border-radius: 2px;
-  margin:3px;
-}
+
 }
 
 </style>
