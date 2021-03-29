@@ -45,15 +45,15 @@ export default {
 }
 
 .staff-part {
+ background:red;
  margin-top:10px;
- margin-bottom: 0px;
  font-size: 12px;
 }
 
 .name {
+  background: blue;
   font-weight: bold;
   font-size: 16px;
-  margin-bottom: -5px;
 }
 
 .description {

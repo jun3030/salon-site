@@ -1,10 +1,9 @@
 <template>
   <div id="overlay">
-    <div id="content">
-      <img :src="val.picture.url">
-      <p class="staff-part"> - {{ val.staff_part }} - </p>
-      <p class="name">{{ val.name }}</p>
-      <p class="description">{{ val.description }}</p>
+    <img :src="val.picture.url">
+    <div class="p-text">
+      <h3><span>- {{ val.staff_part }} -</span><br>{{ val.name }}</h3>
+      <p>{{ val.description }}</p>
       <button @click="$emit('close')">閉じる</button>
     </div>
   </div>
@@ -42,22 +41,6 @@ export default {
 
 #content > img {
   width: 95%;
-}
-
-.staff-part {
- margin-top:10px;
- margin-bottom: 0px;
- font-size: 12px;
-}
-
-.name {
-  font-weight: bold;
-  font-size: 16px;
-  margin-bottom: -5px;
-}
-
-.description {
-  padding:20px;
 }
 
 </style>

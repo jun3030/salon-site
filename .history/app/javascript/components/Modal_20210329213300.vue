@@ -1,10 +1,9 @@
 <template>
   <div id="overlay">
-    <div id="content">
-      <img :src="val.picture.url">
-      <p class="staff-part"> - {{ val.staff_part }} - </p>
-      <p class="name">{{ val.name }}</p>
-      <p class="description">{{ val.description }}</p>
+    <div class="image-label"><img :src="val.picture.url" alt="稲森 春香"></div>
+    <div class="p-text">
+      <h3><span>- {{ val.staff_part }} -</span><br>{{ val.name }}</h3>
+      <p>{{ val.description }}<br><span>【資生堂SABFA卒業】</span></p>
       <button @click="$emit('close')">閉じる</button>
     </div>
   </div>
@@ -31,7 +30,7 @@ export default {
   justify-content: center;
 }
 
-#content{
+/* #content{
   z-index:2;
   width:50%;
   padding-top: 5em;
@@ -42,22 +41,18 @@ export default {
 
 #content > img {
   width: 95%;
+} */
+
+.image-label, .modal-wrap .image-label img {
+    width: 100%;
 }
 
-.staff-part {
- margin-top:10px;
- margin-bottom: 0px;
- font-size: 12px;
+.image-label img {
+    width: 100%;
 }
 
-.name {
-  font-weight: bold;
-  font-size: 16px;
-  margin-bottom: -5px;
-}
-
-.description {
-  padding:20px;
+.image-label {
+    margin-top: 10px;
 }
 
 </style>

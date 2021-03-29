@@ -53,7 +53,6 @@ export default {
 .name {
   font-weight: bold;
   font-size: 16px;
-  margin-bottom: -5px;
 }
 
 .description {
