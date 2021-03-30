@@ -1,0 +1,209 @@
+ <%# スタッフ選択 %>
+<div class="mb-3">
+  <h5 class="text-left">担当スタッフを選択</h5>
+  <div class="select_form_sp">
+    <ul class="list-group">
+      <li class="list-group-item disabled" data-toggle="modal" data-target="#staff_modal"><%= if params[:staff_id] then Staff.find(params[:staff_id]).name else "指名なし" end %><i class="fas fa-arrow-alt-down"></i></li>
+    </ul>
+  </div>
+</div>
+
+  <%# コースの選択 %>
+  <div class="mb-3">
+    <h5 class="text-left">コースを選択</h5>
+    <div class="select_form_sp">
+      <ul class="list-group">
+        <li class="list-group-item disabled" data-toggle="modal" data-target="#course_modal"><%= @task_course.title %><i class="fas fa-angle-down float-right"></i></li>
+      </ul>
+    </div>
+  </div>
+
+
+<!-- スタッフ選択モーダル -->
+<div class="modal" id="staff_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">スタッフを選択</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body p-0">
+        <div class="select_form_modal">
+
+          <ul class="list-unstyled">
+            <li class="media select_tr <%= "selected" unless params[:staff_id] %>" data-dismiss="modal" aria-label="Close">
+              <%= image_tag "free_image", size: "64x64" %>
+              <div class="media-body <%= "load_btn link_div" if params[:staff_id] %>" data-dismiss="modal" data-href="<%= calendar_tasks_path(@calendar, course_id: @task_course.id) %>">
+                <h5 class="mt-0 mb-1">
+                  <% unless params[:staff_id] %>
+                    <i class="fas fa-check mr-2 text-primary"></i>
+                  <% end %>
+                  <span>指名なし</span>
+                </h5>
+              </div>
+            </li>
+            <% @calendar.staffs.each do |staff| %>
+              <% if params[:staff_id] == staff.id.to_s %>
+                <li class="media select_tr selected">
+                  <% if staff.picture? %>
+                    <%= image_tag staff.picture.url, size: "64x64", id: "staff_image#{staff.id}", class:"mr-3" %>
+                  <% else %>
+                    <%= image_tag "free_image", size: "64x64" %>
+                  <% end %>
+                  <div class="media-body" data-dismiss="modal">
+                    <h5 class="mt-0 mb-1"><i class="fas fa-check mr-2 text-primary"></i><span><%= staff.name %></span></h5>
+                    <%= simple_format(staff.description) %>
+                  </div>
+                </li>
+              <% else %>
+                <li class="media select_tr">
+                  <% if staff.picture? %>
+                    <%= image_tag staff.picture.url, size: "64x64", id: "staff_image#{staff.id}", class:"mr-3" %>
+                  <% else %>
+                    <%= image_tag "free_image", size: "64x64" %>
+                  <% end %>
+                  <div class="media-body link_div load_btn" data-href="<%= calendar_tasks_path(@calendar, course_id: @task_course.id, staff_id: staff.id) %>">
+                    <h5 class="mt-0 mb-1"><span><%= staff.name %></span></h5>
+                    <%= simple_format(staff.description) %>
+                  </div>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- コース選択モーダル -->
+<div class="modal" id="course_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">コースを選択</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body p-0">
+        <div class="select_form_modal">
+          <ul class="list-unstyled">
+            <% @calendar.task_courses.each do |course| %>
+              <% if @task_course == course %>
+                <li class="media select_tr selected">
+                  <% if course.picture? %>
+                    <%= image_tag course.picture.url, size: "64x64", id: "image#{course.id}" %>
+                  <% else %>
+                    <%= image_tag "free_image", size: "64x64" %>
+                  <% end %>
+                  <div class="media-body" data-dismiss="modal">
+                    <h5 class="mt-0 mb-1"><i class="fas fa-check mr-2 text-primary"></i><span><%= course.title %></span></h5>
+                    <%= course.display_charge %><br>
+                    <%= simple_format(course.description) %>
+                  </div>
+                </li>
+              <% else %>
+                <li class="media select_tr">
+                  <% if course.picture? %>
+                    <%= image_tag course.picture.url, size: "64x64", id: "image#{course.id}" %>
+                  <% else %>
+                    <%= image_tag "free_image", size: "64x64" %>
+                  <% end %>
+                  <div class="media-body link_div load_btn" data-href="<%= calendar_tasks_path(@calendar, course_id: course.id, staff_id: params[:staff_id]) %>">
+                    <h5 class="mt-0 mb-1"><span><%= course.title %></span></h5>
+                    <%= course.display_charge %><br>
+                    <%= simple_format(course.description) %>
+                  </div>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+<% @calendar.task_courses.each do |course| %>
+  <% if course.picture? %>
+    const viewer_<%= course.id %> = new Viewer(document.getElementById("image<%= course.id %>"), {
+      viewed() {
+        viewer_<%= course.id %>.zoomTo(1);
+      },
+    });
+  <% end %>
+<% end %>
+
+<% @calendar.staffs.each do |staff| %>
+  <% if staff.picture? %>
+    const staff_viewer_<%= staff.id %> = new Viewer(document.getElementById("staff_image<%= staff.id %>"), {
+      viewed() {
+        staff_viewer_<%= staff.id %>.zoomTo(1);
+      },
+    });
+  <% end %>
+<% end %>
+
+$(".load_btn").click(function(){
+		$("#overlay").fadeIn(500);
+});
+
+$(".load_btn").click(function(){
+		$("#overlay").fadeIn(500);
+});
+
+window.onpageshow = function(e) {
+  if( e.persisted == true ){
+  // ローディング画面を隠す
+    $("#overlay").remove();
+  /* もしローディング画面を出す以外にも画面遷移時に処理を行っている場合など、
+  * 何らかの不具合が出た場合には、
+  * 画面を読み込み直すのでブラウジングのスムーズさが少し損なわれてしまいますが、
+  * 強制的にリロードさせる下記の処理をさせると大体解決します。*/
+  // window.location.reload();
+  }
+}
+</script>
+
+<style>
+// indexページ
+.select_form {
+  height: 200px;
+  overflow-y: scroll;
+  max-height: 220px;
+  border-top: #6a7378 3px solid;
+}
+
+.select_form_sp {
+  border-top: #6a7378 3px solid;
+}
+
+.select_tr {
+  cursor: pointer;
+  border-bottom: 1px #c2bfbf solid;
+}
+
+.select_tr:hover {
+  background-color: #eda8a2!important;
+}
+
+.selected {
+  background-color: #a7a6a652;
+}
+
+.float-right {
+  float: right;
+}
+
+.select_form_modal {
+  height: 200px;
+  overflow-y: scroll;
+}
+</style>
