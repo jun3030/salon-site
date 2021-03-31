@@ -14,9 +14,6 @@ rackup      DefaultRackup
 port        ENV.fetch("PORT") { 3000 }
 environment ENV.fetch("RAILS_ENV") { "development" }
 
-on_worker_boot do
-  ActiveRecord::Base.establish_connection
-end
 # Specifies the `pidfile` that Puma will use.
 pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 
