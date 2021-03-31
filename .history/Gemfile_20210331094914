@@ -41,6 +41,13 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+gem 'dotenv-rails' # 環境変数設定用
+gem 'active_decorator'
+gem 'carrierwave'
+gem 'font-awesome-rails'
+gem 'line-bot-api'
+gem 'ransack' # 検索機能
+gem 'rinku' # リンクを生成する
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -62,6 +69,10 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+end
+
+group :production do
+  gem 'pg', '0.20.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
