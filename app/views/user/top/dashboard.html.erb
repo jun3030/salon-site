@@ -1,0 +1,64 @@
+<div class="container">
+  <br>
+  <!-- カレンダーのコンテナ -->
+  <div id="calendar"></div>
+
+  <div id="inputScheduleForm" class="modal fade" tabindex="-1">
+      <div class="modal-dialog modal-nm">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h4 class="modal-title">スケジュール登録</h4>
+              </div>
+              <div class="modal-body">
+
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<style>
+.container{
+  width: 100%;
+  max-width: 850px;
+  margin-right: auto;
+  margin-left: auto;
+}
+</style>
+
+<script>
+// カレンダー表示
+        $('#calendar').fullCalendar ({
+            header: {
+                left: 'prev,next today',
+                center: 'month,agendaWeek,agendaDay',
+                right: 'title'
+            },
+
+            buttonText: {
+                  prev: "<",
+                  next: ">"
+            },
+
+            timezone: 'UTC',
+            events: '/users/events.json',
+            navLinks: true,
+            selectable: true,
+            selectHelper: true,
+            // 日付クリック
+            dayClick : function ( date , jsEvent , view ) {
+                $('#inputScheduleForm').modal('show');
+                },
+
+            // event クリックで編集、削除
+            eventClick : function(event, jsEvent , view) {
+                jsEvent.preventDefault();
+                $(`#inputScheduleEditForm${event.id}`).modal('show');
+            },
+
+            eventMouseover : function(event, jsEvent , view) {
+                jsEvent.preventDefault();
+            }
+        })
+</script>
+

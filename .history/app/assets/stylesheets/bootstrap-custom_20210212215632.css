@@ -1,0 +1,6 @@
+html { font-size: 16px; -ms-overflow-style: scrollbar; -webkit-tap-highlight-color: transparent; }
+
+.logout-button {
+  color:black;
+  margin-left :25px;
+}

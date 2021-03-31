@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  work_start_time: 2021-01-23 04:03:36
+  work_end_time: 2021-01-23 04:03:36
+  work_date: 2021-01-23
+  is_holiday: false
+  staff: one
+
+two:
+  work_start_time: 2021-01-23 04:03:36
+  work_end_time: 2021-01-23 04:03:36
+  work_date: 2021-01-23
+  is_holiday: false
+  staff: two

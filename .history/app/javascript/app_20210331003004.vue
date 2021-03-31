@@ -1,0 +1,61 @@
+<template>
+  <div id="app">
+      <Header @offComponent = "show = $event"></Header>
+      <div v-if="!show">
+        <TopImage></TopImage>
+        <Concept></Concept>
+        <Gallery></Gallery>
+        <Menu></Menu>
+        <staff></staff>
+        <a class="staff-link" :href="loginAdmin">スタッフはこちらから!</a><br>
+      </div>
+  </div>
+</template>
+
+<script>
+import Header from "./components/Header.vue"; //追記
+import TopImage from "./components/TopImage.vue";
+import Concept from "./components/Concept.vue";
+import Gallery from "./components/Gallery.vue"
+import Menu from "./components/Menu.vue"
+import Staff from "./components/Staff.vue"
+
+
+export default {
+  data: function () {
+    return {
+      loginAdmin: "http://localhost:3000/sign_in",
+      show: false
+    }
+  },
+  components: {
+    Header, //追記
+    TopImage,
+    Concept,
+    Gallery,
+    Menu,
+    Staff
+  }
+}
+
+</script>
+
+<style scoped>
+.container {
+  width: 100%;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+p {
+  font-size: 2em;
+  text-align: center;
+}
+
+.staff-link {
+  margin-left:30px;
+  padding-bottom:50px;
+}
+</style>

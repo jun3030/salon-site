@@ -1,0 +1,281 @@
+<div class="component">
+    <div class="form_page">
+    <div class="title">
+        <h2 class="title_style">予約フォーム</h2>
+    </div>
+    <div>
+        <h4 class="booking_content">予約内容</h4>
+            <table class="table table-borderless">
+                <tbody>
+                    <tr>
+                        <th class="col-xs-2 form_td_left"><label for="exampleInputPassword1" class="form_label">日時</label></th>
+                        <th class="col-xs-10"><%= reservation_date(@task) %></td>
+                    </tr>
+                    <tr>
+                        <th class="col-xs-2 form_td_left"><label for="exampleInputPassword1" class="form_label">担当者</label></th>
+                        <th class="col-xs-10"><%= staff_name_helper(@staff) %></td>
+                    </tr>
+                    <tr>
+                        <th class="col-xs-2 form_td_left"><label for="exampleInputPassword1" class="form_label">コース名</label></th>
+                        <th class="col-xs-10"><%= @task_course.title %></td>
+                    </tr>
+                    <% if @task_course.description %>
+                        <tr>
+                            <th class="col-xs-2 form_td_left"><label for="exampleInputPassword1" class="form_label">コース説明</label></th>
+                            <th class="col-xs-10"><%= simple_format(@task_course.description) %></td>
+                        </tr>
+                    <% end %>
+                    <tr>
+                        <th class="col-xs-2 form_td_left"><label for="exampleInputPassword1" class="form_label">コース時間</label></th>
+                        <th class="col-xs-10"><%= "#{@task_course.course_time}分"%></td>
+                    </tr>
+                    <tr>
+                        <th class="col-xs-2 form_td_left"><label for="exampleInputPassword1" class="form_label">料金</label></th>
+                        <th class="col-xs-10"><%= "#{@task_course.display_charge}" %></td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+    <div class="form_area">
+        <%= form_for @store_member, url: calendar_redirect_line_path(@calendar), method: :post do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+        <div class="form-group">
+            <label for="exampleInputPassword1">お名前</label><span id="msg-name"></span><span class="badge badge-danger">必須</span></h6>
+            <%= f.text_field :name, class: "form-control form_style", id: "name", placeholder: "お名前（山田太郎）", required: "required" %>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">メールアドレス</label><span id="msg-email"></span><span class="badge badge-danger">必須</span></h6>
+            <%= f.email_field :email, class: "form-control form_style", id: "email", placeholder: "メールアドレス(test@test.com)", required: "required" %>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">電話番号</label><span id="msg-tel"></span><span class="badge badge-danger">必須</span></h6>
+            <%= f.number_field :phone, class: "form-control form_style", id: "tel", placeholder: "電話番号(09012345678)", required: "required" %>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">ご住所</label><i>（出張をご希望の場合必須）</i><span id="msg-address"></span><%#span class="badge badge-danger">必須</span%></h6>
+            <%= f.text_field :address, class: "form-control form_style", id: "address", placeholder: "ご住所(東京都港区〇〇１丁目１−１)", required: "required" %>
+        </div>
+        <div class="form-group form-check">
+            <%= f.check_box :is_allow_notice, {class: "form-check-input", checked: true}, "true", "false" %>
+            <label for="exampleInputEmail1" class="form-check-label">メールや、LINEでの通知を許可する方は、チェック</label>
+        </div>
+        <%= fields_for :task do |task|  %>
+                <%= task.hidden_field :start_time, value: @task.start_time %>
+                <%= task.hidden_field :end_time, value: @task.end_time %>
+            <div class="form-group">
+                <label for="exampleInputPassword1">ご要望</label>
+                <%= task.text_area :request, class: "form-control form_style" %>
+            </div>
+        <% end %>
+        <%= hidden_field_tag :task_course_id, @task_course.id %>
+        <%= (hidden_field_tag :staff_id, @staff.id) if @staff %>
+        <div class="task_submit_btn">
+            <p>以下のどちらのボタンでも、予約できます。予約完了通知の種類を選べます。</p>
+            <!-- <button type="submit" class="btn btn-success btn_style btn-block booking_load_btn">予約（通知をLINEで受け取る）</button> -->
+            <%= f.submit "予約（通知をEメールで受け取る）", class:"btn btn-primary btn_style btn-block booking_load_btn" %>
+            <%= link_to "戻る", calendar_tasks_path(@calendar), class:"btn btn-secondary btn_style load_btn btn-block" %>
+        </div>
+        <% end %>
+    </div>
+    </div>
+</div>
+
+<style>
+.component {
+  width: 100%;
+  padding-right: 150px;
+  padding-left: 150px;
+  padding-top: 30px;
+  margin-right: auto;
+  margin-left: auto;
+}
+</style>
+
+<script>
+        $(function () {
+//           画面読み込み時にアイコンが表示されないようにする
+            // $('#kana-icon').hide();
+            // $('#name-icon').hide();
+            // $('#email-icon').hide();
+            // $('#tel-icon').hide();
+
+//           input要素のフォーカスを失ったタイミングで発生します。
+            $('#name').blur(function () {
+//              空値及び数字記号が入っていないかチェックするバリデーション
+                emptyNameCheck($(this));
+            });
+
+
+//             $('#name-kana').blur(function () {
+// //              ひらがなを自動変換するイベントの呼び出し
+//                 kanaChange($(this));
+// //
+// //              空値及びカナ以外の値が入っていないかチェックするバリデーション
+//                 emptyKanaCheck($(this));
+//             });
+
+            $('#email').blur(function () {
+//
+//              空値及びメールアドレス以外が入っていないかチェックするバリデーション
+                emptyEmailCheck($(this));
+            });
+
+            $('#tel').blur(function () {
+//
+//              空値及び電話番号以外が入っていないかチェックするバリデーション
+                emptyTelCheck($(this));
+            });
+
+
+            emptyNameCheck = function (ele) {
+                var val = ele.val();
+//                空値の場合、背景へCSSクラス適用し、テキストを追加
+                if (val == "") {
+                    $("#msg-name").addClass('color');
+                    $("#msg-name").text("入力されていません。");
+                    $('#name-icon').hide();
+                }
+//                数字記号が入っている場合背景へCSSクラス適用し、テキストを追加
+                else if (val.match(/^([\w\u3040-\u309f])\*$|\d+|[!-/]|[:-?]|[[-`]|[{-~]|["！”＃＄％＆’（）＝｜‘｛＋＊｝＜＞？＿－＾￥＠「；：」、。・" 〜]/)) {
+                    $('#msg-name').addClass('color');
+                    $("#msg-name").text("名前が正しくありません。");
+
+                    $('#name-icon').hide();
+                }
+
+                else {
+                    $('#msg-name').removeClass('color');
+                    $("#msg-name").text("");
+                    $('#name-icon').show();
+                }
+            };
+
+//             kanaChange = function (ele) {
+//                 var val = ele.val();
+// //                正規表現でひらがなを引数の値に置換
+//                 var kana = val.replace(/[ぁ-ん]/g, function (s) {
+//                     // ユニコード値でカナに変換
+//                     return String.fromCharCode(s.charCodeAt(0) + 0x60)
+//                 });
+
+//                 if (val.match(/[ぁ-ん]/g)) {
+//                     $(ele).val(kana)
+//                 }
+
+//             };
+
+//             emptyKanaCheck = function (ele) {
+//                 var val = ele.val();
+// //                空値の場合、テキストを追加
+//                 if (val == "") {
+//                     $("#msg-kana").addClass("color");
+//                     $("#msg-kana").text("入力されていません。");
+//                     $("#kana-icon").hide();
+//                 }
+// //                カナ以外の値が入っている場合、テキストを追加
+//                 else if (val.match(/[^ぁ-んァ-ン　\s]+/)) {
+//                     $("#msg-kana").addClass("color");
+//                     $("#msg-kana").text("全角カナ以外が登録されています。");
+
+//                     $("#kana-icon").hide();
+//                 }
+
+//                 else {
+//                     $("#msg-kana").removeClass("color");
+//                     $("#msg-kana").text("");
+//                     $("#kana-icon").show();
+//                 }
+//             };
+
+            emptyEmailCheck = function (ele) {
+                var val = ele.val();
+//                空値の場合、テキストを追加
+                if (val == "") {
+                    $("#msg-email").addClass('color');
+                    $("#msg-email").text("入力されていません。");
+                    $("#email-icon").hide();
+                }
+//                カナ以外の値が入っている場合背景へCSSクラス適用し、テキストを追加
+                else if (!val.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
+                    $("#msg-email").addClass("color");
+                    $("#msg-email").text("@以降が入力されていないか、メールアドレス以外の情報が登録されています。");
+
+                    $("#email-icon").hide();
+                }
+
+                else {
+                    $("#msg-email").removeClass("color");
+                    $("#msg-email").text("");
+                    $("#email-icon").show();
+                }
+            };
+
+            emptyTelCheck = function (ele) {
+                var val = ele.val();
+//                空値の場合、背景へCSSクラス適用し、テキストを追加
+                if (val == "") {
+                    $("#msg-tel").addClass('color');
+                    $("#msg-tel").text("入力されていません。");
+                    $("#tel-icon").hide();
+                }
+//                電話以外の値が入っている場合、背景へCSSクラス適用し、テキストを追加
+                else if (!val.match(/^(0[5-9]0[0-9]{8}|0[1-9][1-9][0-9]{7})$/)) {
+                    $("#msg-tel").addClass("color");
+                    $("#msg-tel").text("電話番号が正しく入力されていません(00011112222)");
+
+                    $("#email-tel").hide();
+                }
+
+                else {
+                    $("#msg-tel").removeClass("color");
+                    $("#msg-tel").text("");
+                    $("#tel-icon").show();
+                }
+            };
+        });
+    </script>
+
+    <script>
+
+    // Chrome76でも見分けられるmishraさんの方法
+    async function start() {
+        if ("storage" in navigator && "estimate" in navigator.storage) {
+            const { usage, quota } = await navigator.storage.estimate();
+            console.log(`Using ${usage} out of ${quota} bytes.`);
+
+            if (quota < 120000000) {
+                console.log("新調査方法の判定：シークレットモード");
+                alert("ブラウザのシークレットモードを解除してください。正常に予約ができない場合があります。");
+                window.location.href = "<%= calendar_tasks_url(@calendar) %>"
+            } else {
+                console.log("新調査方法の判定：通常モード");
+            }
+        } else {
+            console.log("Can not detect");
+        }
+    }
+    start();
+
+    if (window.openDatabase) {
+    try {
+        localStorage.test = 'hoge';
+
+    } catch(e) {
+        alert("ブラウザのシークレットモードを解除してください。正常に予約ができない場合があります。");
+        window.location.href = "<%= calendar_tasks_url(@calendar) %>"
+    }
+    }
+
+
+</script>
+
+<script>
+$('.booking_load_btn').click(function(){
+    if(!confirm('予約しますか？')){
+        return false;
+    }else{
+        /*　OKの時の処理 */
+        $("#overlay").fadeIn(500);
+    }
+});
+</script>

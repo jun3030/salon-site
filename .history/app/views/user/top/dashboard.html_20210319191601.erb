@@ -1,0 +1,120 @@
+<div class="container">
+  <br>
+  <!-- カレンダーのコンテナ -->
+  <div id="calendar"></div>
+
+  <div id="user_task_modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+  <div id="user_new_task_modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+</div>
+
+<style>
+.container{
+  width: 100%;
+  max-width: 850px;
+  margin-right: auto;
+  margin-left: auto;
+}
+</style>
+
+<script>
+window.onload = function() {
+if (document.getElementById("calendar") != null) {
+  var calendarEl = document.getElementById('calendar');
+
+  var calendar = new Calendar(calendarEl, {
+    plugins: [ dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin ],
+    locale: 'ja',
+    headerToolbar: {
+        right: 'dayGridMonth,timeGridWeek,dayGridDay',
+        center: "title",
+        left: "today prev,next"
+    }, // buttons for switching between views
+    buttonText: {
+        month: '月',
+        week: '週',
+        day: '日',
+        today: '今日',
+        prev: '前',
+        next: '次'
+    },
+    allDaySlot: false,
+    events: '/users/1/calendars/1/dashboard.json',
+    // eventClick: function(calEvent, jsEvent, view) {
+    //   // ***** 今回はここにクリックイベントを追加 *****
+    //   $('#modalTitle').html(calEvent.title); // モーダルのタイトルをセット
+    //   $('#modalBody').html(calEvent.description); // モーダルの本文をセット
+    //   $('#calendarModal').modal(); // モーダル着火
+    // },
+    selectable: true,
+    eventClick: function(calEvent, jsEvent, view) {
+      // ***** 今回はここにクリックイベントを追加 *****
+      $('#modalTitle').html(calEvent.title); // モーダルのタイトルをセット
+      $('#modalBody').html(calEvent.description); // モーダルの本文をセット
+      $('#calendarModal').modal(); // モーダル着火
+      console.log("test");
+    },
+    dateClick: function(info) {
+      $('#calendarModal').modal("show"); // モーダル着火
+    },
+  });
+  calendar.render();
+} else {
+  var calendarEl = document.getElementById('holiday_calendar');
+
+  var calendar = new Calendar(calendarEl, {
+    plugins: [ dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin ],
+    locale: 'ja',
+    headerToolbar: {
+        right: 'dayGridMonth,timeGridWeek,dayGridDay',
+        center: "title",
+        left: "today prev,next"
+    }, // buttons for switching between views
+    buttonText: {
+        month: '月',
+        week: '週',
+        day: '日',
+        today: '今日',
+        prev: '前',
+        next: '次'
+    },
+    allDaySlot: false,
+    events: [
+      { // this object will be "parsed" into an Event Object
+        title: 'The Title', // a property!
+        start: '2021-03-01', // a property!
+        end: '2021-03-02' // a property! ** see important note below about 'end' **
+      }
+    ],
+    eventClick: function(info) {
+      alert('Event: ' + info.event.title);
+    },
+    selectable: true,
+    // dayClick: function(date) {
+    //   alert('clicked ' + date.format());
+    //   get("iregular_holidays/new/?date=#{date.format()}");
+    // },
+    // eventClick: function(eventObj) {
+    //   get("iregular_holidays/#{eventObj.id}/edit");
+    // },
+    // defaultView: 'month',
+    // validRange: {
+    //   start: json_data["start_date"],
+    //   end: json_data["end_date"]
+    // },
+    // events: json_data["holidays"]
+
+  });
+  calendar.render();
+}
+}
+
+</script>
+
+import { Calendar } from '@fullcalendar/core';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import listPlugin from '@fullcalendar/list';
+import interactionPlugin from '@fullcalendar/interaction';
+
+
+

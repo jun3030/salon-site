@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: 
+  holiday_flag: 
+  business_start_at: 
+  business_end_at: 
+  is_rest: 
+  rest_start_time: 
+  rest_end_time: 2021-01-23 15:51:09
+  calendar_config: one
+
+two:
+  day: 
+  holiday_flag: 
+  business_start_at: 
+  business_end_at: 
+  is_rest: 
+  rest_start_time: 
+  rest_end_time: 2021-01-23 15:51:09
+  calendar_config: two

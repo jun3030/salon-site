@@ -1,0 +1,18 @@
+<div class="container">
+  <br>
+  <!-- カレンダーのコンテナ -->
+  <div id="calendar"></div>
+  <div id="data" data-date_current="<%= @current_date %>" data-events="<%= @events %>" data-data_calendar="<%= @data_calendar %>" data-store_member_id="<%= @store_member_id %>"></div>
+</div>
+
+<div id="user_new_task_modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+
+<style>
+.container{
+  width: 100%;
+  max-width: 850px;
+  margin-right: auto;
+  margin-left: auto;
+}
+</style>
+

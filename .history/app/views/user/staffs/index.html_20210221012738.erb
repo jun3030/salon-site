@@ -1,0 +1,42 @@
+<%= render 'layouts/header' %>
+
+<div class="containar">
+  <%= link_to "スタッフ新規登録", new_user_calendar_staff_path(current_user, @calendar), class:"btn btn-primary", remote: true %>
+  <div id="staff_new_modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+  <div class="table-responsive">
+      <table class="table">
+          <thead>
+              <tr>
+                  <th>id</th>
+                  <th>名前</th>
+                  <th></th>
+              </tr>
+          </thead>
+          <tbody>
+              <% @staffs.each do |staff| %>
+                  <tr>
+                      <th scope="row"><%= staff.id %></th>
+                      <td><%= staff.name %></td>
+                      <td>
+                          <%= link_to "編集", edit_user_calendar_staff_path(current_user, @calendar, staff), class:"btn btn-success" %>
+                          <%= link_to "シフト設定", calendar_staff_staff_shifts_path(@calendar, staff), class:"btn btn-info" %>
+                          <%= link_to "削除", user_calendar_staff_path(current_user, @calendar, staff), class:"btn btn-danger", data: { confirm: '削除しますか？' }, method: :delete %>
+                      </td>
+                      <div id="staff<%= staff.id %>_edit_modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+                  </tr>
+              <% end %>
+          </tbody>
+      </table>
+  </div>
+</div>
+
+<style>
+.containar {
+  width: 100%;
+  padding-right: 40px;
+  padding-left: 40px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+</style>

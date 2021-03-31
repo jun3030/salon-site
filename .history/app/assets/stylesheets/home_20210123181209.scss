@@ -1,0 +1,53 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+#container {
+	width: 100%;
+	position: relative;
+	height: auto !important;
+	height: 100%;
+	min-height: 100%;
+}
+
+div.img-hidden {
+  height: 300px;
+  overflow: hidden;
+}
+
+div.container-m {
+  margin-top: 80px;
+}
+
+.test1 {
+  background: red;
+}
+
+.test2 {
+  background: blue;
+}
+
+.test3 {
+  background: yellow;
+}
+
+.timeCell {
+	background-color: #F6F6F6;
+	border-top: 1px solid #BFB9B0;
+	font-size: 11px;
+	height: 35px;
+	line-height: 35px;
+	width: 100%;
+}
+
+.circle_style {
+	background: white!important;
+	i {
+		font-size: initial;
+	}
+}
+
+.circle_style:hover {
+	background-color: #eda8a2!important;
+	cursor: pointer;
+}

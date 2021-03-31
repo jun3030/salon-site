@@ -1,0 +1,42 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">新規予約フォーム</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div><!-- /.modal-header -->
+    <div class="modal-body">
+      <div class="form_area">
+          <ul id="myTab" class="nav nav-tabs" role="tablist">
+              <li class="nav-item">
+                  <a href="#task" id="home-tab" class="nav-link active" role="tab" data-toggle="tab" aria-controls="home" aria-selected="true">予約登録</a>
+              </li>
+              <li class="nav-item">
+                  <a href="#sub_task" id="profile-tab" class="nav-link" role="tab" data-toggle="tab" aria-controls="profile" aria-selected="false">仮予約</a>
+              </li>
+              <li class="nav-item">
+                  <a href="#staff_rest" id="profile-tab" class="nav-link" role="tab" data-toggle="tab" aria-controls="profile" aria-selected="false">スタッフ休憩登録</a>
+              </li>
+          </ul>
+
+          <!-- パネル部分 -->
+          <div id="myTabContent" class="tab-content mt-3">
+            <div id="task" class="tab-pane active" role="tabpanel" aria-labelledby="home-tab">
+                <%= render 'new_task_form', task: task, calendar: calendar, store_member: store_member %>
+            </div>
+            <div id="sub_task" class="tab-pane" role="tabpanel" aria-labelledby="profile-tab">
+                <%= render 'new_sub_task_form', task: task, calendar: calendar, store_member: store_member %>
+            </div>
+            <div id="staff_rest" class="tab-pane" role="tabpanel" aria-labelledby="profile-tab">
+                <%= render 'new_staff_rest_form', calendar: calendar, staff_rest_time: staff_rest_time %>
+            </div>
+          </div>
+      </div>
+    </div><!-- /.modal-body -->
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal" >閉じる</button>
+    </div><!-- /.modal-footer -->
+  </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+

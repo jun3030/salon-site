@@ -1,0 +1,2 @@
+class TaskUnuniqueError < StandardError
+end

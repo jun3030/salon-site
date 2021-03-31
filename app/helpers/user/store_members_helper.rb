@@ -1,0 +1,2 @@
+module User::StoreMembersHelper
+end

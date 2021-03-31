@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rest_start_time: 2021-02-24 13:41:57
+  rest_end_time: 2021-02-24 13:41:57
+  is_default: false
+  staff_shift: one
+
+two:
+  rest_start_time: 2021-02-24 13:41:57
+  rest_end_time: 2021-02-24 13:41:57
+  is_default: false
+  staff_shift: two

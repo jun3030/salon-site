@@ -1,0 +1,122 @@
+<div class="form-group">
+  <label for="inputEmail" class="col-sm-4 col-form-label">
+    予約間の余裕時間（分）
+    <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="一つ一つの予約の間に準備時間を入れることができます。"></i>
+  </label>
+  <div class="col-sm-8">
+    <%# <input type="email" class="form-control" id="inputEmail" placeholder="Eメール"> %>
+    <%= f.select :interval_time, [0,5,10,15,20,30,45,60], {}, class: "form-control" %>
+  </div>
+</div>
+<div class="form-group">
+  <label for="inputEmail" class="col-sm-4 col-form-label">
+    キャンセル可能時間設定
+    <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="お客様が、web上で予約時間の何時間前までキャンセルを許容するかの設定。"></i>
+  </label>
+  <div class="col-sm-8">
+    <%# <input type="email" class="form-control" id="inputEmail" placeholder="Eメール"> %>
+    <%= f.select :cancelable_time, [*0..100], {}, class: "form-control" %>
+  </div>
+</div>
+<div class="form-group">
+  <label for="inputEmail" class="col-sm-4 col-form-label">
+    予約時、お客様へのメッセージ
+    <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="お客様への予約通知に任意のメッセージを入れることができます。（URLを挿入することができますが、LINE通知ではリンクとして機能しません。）"></i>
+  </label>
+  <div class="col-sm-8">
+    <%= f.text_area :booking_message, class:"form-control" %>
+  </div>
+</div>
+
+<hr>
+  <label for="inputEmail" class="col-sm-4 col-form-label">
+    <h4 class="inline-block">店舗のカレンダー設定</h4>
+    <h5 data-placement="top" title="店舗全体の設定です。"  data-toggle="tooltip"><span class="badge badge-secondary">これは何の設定？<i class="fas fa-info-circle"></i></span></h5>
+    <p>
+      <%= check_box_tag :all_staff_update, true, false %>全てのスタッフに反映させるにはチェックを入れてください。
+    </p>
+
+
+  </label>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th class="col-xs-2">曜日</th>
+        <th>定休日フラグ</th>
+        <th>基本営業時間</th>
+        <th>休憩フラグ</th>
+        <th>基本休憩時間</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= f.fields_for :regular_holidays do |f| %>
+        <tr>
+          <th class="col-xs-2"><%= f.object.day_of_the_week %></th>
+          <td><%= f.check_box :holiday_flag, {class: "form-control"}, "true", "false" %></td>
+          <td>
+            <%= raw sprintf(
+            f.time_select(
+                :business_start_at,
+                use_month_numbers: true,
+                start_year:        1930,
+                end_year:          (Time.now.year - 18),
+                default:           Date.new(1989, 1, 1),
+                date_separator:    '%s'), # 年月日区切りをそれぞれ指定
+            '年 ', '月 ')
+              %>
+            ~
+            <%= raw sprintf(
+            f.time_select(
+                :business_end_at,
+                use_month_numbers: true,
+                start_year:        1930,
+                end_year:          (Time.now.year - 18),
+                default:           Date.new(1989, 1, 1),
+                date_separator:    '%s'), # 年月日区切りをそれぞれ指定
+            '年 ', '月 ')
+            %>
+          </td>
+          <td><%= f.check_box :is_rest, {class: "form-control"}, "true", "false" %></td>
+          <td>
+            <%= raw sprintf(
+            f.time_select(
+                :rest_start_time,
+                use_month_numbers: true,
+                start_year:        1930,
+                end_year:          (Time.now.year - 18),
+                default:           Date.new(1989, 1, 1),
+                date_separator:    '%s'), # 年月日区切りをそれぞれ指定
+            '年 ', '月 ')
+              %>
+            ~
+            <%= raw sprintf(
+            f.time_select(
+                :rest_end_time,
+                use_month_numbers: true,
+                start_year:        1930,
+                end_year:          (Time.now.year - 18),
+                default:           Date.new(1989, 1, 1),
+                date_separator:    '%s'), # 年月日区切りをそれぞれ指定
+            '年 ', '月 ')
+            %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
+<%# <script>
+  function Confirm(value){
+    debugger
+    if (value.prop("checked") == true) {
+      if(!confirm('本当に削除しますか？')){
+          /* キャンセルの時の処理 */
+          return false;
+      }else{
+          /*　OKの時の処理 */
+
+      }
+    }
+  }
+</script> %>
