@@ -14,6 +14,10 @@
 		</div>
 
 		<div class="component">
+			<div class="container mb-5 mt-5">
+				<%= render 'layouts/flash_messages' %>
+				<%= yield %>
+			</div>
     <%= render "select_area_sp" %>
 			<div class="sticky-wrap">
 				<table class="sticky-enabled" style="margin: 0px;">
