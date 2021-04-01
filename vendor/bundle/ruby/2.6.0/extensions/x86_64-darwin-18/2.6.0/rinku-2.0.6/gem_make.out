@@ -1,0 +1,19 @@
+current directory: /Users/matsumotoshun/Desktop/beauty-salon/vendor/bundle/ruby/2.6.0/gems/rinku-2.0.6/ext/rinku
+/Users/matsumotoshun/.rbenv/versions/2.6.5/bin/ruby -I /Users/matsumotoshun/.rbenv/versions/2.6.5/lib/ruby/2.6.0 -r ./siteconf20210401-4717-12to4e1.rb extconf.rb
+creating Makefile
+
+current directory: /Users/matsumotoshun/Desktop/beauty-salon/vendor/bundle/ruby/2.6.0/gems/rinku-2.0.6/ext/rinku
+make "DESTDIR=" clean
+
+current directory: /Users/matsumotoshun/Desktop/beauty-salon/vendor/bundle/ruby/2.6.0/gems/rinku-2.0.6/ext/rinku
+make "DESTDIR="
+compiling autolink.c
+compiling buffer.c
+compiling rinku.c
+compiling rinku_rb.c
+compiling utf8.c
+linking shared-object rinku.bundle
+
+current directory: /Users/matsumotoshun/Desktop/beauty-salon/vendor/bundle/ruby/2.6.0/gems/rinku-2.0.6/ext/rinku
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 rinku.bundle ./.gem.20210401-4717-13zbk9z
