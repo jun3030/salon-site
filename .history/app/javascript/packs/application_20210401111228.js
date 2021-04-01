@@ -17,22 +17,22 @@ if (document.getElementById("calendar") != null) {
   var calendar = new Calendar(calendarEl, {
     plugins: [ dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin ],
     locale: 'ja',
-    headerToolbar: {
-        right: 'dayGridMonth,timeGridWeek,dayGridDay',
-        center: "title",
-        left: "today prev,next"
-    }, // buttons for switching between views
-    buttonText: {
-        month: '月',
-        week: '週',
-        day: '日',
-        today: '今日',
-        prev: '前',
-        next: '次'
-    },
-    allDaySlot: false,
-    events: '/users/1/calendars/1/dashboard.json',
-    selectable: true,
+    // headerToolbar: {
+    //     right: 'dayGridMonth,timeGridWeek,dayGridDay',
+    //     center: "title",
+    //     left: "today prev,next"
+    // }, // buttons for switching between views
+    // buttonText: {
+    //     month: '月',
+    //     week: '週',
+    //     day: '日',
+    //     today: '今日',
+    //     prev: '前',
+    //     next: '次'
+    // },
+    // allDaySlot: false,
+    // events: '/users/1/calendars/1/dashboard.json',
+    // selectable: true,
   });
   calendar.render();
 } else {

@@ -10,6 +10,12 @@ require("channels")
 require('jquery')
 require("sample.js")  // 個別に読み込みたいjsファイルを追加していく
 
+import { Calendar } from '@fullcalendar/core';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import listPlugin from '@fullcalendar/list';
+import interactionPlugin from '@fullcalendar/interaction';
+
 window.onload = function() {
 if (document.getElementById("calendar") != null) {
   var calendarEl = document.getElementById('calendar');
@@ -84,12 +90,6 @@ if (document.getElementById("calendar") != null) {
   calendar.render();
 }
 }
-
-import { Calendar } from '@fullcalendar/core';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import timeGridPlugin from '@fullcalendar/timegrid';
-import listPlugin from '@fullcalendar/list';
-import interactionPlugin from '@fullcalendar/interaction';
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
